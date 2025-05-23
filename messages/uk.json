@@ -1,0 +1,12 @@
+{
+  "HomePage": {
+    "title": "Головна",
+    "description": "Головна сторінка",
+    "services": "На сторінку послуг"
+  },
+
+  "ServicesPage": {
+    "title": "Про нас",
+    "description": "Сторінка про нас"
+  }
+}
