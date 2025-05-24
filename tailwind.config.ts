@@ -8,9 +8,18 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: "360px",
+        md: "786px",
+        lg: "1280px",
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "var(--light)",
+        foreground: "var(--dark)",
+      },
+      fontFamily: {
+        montserrat: ["Montserrat", "Arial", "sans-serif"],
+        micra: ["Micra", "Arial", "sans-serif"],
       },
     },
   },
