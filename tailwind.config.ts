@@ -21,6 +21,13 @@ export default {
         montserrat: ["Montserrat", "Arial", "sans-serif"],
         micra: ["Micra", "Arial", "sans-serif"],
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "32px",
+          lg: "50px",
+        },
+      },
     },
   },
   plugins: [],
