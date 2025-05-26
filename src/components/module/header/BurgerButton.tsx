@@ -8,7 +8,7 @@ interface IBurgerButtonProps {
 
 const BurgerButton = ({ openMenu }: IBurgerButtonProps) => {
   return (
-    <IconButton handleClick={() => openMenu()} className="size-6 xl:size-10">
+    <IconButton handleClick={() => openMenu()} className="size-10">
       <Image
         src="/images/icons/menu.svg"
         alt="burger menu icon"
