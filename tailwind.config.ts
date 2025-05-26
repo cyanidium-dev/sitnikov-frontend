@@ -11,11 +11,13 @@ export default {
       screens: {
         sm: "360px",
         md: "786px",
-        lg: "1280px",
+        xl: "1280px",
       },
       colors: {
-        background: "var(--light)",
-        foreground: "var(--dark)",
+        light: "#ffffff",
+        dark: "#091129",
+        "dark-light": "#3a3a3a",
+        accent: "#5188ff",
       },
       fontFamily: {
         montserrat: ["Montserrat", "Arial", "sans-serif"],
@@ -25,7 +27,7 @@ export default {
         center: true,
         padding: {
           DEFAULT: "32px",
-          lg: "50px",
+          xl: "50px",
         },
       },
     },

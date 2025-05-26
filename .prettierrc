@@ -8,7 +8,10 @@
   "arrowParens": "avoid",
   "printWidth": 80,
 
-  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "importOrder": [
     "^react(-dom)?$",
     "^next(.*)$",
