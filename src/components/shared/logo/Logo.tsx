@@ -13,7 +13,7 @@ interface LogoProps {
 }
 
 const Logo = ({ className, textStyles }: LogoProps) => {
-  const t = useTranslations("Header");
+  const t = useTranslations("header");
 
   return (
     <Link href="/" className="flex items-center gap-2 xl:gap-3">
