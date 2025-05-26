@@ -26,7 +26,7 @@ const NavMenu = ({ closeMenu }: INavMenuProps) => {
     <nav className="relative flex w-full max-w-[318px] items-center">
       <ul className="flex flex-col gap-7">
         {menuList.map((menuItem, idx) => (
-          <MenuLink key={idx} menuItem={menuItem} closeMenu={closeMenu} />
+          <MenuLink key={idx} menuItem={menuItem} onClick={closeMenu} />
         ))}
       </ul>
     </nav>

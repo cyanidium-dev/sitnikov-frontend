@@ -5,18 +5,18 @@ interface IMenuLinkProps {
     title: string;
     path: string;
   };
-  closeMenu: () => void;
+  onClick: () => void;
   className?: string;
 }
 
-const MenuLink = ({ menuItem, closeMenu, className = "" }: IMenuLinkProps) => {
+const MenuLink = ({ menuItem, onClick, className = "" }: IMenuLinkProps) => {
   const { title, path } = menuItem;
 
   return (
     <li className={className}>
       <Link
         href={path}
-        onClick={() => closeMenu()}
+        onClick={onClick}
         className="active:text-blue focus-visible:text-blue laptop:hover:text-blue transition duration-300 ease-in-out"
       >
         {title}

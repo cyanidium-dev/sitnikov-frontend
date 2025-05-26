@@ -18,7 +18,7 @@ const FreeConsultation = ({ closeMenu }: FreeConsultationProps) => {
         {t("header.freeConsultation.description")}
       </p>
 
-      <ButtonOrLink variant="transparent" onClick={() => closeMenu()}>
+      <ButtonOrLink variant="transparent" onClick={closeMenu}>
         {t("buttons.leaveContacts")}
       </ButtonOrLink>
     </div>

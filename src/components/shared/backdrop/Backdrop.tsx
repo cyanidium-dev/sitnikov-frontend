@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import { cn } from "@/utils/cn";
+
 interface BackdropProps {
   isVisible: boolean;
   onClick: () => void;
@@ -27,11 +29,12 @@ export default function Backdrop({
 
   return (
     <div
-      className={`fixed z-40 inset-0 w-dvw h-dvh bg-black bg-opacity-40 transition duration-[1000ms] ease-in-out ${
+      className={cn(
+        "fixed inset-0 z-40 h-dvh w-dvw bg-black bg-opacity-40 transition duration-[1000ms] ease-in-out",
         isVisible
-          ? "opacity-100 no-doc-scroll"
-          : "opacity-0 pointer-events-none"
-      }`}
+          ? "no-doc-scroll opacity-100"
+          : "pointer-events-none opacity-0"
+      )}
       onClick={onClick}
     />
   );

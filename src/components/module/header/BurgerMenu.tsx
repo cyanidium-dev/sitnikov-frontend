@@ -1,5 +1,6 @@
 import { cn } from "@/utils/cn";
 
+import CloseButton from "./CloseButton";
 import FreeConsultation from "./FreeConsultation";
 import NavMenu from "./NavMenu";
 
@@ -19,7 +20,10 @@ const BurgerMenu = ({ isOpen, closeMenu }: BurgerMenuMobTabProps) => {
       )}
     >
       <div className="container relative flex max-w-full flex-col items-center px-[60px] py-14 xl:px-[98px]">
+        <CloseButton onClick={closeMenu} />
+
         <FreeConsultation closeMenu={closeMenu} />
+
         <NavMenu closeMenu={closeMenu} />
       </div>
     </div>
