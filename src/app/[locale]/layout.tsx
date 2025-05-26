@@ -8,6 +8,8 @@ import { Locale } from "@/types/locale";
 
 import "./globals.css";
 
+import Header from "@/components/module/header/Header";
+
 export const metadata: Metadata = {
   title: "Консалтинг - Олександр Ситников",
   description: "Юридичний консалтинг, який вирішує",
@@ -30,9 +32,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="scroll-smooth">
-      <NextIntlClientProvider messages={messages}>
-        <body className={` antialiased`}>{children}</body>
-      </NextIntlClientProvider>
+      <body className="relative z-[1] flex min-h-screen flex-col antialiased">
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main>{children}</main>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

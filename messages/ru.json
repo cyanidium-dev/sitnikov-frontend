@@ -1,4 +1,6 @@
 {
+  "Header": { "companyName": "Александр Сытников" },
+
   "HomePage": {
     "title": "Главная",
     "description": "Главная страница",
