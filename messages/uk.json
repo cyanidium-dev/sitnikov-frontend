@@ -1,5 +1,21 @@
 {
-  "Header": { "companyName": "Олександр Ситников" },
+  "header": {
+    "companyName": "Олександр Ситников",
+    "freeConsultation": {
+      "title": "Хочеш отримати консультацію?",
+      "description": "Залиш свої дані, та менеджер зв’яжеться з вами вже прямо зараз"
+    },
+    "menu": {
+      "home": "Головна",
+      "services": "Послуги",
+      "events": "Галерея заходів",
+      "experience": "Досвід та діяльність",
+      "publications": "Публікації",
+      "contacts": "Контакти",
+      "school": "Школа процесуального мистецтва",
+      "announcements": "Анонси навчальних програм або заходів"
+    }
+  },
 
   "HomePage": {
     "title": "Головна",
@@ -10,5 +26,12 @@
   "ServicesPage": {
     "title": "Про нас",
     "description": "Сторінка про нас"
+  },
+
+  "buttons": {
+    "leaveContacts": "Залишити контакти",
+    "freeConsultation": "Безкоштовна консультація",
+    "sendMessage": "Надіслати",
+    "sending": "Надсилання..."
   }
 }
