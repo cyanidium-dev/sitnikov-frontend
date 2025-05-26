@@ -1,4 +1,23 @@
 {
+  "header": {
+    "companyName": "Александр Сытников",
+
+    "freeConsultation": {
+      "title": "Хочешь получить консультацию?",
+      "description": "Оставь свои данные, и менеджер свяжется с вами прямо сейчас"
+    },
+    "menu": {
+      "home": "Главная",
+      "services": "Услуги",
+      "events": "Галерея мероприятий",
+      "experience": "Опыт и деятельность",
+      "publications": "Публикации",
+      "contacts": "Контакты",
+      "school": "Школа процессуального мастерства",
+      "announcements": "Анонсы учебных программ или мероприятий"
+    }
+  },
+
   "HomePage": {
     "title": "Главная",
     "description": "Главная страница",
@@ -8,5 +27,12 @@
   "ServicesPage": {
     "title": "О нас",
     "description": "Страница о нас"
+  },
+
+  "buttons": {
+    "leaveContacts": "Оставить контакты",
+    "freeConsultation": "Бесплатная консультация",
+    "sendMessage": "Отправить",
+    "sending": "Отправляется..."
   }
 }

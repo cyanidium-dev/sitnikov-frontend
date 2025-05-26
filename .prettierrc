@@ -1,0 +1,30 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "avoid",
+  "printWidth": 80,
+
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": [
+    "^react(-dom)?$",
+    "^next(.*)$",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/app/(.*)$",
+    "^@/components/(.*)$",
+    "^@/i18n(.*)$",
+    "^@/types(.*)$",
+    "",
+    "^[./*]"
+  ],
+  "importOrderCaseSensitive": true,
+  "importOrderSortSpecifiers": true
+}

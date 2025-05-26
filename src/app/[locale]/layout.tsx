@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { routing } from "@/i18n/routing";
 import { Locale } from "@/types/locale";
-import { notFound } from "next/navigation";
-import { getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
 
-const geistSans = Montserrat({
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-geist-sans",
-  subsets: ["latin", "cyrillic"],
-});
+import "./globals.css";
+
+import Header from "@/components/module/header/Header";
 
 export const metadata: Metadata = {
   title: "Консалтинг - Олександр Ситников",
@@ -35,9 +32,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="scroll-smooth">
-      <NextIntlClientProvider messages={messages}>
-        <body className={`${geistSans.variable} antialiased`}>{children}</body>
-      </NextIntlClientProvider>
+      <body className="relative z-[1] flex min-h-screen flex-col antialiased">
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main>{children}</main>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

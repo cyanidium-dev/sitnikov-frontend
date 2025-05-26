@@ -8,9 +8,34 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: "360px",
+        md: "786px",
+        xl: "1280px",
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        light: "#ffffff",
+        dark: "#091129",
+        "dark-light": "#3a3a3a",
+        accent: "#5188ff",
+      },
+      backgroundImage: {
+        "btn-primary":
+          "linear-gradient(94.05deg, #091129 -15.57%, #001C58 140.61%)",
+      },
+      borderImage: {
+        "btn-primary": "linear-gradient(90deg, #304F94 0%, #6582C2 100%)",
+      },
+      fontFamily: {
+        montserrat: ["Montserrat", "Arial", "sans-serif"],
+        micra: ["Micra", "Arial", "sans-serif"],
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "32px",
+          xl: "50px",
+        },
       },
     },
   },
