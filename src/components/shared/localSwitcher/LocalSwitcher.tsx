@@ -5,13 +5,14 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
+import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { Locale } from "@/types/locale";
 
-export default function LocaleSwitcher() {
+const LocaleSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const currentLocale = useLocale();
@@ -68,24 +69,25 @@ export default function LocaleSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 outline-none"
       >
-        <span className="text-14med xl:text-16bold">
+        <span className="text-light font-bold leading-tight">
           {currentLocale === "uk" ? "UA" : "RU"}
         </span>
         <Image
           src="/images/icons/arrow.svg"
           alt="arrow icon"
-          width="12"
-          height="12"
-          className={`size-3 xl:size-4 ${
+          width="16"
+          height="16"
+          className={cn(
+            "size-4 transition duration-300 ease-in-out",
             isOpen ? "rotate-180" : "rotate-0"
-          } transition duration-300 ease-in-out`}
+          )}
         />
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute right-0 mt-1 w-[65px] bg-white shadow-md rounded-[8px] z-50"
+            className="bg-light absolute right-0 z-50 mt-1 w-[65px] rounded-[8px] shadow-md"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -95,13 +97,13 @@ export default function LocaleSwitcher() {
               <button
                 key={locale}
                 onClick={() => handleLocaleChange(locale)}
-                className={`w-full flex items-center px-4 py-2`}
+                className={`flex w-full items-center px-4 py-2`}
               >
                 <span
-                  className={`  ${
+                  className={` ${
                     currentLocale === locale
-                      ? "text-blue text-14med xl:text-16med"
-                      : "text-black text-14reg xl:text-16reg"
+                      ? "text-accent text-14med xl:text-16med"
+                      : "text-14reg xl:text-16reg text-dark"
                   }`}
                 >
                   {locale === "uk" ? "UA" : "RU"}
@@ -113,4 +115,6 @@ export default function LocaleSwitcher() {
       </AnimatePresence>
     </div>
   );
-}
+};
+
+export default LocaleSwitcher;
