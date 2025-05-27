@@ -1,23 +1,22 @@
-import FacebookIcon from "@/components/shared/icons";
+import { useTranslations } from "next-intl";
+
+import { siteConfig } from "@/constants/siteConfig";
+
+import FooterSocialLink from "./FooterSocialLink";
 
 const FooterSocials = () => {
+  const t = useTranslations("footer");
+
   return (
     <div>
       <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px]">
-        Соц. мережі
+        {t("section.socials")}
       </h4>
       <nav>
-        <ul className="flex flex-col gap-3">
-          <li className="h-6 w-6">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-accent"
-            >
-              <FacebookIcon />
-            </a>
-          </li>
+        <ul className="flex gap-3">
+          {siteConfig.socialLinks.map((link, index) => (
+            <FooterSocialLink key={index} {...link} />
+          ))}
         </ul>
       </nav>
     </div>
