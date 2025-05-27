@@ -8,6 +8,7 @@ import { Locale } from "@/types/locale";
 
 import "./globals.css";
 
+import Footer from "@/components/module/footer/Footer";
 import Header from "@/components/module/header/Header";
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-grow overflow-x-hidden">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

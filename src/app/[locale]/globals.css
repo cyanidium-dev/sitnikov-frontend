@@ -20,6 +20,14 @@ body {
   position: relative;
 }
 
+.default-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.link-transition {
+  @apply transition-colors duration-300 ease-in-out hover:text-accent focus:text-accent;
+}
+
 /* Fonts */
 @font-face {
   font-family: "Montserrat";

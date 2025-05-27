@@ -30,7 +30,7 @@ const Header = () => {
 
           <ButtonOrLink
             variant="transparent"
-            className="hidden h-10 xl:flex"
+            className="hidden h-10 w-[202px] xl:flex"
             href={`tel:+${siteConfig.phone.replace(/\D/g, "")}`}
             external
           >

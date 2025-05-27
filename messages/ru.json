@@ -17,6 +17,30 @@
       "announcements": "Анонсы учебных программ или мероприятий"
     }
   },
+  "footer": {
+    "companyName": "Александр Сытников",
+    "section": {
+      "nav": "Навигация",
+      "info": "Информация",
+      "contacts": "Контакты",
+      "socials": "Соц. сети"
+    },
+    "navigation": {
+      "home": "Главная",
+      "experience": "Опыт и деятельность",
+      "events": "Галерея мероприятий",
+      "services": "Услуги",
+      "publications": "Публикации",
+      "contacts": "Контакты"
+    },
+    "information": {
+      "legalDetails": "Юридические детали",
+      "ie": "ИП",
+      "offer": "Оферта",
+      "privacy": "Конфиденциальность"
+    },
+    "copyright": "Сайт разработали"
+  },
 
   "homepage": {
     "hero": {
@@ -60,7 +84,7 @@
     }
   },
 
-  "ServicesPage": {
+  "servicepage": {
     "title": "О нас",
     "description": "Страница о нас"
   },
