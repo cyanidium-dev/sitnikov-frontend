@@ -36,7 +36,7 @@ export default async function LocaleLayout({
       <body className="relative z-[1] flex min-h-screen flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow overflow-x-hidden">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>
