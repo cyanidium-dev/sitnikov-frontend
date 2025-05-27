@@ -1,3 +1,4 @@
 export const siteConfig = {
-  phone: "+380-96-486-51-44",
+  phone: "+380-66-255-54-86",
+  email: "sytnykovof@gmail.com",
 };
