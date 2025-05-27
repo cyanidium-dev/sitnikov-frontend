@@ -1,14 +1,9 @@
-import { getTranslations } from "next-intl/server";
-
-import { Link } from "@/i18n/navigation";
+import HomeHero from "@/components/homepage/HomeHero";
 
 export default async function Home() {
-  const t = await getTranslations("HomePage");
-
   return (
-    <div>
-      <h1>{t("title")}</h1>
-      <Link href="/services">{t("services")}</Link>
-    </div>
+    <>
+      <HomeHero />
+    </>
   );
 }
