@@ -18,6 +18,26 @@
     }
   },
 
+  "footer": {
+    "companyName": "Александр Сытников",
+
+    "navigation": {
+      "home": "Главная",
+      "experience": "Опыт и деятельность",
+      "events": "Галерея мероприятий",
+      "services": "Услуги",
+      "publications": "Публикации",
+      "contacts": "Контакты"
+    },
+
+    "information": {
+      "legalDetails": "Юридические детали",
+      "ie": "ФЛП",
+      "offer": "Оферта",
+      "privacy": "Конфиденциальность"
+    }
+  },
+
   "HomePage": {
     "title": "Главная",
     "description": "Главная страница",

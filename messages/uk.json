@@ -17,6 +17,26 @@
     }
   },
 
+  "footer": {
+    "companyName": "Олександр Ситников",
+
+    "navigation": {
+      "home": "Головна",
+      "experience": "Досвід та діяльність",
+      "events": "Галерея заходів",
+      "services": "Послуги",
+      "publications": "Публікації",
+      "contacts": "Контакти"
+    },
+
+    "information": {
+      "legalDetails": "Юридичні деталі",
+      "ie": "ФОП",
+      "offer": "Оферта",
+      "privacy": "Конфіденціальність"
+    }
+  },
+
   "HomePage": {
     "title": "Головна",
     "description": "Головна сторінка",
