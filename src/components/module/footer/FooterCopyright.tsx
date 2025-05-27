@@ -8,7 +8,7 @@ const FooterCopyright = () => {
   const year = new Date().getFullYear();
 
   return (
-    <div className="flex flex-col gap-1 xl:flex-row xl:justify-between">
+    <div className="flex flex-col gap-1 md:flex-row md:justify-around xl:justify-between">
       <p className="leading-[28.8px]">
         &copy; {year} {t("companyName")}
       </p>

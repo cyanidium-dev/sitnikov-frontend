@@ -9,13 +9,17 @@ import FooterSocials from "./FooterSocials";
 const Footer = () => {
   return (
     <footer className="bg-dark pb-10 pl-8 pt-16 text-light">
-      <div className="container">
-        <div className="mb-16 flex flex-col gap-10">
+      <div className="container max-w-[1280px]">
+        <div className="mb-16 flex flex-col gap-10 xl:flex-row xl:items-start xl:justify-between">
           <Logo className="mb-9 h-auto w-6 xl:w-10" />
-          <FooterNav />
-          <FooterInfo />
-          <FooterContacts />
-          <FooterSocials />
+          <div className="flex flex-col max-md:gap-10 md:flex-row md:justify-around xl:justify-between xl:gap-[138px]">
+            <FooterNav />
+            <FooterInfo />
+          </div>
+          <div className="flex flex-col gap-10 md:flex-row md:justify-around xl:flex-col">
+            <FooterContacts />
+            <FooterSocials />
+          </div>
         </div>
 
         <FooterCopyright />

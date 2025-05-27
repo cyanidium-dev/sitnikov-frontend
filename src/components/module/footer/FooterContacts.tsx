@@ -8,13 +8,18 @@ const FooterContacts = () => {
 
   return (
     <div>
-      <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px]">
+      <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
         {t("section.contacts")}
       </h4>
       <nav>
         <ul className="flex flex-col gap-3">
           <li>
-            <a href={`tel:${phone}`} target="_blank" rel="noopener noreferrer">
+            <a
+              href={`tel:${phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-transition"
+            >
               {phone}
             </a>
           </li>
@@ -23,6 +28,7 @@ const FooterContacts = () => {
               href={`mailto:${email}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="link-transition"
             >
               {email}
             </a>

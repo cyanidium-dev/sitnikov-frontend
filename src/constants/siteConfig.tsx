@@ -12,7 +12,7 @@ export const siteConfig = {
 
   socialLinks: [
     {
-      href: "#",
+      href: "https://www.facebook.com/SytnykovOF/",
       icon: <FacebookIcon />,
       label: "Facebook",
     },
@@ -22,7 +22,7 @@ export const siteConfig = {
       label: "Instagram",
     },
     {
-      href: "#",
+      href: "https://t.me/+LYDGqiNMPTI3Yjhi",
       icon: <TelegramIcon />,
       label: "Telegram",
     },

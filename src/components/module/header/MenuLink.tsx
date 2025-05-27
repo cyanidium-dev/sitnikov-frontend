@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 import { Link } from "@/i18n/navigation";
 
 interface IMenuLinkProps {
@@ -6,19 +8,27 @@ interface IMenuLinkProps {
     path: string;
   };
   onClick?: () => void;
+  variant?: "header" | "footer";
   className?: string;
 }
 
-const MenuLink = ({ menuItem, onClick, className = "" }: IMenuLinkProps) => {
+const MenuLink = ({
+  menuItem,
+  onClick,
+  className = "",
+  variant = "header",
+}: IMenuLinkProps) => {
   const { title, path } = menuItem;
+
+  const baseStyles = cn(
+    "link-transition leading-none",
+    variant === "header" && "xl:text-xl",
+    variant === "footer" && "text-sm font-light "
+  );
 
   return (
     <li className={className}>
-      <Link
-        href={path}
-        onClick={onClick}
-        className="active:text-blue focus-visible:text-blue laptop:hover:text-blue transition duration-300 ease-in-out"
-      >
+      <Link href={path} onClick={onClick} className={baseStyles}>
         {title}
       </Link>
     </li>
