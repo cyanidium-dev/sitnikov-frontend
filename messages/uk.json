@@ -19,7 +19,12 @@
 
   "footer": {
     "companyName": "Олександр Ситников",
-
+    "section": {
+      "nav": "Навігація",
+      "info": "Інформація",
+      "contacts": "Контакти",
+      "socials": "Соц. мережі"
+    },
     "navigation": {
       "home": "Головна",
       "experience": "Досвід та діяльність",
@@ -28,13 +33,13 @@
       "publications": "Публікації",
       "contacts": "Контакти"
     },
-
     "information": {
       "legalDetails": "Юридичні деталі",
       "ie": "ФОП",
       "offer": "Оферта",
       "privacy": "Конфіденціальність"
-    }
+    },
+    "copyright": "Сайт розробили"
   },
 
   "HomePage": {

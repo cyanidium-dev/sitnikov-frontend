@@ -3,19 +3,20 @@ import { getTranslations } from "next-intl/server";
 import MenuLink from "../header/MenuLink";
 
 const FooterInfo = async () => {
-  const t = await getTranslations("footer.information");
+  const t = await getTranslations("footer");
+  const tInfo = await getTranslations("footer.information");
 
   const menuList = [
-    { title: t("legalDetails"), path: "#" },
-    { title: t("ie"), path: "#" },
-    { title: t("offer"), path: "#" },
-    { title: t("privacy"), path: "#" },
+    { title: tInfo("legalDetails"), path: "#" },
+    { title: tInfo("ie"), path: "#" },
+    { title: tInfo("offer"), path: "#" },
+    { title: tInfo("privacy"), path: "#" },
   ];
 
   return (
     <div>
       <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px]">
-        Інформація
+        {t("section.info")}
       </h4>
       <nav>
         <ul className="flex flex-col gap-3">

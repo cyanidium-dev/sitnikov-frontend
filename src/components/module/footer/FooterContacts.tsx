@@ -1,12 +1,15 @@
+import { useTranslations } from "next-intl";
+
 import { siteConfig } from "@/constants/siteConfig";
 
 const FooterContacts = () => {
+  const t = useTranslations("footer");
   const { email, phone } = siteConfig;
 
   return (
     <div>
       <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px]">
-        Контакти
+        {t("section.contacts")}
       </h4>
       <nav>
         <ul className="flex flex-col gap-3">
