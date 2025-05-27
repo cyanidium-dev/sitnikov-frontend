@@ -5,7 +5,7 @@ interface IMenuLinkProps {
     title: string;
     path: string;
   };
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
 }
 
