@@ -12,7 +12,7 @@ const FooterContacts = () => {
         {t("section.contacts")}
       </h4>
       <nav>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-3 xl:gap-6">
           <li>
             <a
               href={`tel:${phone}`}

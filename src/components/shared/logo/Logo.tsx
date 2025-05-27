@@ -10,20 +10,31 @@ import { Link } from "@/i18n/navigation";
 interface LogoProps {
   className?: string;
   textStyles?: string;
+  variant?: "dark" | "light";
 }
 
-const Logo = ({ className, textStyles }: LogoProps) => {
+const Logo = ({ className, textStyles, variant = "dark" }: LogoProps) => {
   const t = useTranslations("header");
 
   return (
     <Link href="/" className="flex items-center gap-2 xl:gap-3">
-      <Image
-        src="/images/icons/logo.svg"
-        alt="logo"
-        width="40"
-        height="41"
-        className={cn("h-auto w-[33px] xl:w-10", className)}
-      />
+      {variant === "dark" ? (
+        <Image
+          src="/images/icons/logo.svg"
+          alt="logo"
+          width="40"
+          height="41"
+          className={cn("h-auto w-[33px] xl:w-10", className)}
+        />
+      ) : (
+        <Image
+          src="/images/icons/logo-light.svg"
+          alt="logo"
+          width="40"
+          height="41"
+          className={cn("h-auto w-[33px] xl:w-10", className)}
+        />
+      )}
       <p
         className={cn(
           "w-24 font-micra text-xs uppercase leading-[1.22] xl:w-[120px] xl:text-sm",

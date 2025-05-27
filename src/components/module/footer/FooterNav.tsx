@@ -21,7 +21,7 @@ const FooterNav = async () => {
         {t("section.nav")}
       </h4>
       <nav>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-3 xl:gap-6">
           {menuList.map((menuItem, idx) => (
             <MenuLink key={idx} menuItem={menuItem} variant="footer" />
           ))}

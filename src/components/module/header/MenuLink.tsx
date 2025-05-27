@@ -21,9 +21,9 @@ const MenuLink = ({
   const { title, path } = menuItem;
 
   const baseStyles = cn(
-    "link-transition leading-none",
+    "inline-block link-transition",
     variant === "header" && "xl:text-xl",
-    variant === "footer" && "text-sm font-light "
+    variant === "footer" && "text-sm font-light leading-none"
   );
 
   return (

@@ -12,13 +12,12 @@ const FooterSocials = () => {
       <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
         {t("section.socials")}
       </h4>
-      <nav>
-        <ul className="flex gap-3">
-          {siteConfig.socialLinks.map((link, index) => (
-            <FooterSocialLink key={index} {...link} />
-          ))}
-        </ul>
-      </nav>
+
+      <ul className="flex gap-3">
+        {siteConfig.socialLinks.map((link, index) => (
+          <FooterSocialLink key={index} {...link} />
+        ))}
+      </ul>
     </div>
   );
 };

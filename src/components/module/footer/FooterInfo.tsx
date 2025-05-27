@@ -18,13 +18,12 @@ const FooterInfo = async () => {
       <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
         {t("section.info")}
       </h4>
-      <nav>
-        <ul className="flex flex-col gap-3">
-          {menuList.map((menuItem, idx) => (
-            <MenuLink key={idx} menuItem={menuItem} variant="footer" />
-          ))}
-        </ul>
-      </nav>
+
+      <ul className="flex flex-col gap-3 xl:gap-6">
+        {menuList.map((menuItem, idx) => (
+          <MenuLink key={idx} menuItem={menuItem} variant="footer" />
+        ))}
+      </ul>
     </div>
   );
 };
