@@ -88,19 +88,19 @@
         {
           "title": "Огляд судової практики Верховного Суду",
           "descr": "Огляд судової практики пропоную почати зі справи, цікавої з точки зору неоднозначності...",
-          "imgSrc": "",
+          "imgSrc": "/images/homepage/home-publications-first.webp",
           "timeToRead": "6 хв на читання"
         },
         {
           "title": "Історичні та законодавчі аспекти",
           "descr": "Дослідження генези розвитку правових засад звернення до суду за захистом прав, свобод...",
-          "imgSrc": "",
+          "imgSrc": "/images/homepage/home-publications-second.webp",
           "timeToRead": "6 хв на читання"
         },
         {
           "title": "Вирішення податкових спорів досвідом",
           "descr": "Важливою гарантією захисту прав, свобод та інтересів будь-якої особи від свавілля...",
-          "imgSrc": "",
+          "imgSrc": "/images/homepage/home-publications-third.webp",
           "timeToRead": "6 хв на читання"
         }
       ]
