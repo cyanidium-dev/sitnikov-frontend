@@ -1,3 +1,4 @@
+import HeroExperience from "@/components/homepage/HeroExperience";
 import HeroKnowledge from "@/components/homepage/HeroKnowledge";
 import HeroPublications from "@/components/homepage/HeroPublications";
 import HeroTopCTA from "@/components/homepage/HeroTopCTA";
@@ -12,6 +13,7 @@ export default async function Home() {
       <HeroTopCTA />
       <HeroPublications />
       <HeroKnowledge />
+      <HeroExperience />
     </>
   );
 }
