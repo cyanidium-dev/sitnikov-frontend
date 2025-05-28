@@ -1,23 +1,25 @@
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-// type ExperienceItem = {
-//   title: string;
-//   descr: string;
-// };
+import InfoBox from "../shared/InfoBox";
+
+type ExperienceItem = {
+  title: string;
+  descr: string;
+};
 
 const HeroExperience = async () => {
   const t = await getTranslations("homepage.experience");
 
-  //   const messages = await getMessages();
+  const messages = await getMessages();
 
-  //   const experienceList = messages.homepage.experience
-  //     .experienceList as ExperienceItem[];
+  const experienceList = messages.homepage.experience
+    .experienceList as ExperienceItem[];
 
   return (
     <section className="py-[120px]">
       <div className="container max-w-[1280px] max-md:max-w-[400px]">
-        <div className="xl:flex xl:gap-5">
+        <div className="mb-20 xl:flex xl:gap-5">
           <div className="max-xl:mb-10">
             <div className="flex flex-col gap-5 xl:mb-8 xl:w-[349px] xl:flex-col-reverse xl:gap-7">
               <h2 className="font-micra text-2xl leading-[1.22] xl:text-[40px]">
@@ -55,18 +57,20 @@ const HeroExperience = async () => {
           </div>
         </div>
 
-        {/* <ul className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-          {publicationsList.map(({ descr, imgSrc, timeToRead, title }) => (
-            <li key={title} className="mx-auto h-full max-w-[400px]">
-              <PublicationCard
-                descr={descr}
-                imgSrc={imgSrc}
-                timeToRead={timeToRead}
-                title={title}
-              />
+        <ul className="grid gap-4 md:grid-cols-2 xl:md:grid-cols-3 xl:gap-5">
+          {experienceList.map(({ title, descr }) => (
+            <li key={title}>
+              <InfoBox classname="xl:bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]">
+                <h3 className="mb-4 font-micra text-2xl leading-[1.22] xl:w-[230px]">
+                  {title}
+                </h3>
+                <p className="text-sm font-light leading-[1.22] tracking-normal xl:text-base xl:leading-[1.22]">
+                  {descr}
+                </p>
+              </InfoBox>
             </li>
           ))}
-        </ul> */}
+        </ul>
       </div>
     </section>
   );
