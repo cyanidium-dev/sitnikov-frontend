@@ -13,6 +13,7 @@ const InfoBox = ({ children, variant = "basic", classname }: IInfoBoxProps) => {
     "rounded-lg ",
     variant === "basic" &&
       "bg-light p-8 pt-6 md:min-h-[170px] xl:min-h-[209px]",
+    variant === "withImage" && "px-6 pb-6 bg-card-with-img-gradient",
     classname
   );
 

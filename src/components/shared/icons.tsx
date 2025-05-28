@@ -67,3 +67,49 @@ export const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
+
+export const ClockIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 20 21"
+      className="h-6 w-6"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M10 18.5a8 8 0 1 0 0-16.001A8 8 0 0 0 10 18.5Zm1-12a1 1 0 0 0-2 0v4a1 1 0 0 0 .293.707l2.828 2.829a1 1 0 0 0 1.415-1.415L11 10.086V6.5Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+};
+
+export const ArrowInCircleIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 32 32"
+      className="h-6 w-6"
+      {...props}
+    >
+      <path
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="2.325"
+        d="M16 28.916c7.134 0 12.917-5.783 12.917-12.916 0-7.134-5.783-12.917-12.917-12.917C8.866 3.083 3.083 8.866 3.083 16c0 7.133 5.783 12.916 12.917 12.916Z"
+      />
+      <path
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.325"
+        d="M14.373 20.56 18.919 16l-4.546-4.56"
+      />
+    </svg>
+  );
+};

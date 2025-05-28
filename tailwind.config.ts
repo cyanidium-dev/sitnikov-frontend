@@ -1,3 +1,4 @@
+import lineClamp from "@tailwindcss/line-clamp";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -22,6 +23,8 @@ export default {
       backgroundImage: {
         "btn-primary":
           "linear-gradient(94.05deg, #091129 -15.57%, #001C58 140.61%)",
+        "card-with-img-gradient":
+          "linear-gradient(168.67deg, #AFC8FF 8.35%, #FFFFFF 129%)",
       },
       borderImage: {
         "btn-primary": "linear-gradient(90deg, #304F94 0%, #6582C2 100%)",
@@ -39,5 +42,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [lineClamp],
 } satisfies Config;
