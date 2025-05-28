@@ -16,7 +16,6 @@ const CourseCard = ({
   variant,
   descr,
   title,
-  imgSrc,
   href,
   className,
 }: ICourseCardProps) => {
