@@ -5,7 +5,7 @@ import PublicationCard, {
   PublicationItem,
 } from "../shared/card/PublicationCard";
 
-const HeroPublications = async () => {
+const HomePublications = async () => {
   const t = await getTranslations("homepage.publications");
 
   const messages = await getMessages();
@@ -46,4 +46,4 @@ const HeroPublications = async () => {
   );
 };
 
-export default HeroPublications;
+export default HomePublications;

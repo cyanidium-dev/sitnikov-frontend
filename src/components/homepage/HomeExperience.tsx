@@ -8,7 +8,7 @@ type ExperienceItem = {
   descr: string;
 };
 
-const HeroExperience = async () => {
+const HomeExperience = async () => {
   const t = await getTranslations("homepage.experience");
 
   const messages = await getMessages();
@@ -76,4 +76,4 @@ const HeroExperience = async () => {
   );
 };
 
-export default HeroExperience;
+export default HomeExperience;

@@ -2,11 +2,11 @@ import { getTranslations } from "next-intl/server";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 
-const HeroTopCTA = async () => {
+const HomeTopCTA = async () => {
   const t = await getTranslations("homepage.topCTA");
 
   return (
-    <section className="relative h-[616px] bg-dark bg-[url('/images/homepage/hero-topCTA-bg.webp')] bg-cover bg-no-repeat pb-[54px] pt-16 text-light xl:h-[589px] xl:pt-[88px]">
+    <section className="relative h-[616px] bg-dark bg-[url('/images/homepage/home-topCTA-bg.webp')] bg-cover bg-no-repeat pb-[54px] pt-16 text-light xl:h-[589px] xl:pt-[88px]">
       <div className="container relative z-20 max-w-[1280px]">
         <div className="relative mb-[154px] xl:mb-11">
           <h2 className="mb-6 font-micra text-2xl leading-[1.22] tracking-normal max-xl:max-w-[374px] xl:w-[610px] xl:text-[40px]">
@@ -22,9 +22,9 @@ const HeroTopCTA = async () => {
         </div>
       </div>
 
-      <div className="absolute -right-[178px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/hero-topCTA-person-mob.webp')] bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/hero-topCTA-person-desk.webp')]" />
+      <div className="absolute -right-[178px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/home-topCTA-person-mob.webp')] bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-topCTA-person-desk.webp')]" />
     </section>
   );
 };
 
-export default HeroTopCTA;
+export default HomeTopCTA;

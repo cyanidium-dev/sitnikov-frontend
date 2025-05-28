@@ -1,9 +1,10 @@
-import HeroExperience from "@/components/homepage/HeroExperience";
-import HeroKnowledge from "@/components/homepage/HeroKnowledge";
-import HeroPublications from "@/components/homepage/HeroPublications";
-import HeroTopCTA from "@/components/homepage/HeroTopCTA";
 import HomeAdvantages from "@/components/homepage/HomeAdvantages";
+import HeroBottomCTA from "@/components/homepage/HomeBottomCTA";
+import HeroExperience from "@/components/homepage/HomeExperience";
 import HomeHero from "@/components/homepage/HomeHero";
+import HeroKnowledge from "@/components/homepage/HomeKnowledge";
+import HeroPublications from "@/components/homepage/HomePublications";
+import HeroTopCTA from "@/components/homepage/HomeTopCTA";
 
 export default async function Home() {
   return (
@@ -14,6 +15,7 @@ export default async function Home() {
       <HeroPublications />
       <HeroKnowledge />
       <HeroExperience />
+      <HeroBottomCTA />
     </>
   );
 }
