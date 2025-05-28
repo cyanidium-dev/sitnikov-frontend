@@ -1,0 +1,28 @@
+import { getTranslations } from "next-intl/server";
+
+import ButtonOrLink from "../shared/button/ButtonOrLink ";
+
+const HeroPublications = async () => {
+  const t = await getTranslations("homepage.publications");
+
+  return (
+    <section className="py-[120px] xl:pb-[158px] xl:pt-[200px]">
+      <div className="container max-w-[1280px]">
+        <div className="mx-auto mb-[52px] flex flex-col max-xl:max-w-[374px] xl:flex-row-reverse xl:items-center xl:justify-between">
+          <h2 className="font-micra text-2xl leading-[1.22] tracking-normal max-xl:mb-[20px] xl:max-w-[500px] xl:text-right xl:text-[48px]">
+            {t("title")}
+          </h2>
+
+          <div className="xl:max-w-[380px]">
+            <p className="mb-8 font-light leading-[1.22] tracking-normal">
+              {t("descr")}
+            </p>
+            <ButtonOrLink variant="outlined">{t("button")}</ButtonOrLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroPublications;
