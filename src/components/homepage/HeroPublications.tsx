@@ -1,9 +1,17 @@
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
+import PublicationCard, {
+  PublicationItem,
+} from "../shared/card/PublicationCard";
 
 const HeroPublications = async () => {
   const t = await getTranslations("homepage.publications");
+
+  const messages = await getMessages();
+
+  const publicationsList = messages.homepage.publications
+    .publicationList as PublicationItem[];
 
   return (
     <section className="py-[120px] xl:pb-[158px] xl:pt-[200px]">
@@ -20,6 +28,19 @@ const HeroPublications = async () => {
             <ButtonOrLink variant="outlined">{t("button")}</ButtonOrLink>
           </div>
         </div>
+
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
+          {publicationsList.map(({ descr, imgSrc, timeToRead, title }) => (
+            <li key={title} className="mx-auto h-full max-w-[400px]">
+              <PublicationCard
+                descr={descr}
+                imgSrc={imgSrc}
+                timeToRead={timeToRead}
+                title={title}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
