@@ -96,7 +96,7 @@ export const ArrowInCircleIcon = (props: React.SVGProps<SVGSVGElement>) => {
       {...props}
     >
       <path
-        stroke="#fff"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
@@ -104,7 +104,7 @@ export const ArrowInCircleIcon = (props: React.SVGProps<SVGSVGElement>) => {
         d="M16 28.916c7.134 0 12.917-5.783 12.917-12.916 0-7.134-5.783-12.917-12.917-12.917C8.866 3.083 3.083 8.866 3.083 16c0 7.133 5.783 12.916 12.917 12.916Z"
       />
       <path
-        stroke="#fff"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2.325"
