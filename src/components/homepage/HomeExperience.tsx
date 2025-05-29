@@ -17,7 +17,9 @@ const HomeExperience = async () => {
     .experienceList as ExperienceItem[];
 
   return (
-    <section className="py-[120px]">
+    <section className="relative py-[120px]">
+      <div className="absolute right-0 top-0 h-[221px] w-[225px] bg-[url('/images/homepage/home-experience-decor-1-mob.webp')] xl:hidden" />
+
       <div className="container max-w-[1280px] max-md:max-w-[400px]">
         <div className="mb-20 xl:flex xl:gap-5">
           <div className="max-xl:mb-10">
@@ -47,8 +49,10 @@ const HomeExperience = async () => {
                 alt="картинка до публікації"
                 fill
                 sizes="(max-width: 786px) 100vw, 60vw"
-                className="rounded-[4px] object-cover"
+                className="z-[5] rounded-[4px] object-cover"
               />
+
+              <div className="absolute -bottom-[80px] right-[50%] h-[174px] w-[176px] bg-[url('/images/homepage/home-experience-decor-2-mob.webp')] max-xl:translate-x-1/2 xl:-left-[115px] xl:top-0 xl:h-[266px] xl:w-[264px] xl:bg-[url('/images/homepage/home-experience-decor-4-desk.webp')]" />
             </div>
 
             <p className="font-light leading-[1.22] max-md:mx-8">
@@ -58,15 +62,17 @@ const HomeExperience = async () => {
         </div>
 
         <ul className="grid gap-4 md:grid-cols-2 xl:md:grid-cols-3 xl:gap-5">
-          {experienceList.map(({ title, descr }) => (
+          {experienceList.map(({ title, descr }, index) => (
             <li key={title}>
-              <InfoBox classname="xl:bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]">
-                <h3 className="mb-4 font-micra text-2xl leading-[1.22] xl:w-[230px]">
+              <InfoBox classname="relative overflow-hidden xl:bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]">
+                <h3 className="mb-4 font-micra text-[20px] xl:w-[230px] xl:text-[24px]">
                   {title}
                 </h3>
-                <p className="text-sm font-light leading-[1.22] tracking-normal xl:text-base xl:leading-[1.22]">
-                  {descr}
-                </p>
+                <p className="font-light max-xl:text-[14px]">{descr}</p>
+
+                {index === 1 && (
+                  <div className="absolute right-0 top-1/2 z-[5] h-[196px] w-[84px] bg-[url('/images/homepage/home-experience-decor-3-mob.webp')] max-xl:-translate-y-1/2 xl:-right-[6px] xl:-top-[10px] xl:h-[202px] xl:w-[99px] xl:bg-[url('/images/homepage/home-experience-decor-5-desk.webp')]" />
+                )}
               </InfoBox>
             </li>
           ))}

@@ -132,9 +132,17 @@
     },
     "courses": {
       "stats": [
-        { "title": "Років у праві", "number": "28" },
+        {
+          "title": "Років у праві",
+          "number": "28",
+          "decorPosition": "bottom-right"
+        },
         { "title": "Справ розглянуто", "number": ">10,000" },
-        { "title": "Років викладання", "number": "12" }
+        {
+          "title": "Років викладання",
+          "number": "12",
+          "decorPosition": "top-right"
+        }
       ],
       "title": "Наші курси",
       "descr": "Ваш юридичний фундамент у бізнесі та житті",

@@ -1,10 +1,12 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
 import CourseCard from "../shared/card/CourseCard";
+import StatCard from "../shared/card/StatCard";
 
 type StatItem = {
   title: string;
   number: string;
+  decorPosition?: "bottom-right" | "top-right";
 };
 
 type CourseItem = {
@@ -26,15 +28,12 @@ const HomeCourses = async () => {
     <section className="bg-dark pb-[110px] pt-20">
       <div className="container max-w-[1280px]">
         <ul className="mb-[120px] flex flex-col gap-5 md:flex-row xl:mb-[200px]">
-          {statList.map(({ number, title }) => (
+          {statList.map((card, index) => (
             <li
-              key={title}
-              className="mx-auto flex h-[147px] w-full max-w-[400px] flex-col justify-center rounded-lg bg-[linear-gradient(188.33deg,_#FFFFFF_32.98%,_#677BB6_181.07%)] pl-8 xl:h-[188px]"
+              key={index}
+              className="mx-auto h-[147px] w-full max-w-[400px] rounded-lg bg-[linear-gradient(188.33deg,_#FFFFFF_32.98%,_#677BB6_181.07%)] xl:h-[188px]"
             >
-              <p className="mb-3 font-micra text-[44px] xl:text-[58px]">
-                {number}
-              </p>
-              <p className="text-[20px] font-light">{title}</p>
+              <StatCard {...card} />
             </li>
           ))}
         </ul>
@@ -48,6 +47,8 @@ const HomeCourses = async () => {
               <p className="w-[130px] text-[14px] font-light xl:w-[291px] xl:text-[20px]">
                 {t("descr")}
               </p>
+
+              <div className="absolute bottom-0 left-0 h-[186px] w-[238px] bg-[url('/images/homepage/home-courses-main-decor-mob.webp')] xl:h-[265px] xl:w-[294px] xl:bg-[url('/images/homepage/home-courses-main-decor-desk.webp')]" />
             </div>
           </div>
 

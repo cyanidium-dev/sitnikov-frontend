@@ -56,7 +56,6 @@ const CourseCard = ({
       "bottom-0 left-0 h-[308px] w-[382px] bg-[url('/images/homepage/home-courses-person-1.webp')]",
     variant === "accent" && "",
     variant === "dark" &&
-      // "bottom-0 right-0 h-[432px] w-[260px] bg-[url('/images/homepage/home-courses-person-2.webp')] xl:h-[482px]"
       "-bottom-[340] -left-[220] h-[709px] w-[664px] bg-[url('/images/homepage/home-courses-person-2-mob.webp')] xl:bottom-0 xl:left-0 xl:h-[482px] xl:w-[280px] xl:bg-[url('/images/homepage/home-courses-person-2-desk.webp')]"
   );
 
@@ -73,9 +72,11 @@ const CourseCard = ({
         </div>
 
         <div className={imgStyles} />
-      </div>
 
-      {/* <div className="bottom-0 left-0 h-[308px] w-[352px] bg-[url('/images/homepage/home-knowledge-femida-mob.webp')]"></div> */}
+        {variant === "accent" && (
+          <div className="absolute bottom-0 right-0 h-[121px] w-[150px] bg-[url('/images/homepage/home-courses-publ-decor-mob.webp')] bg-no-repeat xl:h-[133px] xl:w-[189px] xl:bg-[url('/images/homepage/home-courses-publ-decor-desk.webp')]" />
+        )}
+      </div>
     </article>
   );
 };
