@@ -23,6 +23,7 @@ const HomeTopCTA = async () => {
       </div>
 
       <div className="absolute -right-[178px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/home-topCTA-person-mob.webp')] bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-topCTA-person-desk.webp')]" />
+      <div className="absolute -right-[50px] bottom-[83px] z-[5] h-[281px] w-[176px] rounded-full bg-[#5188FF] blur-[246px] xl:-bottom-[45px] xl:right-0 xl:h-[523px] xl:w-[328px]" />
     </section>
   );
 };

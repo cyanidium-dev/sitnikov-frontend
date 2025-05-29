@@ -142,7 +142,6 @@
         {
           "title": "Юридичні знання",
           "descr": "Ваш юридичний фундамент у бізнесі та житті",
-          "imgSrc": "/images/homepage/home-publications-1.webp",
           "variant": "light",
           "href": "#"
         },
@@ -155,7 +154,6 @@
         {
           "title": "Закон - це захист",
           "descr": "Ваш юридичний фундамент у бізнесі та житті",
-          "imgSrc": "/images/homepage/home-publications-2.webp",
           "variant": "dark",
           "href": "#"
         }

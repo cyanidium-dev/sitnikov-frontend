@@ -10,7 +10,6 @@ type StatItem = {
 type CourseItem = {
   title: string;
   descr: string;
-  imgSrc?: string;
   href: string;
   variant: "light" | "accent" | "dark";
 };
@@ -40,11 +39,15 @@ const HomeCourses = async () => {
           ))}
         </ul>
 
-        <div className="flex flex-col gap-5 xl:flex-row">
+        <div className="flex flex-col gap-5 max-xl:mx-auto max-xl:max-w-[400px] xl:flex-row">
           <div className="relative h-[424px] rounded-[4px] p-[1px] before:absolute before:inset-0 before:z-0 before:rounded-[4px] before:bg-[linear-gradient(326.45deg,_#071434_-11.97%,_#9CBBFF_99.8%)] before:content-[''] xl:h-[570px] xl:w-[480px]">
             <div className="relative z-[1] h-full rounded-[4px] bg-[url('/images/homepage/home-courses-main.webp')] object-cover px-6 pt-16 text-light xl:h-[570px] xl:w-[480px]">
-              <h2 className="mb-6 font-micra text-[32px]">{t("title")}</h2>
-              <p className="w-[130px] text-[14px] font-light">{t("descr")}</p>
+              <h2 className="mb-6 font-micra text-[32px] xl:w-[291px] xl:text-[48px]">
+                {t("title")}
+              </h2>
+              <p className="w-[130px] text-[14px] font-light xl:w-[291px] xl:text-[20px]">
+                {t("descr")}
+              </p>
             </div>
           </div>
 

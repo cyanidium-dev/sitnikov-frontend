@@ -25,8 +25,8 @@ const HomeHero = async () => {
         </div>
       </div>
 
-      <div className="absolute bottom-2 right-[10px] -z-40 h-[334px] w-[340px] rounded-2xl bg-[url('/images/homepage/home-hero-bg.webp')] bg-cover xl:-right-[29px] xl:h-[98%] xl:w-[830px]" />
-      <div className="absolute -right-[112px] bottom-2 -z-30 aspect-[404/606] h-[606px] w-[404px] rounded-2xl bg-[url('/images/homepage/home-hero-person.webp')] bg-cover xl:-bottom-[17px] xl:right-[552px] xl:h-[100%] xl:w-auto" />
+      <div className="absolute bottom-2 right-[10px] -z-40 h-[334px] w-[340px] rounded-2xl bg-[url('/images/homepage/home-hero-bg.webp')] bg-cover xl:-right-[29px] xl:h-[98%] xl:w-[60%]" />
+      <div className="absolute -right-[112px] bottom-2 -z-30 aspect-[404/606] h-[606px] w-[404px] rounded-2xl bg-[url('/images/homepage/home-hero-person.webp')] bg-cover xl:-bottom-[17px] xl:right-[44%] xl:h-[100%] xl:w-auto" />
     </section>
   );
 };

@@ -6,7 +6,7 @@ const HomeKnowledge = async () => {
   const t = await getTranslations("homepage.knowledge");
 
   return (
-    <section className="relative mb-24 h-[598px] overflow-hidden bg-[url('/images/homepage/home-knowledge-bg.webp')] bg-cover bg-no-repeat pb-[41px] pt-16 text-light xl:h-[623px] xl:py-[104px]">
+    <section className="relative mb-24 h-[598px] overflow-hidden bg-[url('/images/homepage/home-knowledge-bg-mob.webp')] bg-cover bg-no-repeat pb-[41px] pt-16 text-light md:bg-[url('/images/homepage/home-knowledge-bg-desk.webp')] xl:h-[623px] xl:py-[104px]">
       <div className="container relative z-20 max-w-[1280px]">
         <div className="max-xl:max-w-[400px] xl:ml-[489px] xl:w-[609px]">
           <div className="mb-[232px] flex flex-col gap-5 xl:mb-16 xl:flex-col-reverse">
@@ -24,7 +24,7 @@ const HomeKnowledge = async () => {
         </div>
       </div>
 
-      <div className="absolute -bottom-[155px] z-10 h-[540px] w-[360px] bg-[url('/images/homepage/home-knowledge-femida-mob.webp')] bg-no-repeat max-xl:-right-[53px] xl:-bottom-[154px] xl:left-[116px] xl:h-[741px] xl:w-[494px] xl:bg-[url('/images/homepage/home-knowledge-femida-desk.webp')]" />
+      <div className="absolute -bottom-[145px] -right-[90px] z-10 h-[540px] w-[665px] bg-[url('/images/homepage/home-knowledge-femida-mob.webp')] bg-no-repeat xl:-bottom-[154px] xl:left-0 xl:h-[759px] xl:w-[682px] xl:bg-[url('/images/homepage/home-knowledge-femida-desk.webp')]" />
     </section>
   );
 };
