@@ -46,7 +46,7 @@ const CourseCard = ({
   const linkStyles = cn(
     "flex h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-light p-0 xl:h-[70px] xl:w-[70px]",
     variant === "light" && "ml-auto",
-    variant === "accent" && "ml-auto",
+    variant === "accent" && "ml-auto xl:absolute xl:top-7 xl:right-6",
     variant === "dark" && "ml-auto"
   );
 
