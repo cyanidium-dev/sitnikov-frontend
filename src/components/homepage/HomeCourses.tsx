@@ -67,7 +67,7 @@ const HomeCourses = async () => {
           </ul>
         </div>
 
-        <p className="text-[12px] font-light">
+        <p className="text-[12px] font-light text-light max-xl:mx-auto max-xl:max-w-[400px] xl:mr-auto xl:w-[480px] xl:text-[20px]">
           Юридичні знання, які реально працюють у практиці, а не лише в теорії.
         </p>
       </div>
