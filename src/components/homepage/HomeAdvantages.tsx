@@ -28,9 +28,9 @@ const HomeAdvantages = async () => {
 
           <ul className="grid gap-4 md:grid-cols-2">
             {advantageList.map(({ title, descr }) => (
-              <li key={title}>
-                <InfoBox>
-                  <h3 className="mb-4 font-micra text-2xl leading-[1.22]">
+              <li key={title} className="h-full">
+                <InfoBox classname="flex flex-col gap-4 justify-start">
+                  <h3 className="font-micra text-2xl leading-[1.22]">
                     {title}
                   </h3>
                   <p className="text-sm font-light leading-[1.22] tracking-normal xl:text-base xl:leading-[1.22]">

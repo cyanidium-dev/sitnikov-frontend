@@ -12,7 +12,7 @@ const HomeTopCTA = async () => {
           <h2 className="mb-6 font-micra text-2xl leading-[1.22] tracking-normal max-xl:max-w-[374px] xl:w-[610px] xl:text-[40px]">
             {t("title")}
           </h2>
-          <p className="w-[180px] font-light leading-[1.32] tracking-normal xl:absolute xl:left-[513px] xl:top-0 xl:w-[370px]">
+          <p className="w-[180px] font-light leading-[1.32] tracking-normal xl:absolute xl:left-[553px] xl:top-0 xl:w-[370px]">
             {t("descr")}
           </p>
         </div>

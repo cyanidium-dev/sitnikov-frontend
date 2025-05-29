@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header className="fixed z-[100] w-dvw bg-black bg-opacity-40 py-6 backdrop-blur-lg will-change-transform supports-[backdrop-blur]:before:backdrop-blur-lg xl:py-[30.5px]">
       <div className="container flex max-w-[1280px] justify-between">
-        <Logo className="h-auto w-6 xl:w-10" />
+        <Logo className="h-auto w-6 xl:w-10" variant="light" />
 
         <div className="flex items-center gap-x-6 xl:gap-x-10">
           <LocaleSwitcher />
