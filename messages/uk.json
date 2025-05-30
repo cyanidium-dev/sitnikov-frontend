@@ -250,5 +250,12 @@
       },
       "button": "Надіслати"
     }
+  },
+
+  "buttons": {
+    "leaveContacts": "Залишити контакти",
+    "freeConsultation": "Безкоштовна консультація",
+    "sendMessage": "Надіслати",
+    "sending": "Надсилання..."
   }
 }

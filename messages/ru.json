@@ -338,5 +338,12 @@
       },
       "button": "Отправить"
     }
+  },
+
+  "buttons": {
+    "leaveContacts": "Оставить контакты",
+    "freeConsultation": "Бесплатная консультация",
+    "sendMessage": "Отправить",
+    "sending": "Отправляется..."
   }
 }
