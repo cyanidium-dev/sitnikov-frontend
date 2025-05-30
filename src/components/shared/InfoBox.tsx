@@ -10,14 +10,15 @@ interface IInfoBoxProps {
 
 const InfoBox = ({ children, variant = "basic", classname }: IInfoBoxProps) => {
   const baseStyles = cn(
-    "rounded-lg ",
+    "rounded-lg h-full",
     variant === "basic" &&
       "bg-light p-8 pt-6 md:min-h-[170px] xl:min-h-[209px]",
+    variant === "withImage" && "px-6 pb-6 bg-card-with-img-gradient",
     classname
   );
 
   return (
-    <div className="relative rounded-lg p-[1px] before:absolute before:inset-0 before:z-[-1] before:rounded-lg before:bg-gradient-to-br before:from-[#213767] before:to-[#CBDBFF]">
+    <div className="relative h-full rounded-lg p-[1px] before:absolute before:inset-0 before:z-[-1] before:rounded-lg before:bg-gradient-to-br before:from-[#213767] before:to-[#CBDBFF]">
       <div className={baseStyles}>{children}</div>
     </div>
   );
