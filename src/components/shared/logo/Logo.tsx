@@ -37,7 +37,7 @@ const Logo = ({ className, textStyles, variant = "dark" }: LogoProps) => {
       )}
       <p
         className={cn(
-          "w-24 font-micra text-xs uppercase leading-[1.22] xl:w-[120px] xl:text-sm",
+          "w-24 font-micra text-[12px] uppercase xl:w-[120px] xl:text-[14px]",
           textStyles
         )}
       >
