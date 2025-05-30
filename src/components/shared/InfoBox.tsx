@@ -10,9 +10,10 @@ interface IInfoBoxProps {
 
 const InfoBox = ({ children, variant = "basic", classname }: IInfoBoxProps) => {
   const baseStyles = cn(
-    "rounded-lg ",
-    variant === "basic" &&
-      "bg-light p-8 pt-6 md:min-h-[170px] xl:min-h-[209px]",
+    "rounded-lg p-8 pt-6",
+    variant === "basic" && "bg-light md:min-h-[170px] xl:min-h-[209px]",
+    variant === "gradient" &&
+      "bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]",
     classname
   );
 
