@@ -19,13 +19,13 @@ const ExperienceProud = async () => {
   ];
 
   return (
-    <section className="pb-[120px] pt-[152px] xl:pb-[200px] xl:pt-[100px]">
+    <section className="relative overflow-hidden pb-[120px] pt-[152px] xl:pb-[200px] xl:pt-[100px]">
       <div className="container max-w-[1280px]">
         <h2 className="mx-auto mb-[52px] max-w-[490px] text-center font-micra text-[24px] xl:mb-[60px] xl:text-[40px]">
           {t("title")}
         </h2>
 
-        <div className="mx-auto flex flex-col gap-4 max-md:max-w-[400px] md:flex-row md:justify-between md:gap-6">
+        <div className="relative mx-auto flex flex-col gap-4 max-md:max-w-[400px] md:flex-row md:justify-between md:gap-6">
           {columns.map((column, colIdx) => (
             <ul key={colIdx} className="flex flex-col gap-4 md:w-[32%]">
               {column.map(({ title, descr }, idx) => (
@@ -43,8 +43,13 @@ const ExperienceProud = async () => {
               ))}
             </ul>
           ))}
+          <div className="absolute -bottom-[223px] left-0 -z-[3] h-[507px] w-[511px] bg-no-repeat max-md:hidden md:bg-[url('/images/experiencePage/experience-proud-decor-desk.webp')]" />
         </div>
       </div>
+
+      <div className="absolute -top-[355px] left-0 -z-[3] h-[715px] w-[360px] max-md:bg-[url('/images/experiencePage/experience-proud-decor-top-mob.webp')] md:hidden" />
+      <div className="absolute bottom-[450px] right-0 -z-[3] h-[780px] w-[308px] max-md:bg-[url('/images/experiencePage/experience-proud-decor-mid-mob.webp')] md:hidden" />
+      <div className="absolute -bottom-[300px] left-0 -z-[3] h-[762px] w-[307px] max-md:bg-[url('/images/experiencePage/experience-proud-decor-bot-mob.webp')] md:hidden" />
     </section>
   );
 };
