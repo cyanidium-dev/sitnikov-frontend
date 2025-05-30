@@ -12,7 +12,7 @@ const ExperienceCareerPath = async () => {
     .careerPathList as AccordionItem[];
 
   return (
-    <section className="relative py-[120px] xl:py-[100px]">
+    <section className="relative pb-[120px] pt-[297px] xl:py-[100px]">
       <div className="container max-w-[1280px]">
         <h2 className="hidden">{t("title")}</h2>
 
@@ -29,7 +29,7 @@ const ExperienceCareerPath = async () => {
               }
               fill
               sizes="(max-width: 768px) 400px, 578px"
-              className="h-auto object-cover"
+              className="h-auto rounded-lg object-cover"
               alt="Фото університету"
             />
           </div>
