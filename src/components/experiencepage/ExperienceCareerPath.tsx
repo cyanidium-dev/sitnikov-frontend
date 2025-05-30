@@ -1,8 +1,8 @@
 import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-import ExperienceAccordion from "../shared/accordion/Accordion";
-import { AccordionItem } from "../shared/accordion/AccordionRow";
+import Accordion from "../shared/accordion/Accordion";
+import { AccordionItem } from "../shared/accordion/type";
 
 const ExperienceCareerPath = async () => {
   const t = await getTranslations("experiencePage.careerPath");
@@ -17,7 +17,7 @@ const ExperienceCareerPath = async () => {
         <h2 className="hidden">{t("title")}</h2>
 
         <div className="flex flex-col gap-16 xl:flex-row xl:gap-6">
-          <ExperienceAccordion
+          <Accordion
             data={careerPathList}
             className="max-xl:mx-auto max-xl:max-w-[400px]"
           />

@@ -32,7 +32,7 @@ const AccordionRow = ({ data, isOpen, onClick }: AccordionRowProps) => {
       <button
         type="button"
         onClick={onClick}
-        className="flex w-full items-center justify-between font-micra text-[20px] uppercase leading-[24px] xl:text-[24px] xl:tracking-[1px]"
+        className="flex w-full items-center justify-between text-left font-micra text-[20px] uppercase leading-[24px] xl:text-[24px] xl:tracking-[1px]"
       >
         {title}
 
@@ -54,7 +54,7 @@ const AccordionRow = ({ data, isOpen, onClick }: AccordionRowProps) => {
           transition: "max-height 0.3s ease",
         }}
       >
-        <ul className="pt-6">
+        <ul className="flex flex-col gap-3 pt-6">
           {descr.map((item, index) => (
             <p key={index} className="text-[13px] font-light xl:text-[14px]">
               {item}
