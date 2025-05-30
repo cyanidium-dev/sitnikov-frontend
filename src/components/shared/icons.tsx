@@ -67,3 +67,102 @@ export const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => {
     </svg>
   );
 };
+
+export const ClockIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 20 21"
+      className="h-6 w-6"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M10 18.5a8 8 0 1 0 0-16.001A8 8 0 0 0 10 18.5Zm1-12a1 1 0 0 0-2 0v4a1 1 0 0 0 .293.707l2.828 2.829a1 1 0 0 0 1.415-1.415L11 10.086V6.5Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+};
+
+export const ArrowInCircleIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 32 32"
+      className="h-6 w-6"
+      {...props}
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="2.325"
+        d="M16 28.916c7.134 0 12.917-5.783 12.917-12.916 0-7.134-5.783-12.917-12.917-12.917C8.866 3.083 3.083 8.866 3.083 16c0 7.133 5.783 12.916 12.917 12.916Z"
+      />
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2.325"
+        d="M14.373 20.56 18.919 16l-4.546-4.56"
+      />
+    </svg>
+  );
+};
+
+export const DecorIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      {...props}
+      fill="none"
+      viewBox="0 0 318 370"
+    >
+      <path
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="3"
+        d="M222.5 9.614a279.292 279.292 0 0 0-39.851 16.25 276.821 276.821 0 0 0-48.977 31.38 273.934 273.934 0 0 0-41.348 40.909 278.861 278.861 0 0 0-31.957 48.644 280.598 280.598 0 0 0-21.165 54.149c-5.12 18.58-8.353 37.835-9.441 57.348l.016.05c-1.135 19.194-.31 38.595 2.713 58.07 2.172 14.401 5.569 28.796 10.158 43.089"
+      />
+      <path
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="3"
+        d="m267.974 278.168-108.615 20.691-123.758 23.564M30.774 264.993l125.968 2.659.01.027 108.247 2.275M38.028 207.804l122.657 28.816 102.905 24.159M57.003 153.384l113.994 53.693 94.844 44.658M86.884 104.093l100.34 76.188 84.185 63.941M126.351 62.079l82.303 95.381 70.761 82.041M287.602 236.537l-53.226-96.924-60.673-110.44"
+      />
+    </svg>
+  );
+};
+
+export const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="currentColor"
+      viewBox="0 0 32 32"
+      {...props}
+    >
+      <path d="M27.75 16a.75.75 0 0 1-.75.75H16.75V27a.75.75 0 1 1-1.5 0V16.75H5a.75.75 0 1 1 0-1.5h10.25V5a.75.75 0 1 1 1.5 0v10.25H27a.75.75 0 0 1 .75.75Z" />
+    </svg>
+  );
+};
+
+export const MinusIcon = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="currentColor"
+      viewBox="0 0 32 32"
+      {...props}
+    >
+      <path d="M27.75 16a.75.75 0 0 1-.75.75H5a.75.75 0 1 1 0-1.5h22a.75.75 0 0 1 .75.75Z" />
+    </svg>
+  );
+};
