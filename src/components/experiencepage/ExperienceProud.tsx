@@ -19,7 +19,7 @@ const ExperienceProud = async () => {
   ];
 
   return (
-    <section className="pb-[120px] pt-[152px]">
+    <section className="pb-[120px] pt-[152px] xl:pb-[200px] xl:pt-[100px]">
       <div className="container max-w-[1280px]">
         <h2 className="mx-auto mb-[52px] max-w-[490px] text-center font-micra text-[24px] xl:mb-[60px] xl:text-[40px]">
           {t("title")}
