@@ -223,22 +223,22 @@
         {
           "title": "Адреса",
           "descr": ["м. Київ"],
-          "icon": ""
+          "icon": "map"
         },
         {
           "title": "Електронна адреса",
           "descr": ["A.lex@sitnikov.com.ua"],
-          "icon": ""
+          "icon": "email"
         },
         {
           "title": "Телефон",
           "descr": ["+38 066 255 54 86"],
-          "icon": ""
+          "icon": "phone"
         },
         {
           "title": "Режим роботи",
           "descr": ["Пн-Пт: 09:00-18:00", "Сб-Нд: вихідний"],
-          "icon": ""
+          "icon": "calendar"
         }
       ]
     },

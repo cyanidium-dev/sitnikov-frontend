@@ -310,22 +310,22 @@
         {
           "title": "Адрес",
           "descr": ["г. Киев"],
-          "icon": ""
+          "icon": "map"
         },
         {
           "title": "Электронная почта",
           "descr": ["A.lex@sitnikov.com.ua"],
-          "icon": ""
+          "icon": "email"
         },
         {
           "title": "Телефон",
           "descr": ["+38 066 255 54 86"],
-          "icon": ""
+          "icon": "phone"
         },
         {
           "title": "Режим работы",
           "descr": ["Пн-Пт: 09:00-18:00", "Сб-Вс: выходной"],
-          "icon": ""
+          "icon": "calendar"
         }
       ]
     },
