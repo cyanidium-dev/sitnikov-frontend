@@ -27,7 +27,7 @@ const FormField = ({
   const fieldError = errors?.[name]?.message as string | undefined;
 
   const wrapperStyles = cn(
-    "relative h-full",
+    "relative h-full w-full",
     variant === "basic" && "",
     variant === "gradient" &&
       "rounded-md p-[1px] before:absolute before:inset-0 before:z-[-1] before:rounded-md before:bg-gradient-to-br",

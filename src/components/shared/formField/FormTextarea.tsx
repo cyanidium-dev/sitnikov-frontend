@@ -22,8 +22,6 @@ const FormTextarea = ({
 
   const fieldError = errors?.[name]?.message as string | undefined;
 
-  //   const fieldError = "123124";
-
   return (
     <div
       className={cn(
