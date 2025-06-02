@@ -4,7 +4,7 @@ const GalleryHero = async () => {
   const t = await getTranslations("galleryPage.hero");
 
   return (
-    <section className="relative rounded-b-2xl bg-teal-600 max-xl:pt-[507px]">
+    <section className="relative bg-teal-600 max-xl:rounded-b-2xl max-xl:pt-[507px]">
       <div className="h-[207px] w-full max-w-[1280px] bg-dark px-8 pt-12 text-light max-xl:mx-auto max-xl:rounded-2xl xl:ml-auto xl:flex xl:h-[520px] xl:w-[58%] xl:flex-col-reverse xl:justify-between xl:rounded-l-2xl xl:px-[50px] xl:pb-12 xl:pl-[154px] xl:pt-[125px]">
         <div className="max-w-[400px] max-xl:mx-auto xl:ml-auto xl:text-right">
           <h1 className="mb-4 font-micra text-[22px] uppercase xl:text-[44px]">
