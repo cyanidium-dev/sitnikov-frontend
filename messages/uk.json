@@ -8,7 +8,7 @@
     "menu": {
       "home": "Головна",
       "services": "Послуги",
-      "events": "Галерея заходів",
+      "gallery": "Галерея заходів",
       "experience": "Досвід та діяльність",
       "publications": "Публікації",
       "contacts": "Контакти",
@@ -27,7 +27,7 @@
     "navigation": {
       "home": "Головна",
       "experience": "Досвід та діяльність",
-      "events": "Галерея заходів",
+      "gallery": "Галерея заходів",
       "services": "Послуги",
       "publications": "Публікації",
       "contacts": "Контакти"

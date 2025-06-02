@@ -4,15 +4,14 @@ import MenuLink from "../header/MenuLink";
 
 const FooterNav = async () => {
   const t = await getTranslations("footer");
-  const tNav = await getTranslations("footer.navigation");
 
   const menuList = [
-    { title: tNav("home"), path: "/" },
-    { title: tNav("experience"), path: "/experience" },
-    { title: tNav("events"), path: "/events" },
-    { title: tNav("services"), path: "/services" },
-    { title: tNav("publications"), path: "/publications" },
-    { title: tNav("contacts"), path: "/contacts" },
+    { title: t("navigation.home"), path: "/" },
+    { title: t("navigation.experience"), path: "/experience" },
+    { title: t("navigation.gallery"), path: "/gallery" },
+    { title: t("navigation.services"), path: "/services" },
+    { title: t("navigation.publications"), path: "/publications" },
+    { title: t("navigation.contacts"), path: "/contacts" },
   ];
 
   return (
