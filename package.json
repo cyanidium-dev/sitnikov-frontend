@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/client": "^7.4.0",
     "clsx": "^2.1.1",
+    "groq": "^3.90.0",
     "motion": "^12.12.2",
     "next": "15.1.8",
     "next-intl": "^4.1.0",
