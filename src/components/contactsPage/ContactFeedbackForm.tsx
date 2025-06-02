@@ -2,16 +2,15 @@
 
 import { FormProvider, useForm } from "react-hook-form";
 
+import useFeedbackFormSchema, {
+  FeedbackFormSchema,
+} from "@/schemas/useFeedbackFormSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 import FormField from "../shared/formField/FormField";
 import FormTextarea from "../shared/formField/FormTextarea";
 import { FormPlaceholderMap } from "./ContactsFeedback";
-
-type FormValues = {
-  name: string;
-  phone: string;
-  message: string;
-};
 
 interface IContactFeedbackFormProps {
   formPlaceholder: FormPlaceholderMap;
@@ -22,11 +21,16 @@ const ContactFeedbackForm = ({
   formPlaceholder,
   btnText,
 }: IContactFeedbackFormProps) => {
-  const methods = useForm<FormValues>();
-  const { handleSubmit } = methods;
+  const validationSchema = useFeedbackFormSchema();
 
-  const onSubmit = (data: FormValues) => {
+  const methods = useForm<FeedbackFormSchema>({
+    resolver: zodResolver(validationSchema),
+  });
+  const { handleSubmit, reset } = methods;
+
+  const onSubmit = (data: FeedbackFormSchema) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -39,8 +43,7 @@ const ContactFeedbackForm = ({
           <FormField
             name="name"
             type="text"
-            placeholder={`* ${formPlaceholder.name}`}
-            required
+            placeholder={formPlaceholder.name}
             variant="gradient"
           />
 
