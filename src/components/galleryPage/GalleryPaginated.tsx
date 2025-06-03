@@ -1,40 +1,53 @@
-// import Image from "next/image";
+import { nanoid } from "nanoid";
 
+import { cn } from "@/utils/cn";
 import { GalleryItem } from "@/types/galleryItem";
 import { Locale } from "@/types/locale";
 
 import GallerySlider from "../shared/gallerySlider/GallerySlider";
 
 interface IGalleryPaginatedProps {
-  data?: GalleryItem;
-  lang?: Locale;
+  data: GalleryItem;
+  lang: Locale;
+  index: number;
 }
 
-// const GalleryPaginated = ({ data, lang }: IGalleryPaginatedProps) => {
-const GalleryPaginated = () => {
-  // const { description, title } = data;
+const GalleryPaginated = ({ data, lang, index }: IGalleryPaginatedProps) => {
+  const { description, title, images } = data;
+  const sliderId = nanoid();
+
+  const isEven = index % 2 === 0;
 
   return (
-    <section className="pb-[128px] pt-[120px]">
-      <div className="container max-w-[1280px]">
-        {/* <h2>{title[lang]}</h2>
-        <p>{description[lang]}</p>
-        <Image src="" alt="" width={100} height={100} /> */}
+    <section
+      className={cn(
+        "relative overflow-hidden pb-[128px] pt-[120px] xl:pb-[62px] xl:pt-[100px]",
+        isEven ? "bg-light text-dark" : "bg-dark text-light"
+      )}
+    >
+      {isEven && (
+        <div className="absolute -top-[180px] left-0 h-[382px] w-[357px] max-xl:bg-[url('/images/galleryPage/gallery-paginated-decor-top-mob.webp')] xl:hidden" />
+      )}
 
-        <h2 className="mb-4 font-micra text-[22px]">
-          Право & Суспільство: сучасні виклики
+      <div className="container relative z-[5] max-w-[1280px]">
+        <h2 className="mb-4 max-w-[680px] font-micra text-[22px] xl:text-[40px] xl:leading-[1.4]">
+          {title[lang]}
         </h2>
-        <p className="mb-[52px] font-light">
-          Всеукраїнська конференція з актуальних питань конституційного,
-          цивільного та кримінального права
+        <p className="mb-[52px] max-w-[431px] font-light xl:text-[20px]">
+          {description[lang]}
         </p>
       </div>
 
-      <GallerySlider variant="light" title="123" />
+      <GallerySlider
+        variant={isEven ? "light" : "dark"}
+        imgAlt={title[lang]}
+        gallery={images}
+        sliderId={sliderId}
+      />
 
-      <div className="bg-dark">
-        <GallerySlider variant="dark" title="234" />
-      </div>
+      {isEven && (
+        <div className="absolute -bottom-[240px] left-0 h-[411px] w-[360px] max-xl:bg-[url('/images/galleryPage/gallery-paginated-decor-bot-mob.webp')] xl:hidden" />
+      )}
     </section>
   );
 };
