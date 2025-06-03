@@ -9,7 +9,7 @@ export const gallery = async (): Promise<GalleryItem[]> => {
         description,
         images[] {
           asset->{
-            "imgUrl": url,
+            url,
           },
           description
         }

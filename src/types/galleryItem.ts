@@ -1,4 +1,4 @@
-interface GalleryImage {
+export interface GalleryImage {
   asset: {
     url: string;
   };
