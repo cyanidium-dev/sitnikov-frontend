@@ -65,8 +65,8 @@ const Header = () => {
             external
           >
             <Image
-              className="mr-[14px]"
-              src="/images/icons/phone.svg"
+              className="mr-[14px] fill-light"
+              src="/images/icons/phone1.svg"
               alt="phone icon"
               width={20}
               height={20}

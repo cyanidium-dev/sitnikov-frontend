@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sanity/client": "^7.4.0",
+    "@hookform/resolvers": "^5.0.1",
     "clsx": "^2.1.1",
     "groq": "^3.90.0",
     "motion": "^12.12.2",
@@ -19,7 +20,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swiper": "^11.2.8",
-    "tailwind-merge": "^2.6.0"
+    "react-hook-form": "^7.56.4",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^3.25.47"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
