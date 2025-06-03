@@ -212,6 +212,48 @@
     }
   },
 
+  "contactsPage": {
+    "hero": {
+      "title": "Контакти",
+      "descr": "Ми відкриті до діалогу: відповімо на запит, уточнимо деталі та підкажемо найкраще рішення.",
+      "imgAlt": "Хмарочоси"
+    },
+    "contacts": {
+      "contactList": [
+        {
+          "title": "Адреса",
+          "descr": ["м. Київ"],
+          "icon": "map"
+        },
+        {
+          "title": "Електронна адреса",
+          "descr": ["A.lex@sitnikov.com.ua"],
+          "icon": "email"
+        },
+        {
+          "title": "Телефон",
+          "descr": ["+38 066 255 54 86"],
+          "icon": "phone"
+        },
+        {
+          "title": "Режим роботи",
+          "descr": ["Пн-Пт: 09:00-18:00", "Сб-Нд: вихідний"],
+          "icon": "calendar"
+        }
+      ]
+    },
+    "feedback": {
+      "title": "зворотній зв'язок",
+      "descr": "Тут ви можете звернутися з питанням.",
+      "formPlaceholder": {
+        "name": "Ім’я",
+        "tel": "Номер телефону",
+        "mes": "Повідомлення"
+      },
+      "button": "Надіслати"
+    }
+  },
+
   "experiencePage": {
     "hero": {
       "title": "Досвід та <span>діяльність</span>",
@@ -304,6 +346,14 @@
         }
       ]
     }
+  },
+
+  "formValidation": {
+    "nameMinMaxValidation": "Ім’я повинно містити від 2 до 150 символів",
+    "nameAllowedSymbols": "Допустимі літери та дефіс, апостроф, лапки",
+    "phoneMinMaxValidation": "Номер має містити від 7 до 15 цифр",
+    "phoneOnlyDigits": "Поле може містити лише цифри",
+    "messageValidation": "Максимум 1000 символів"
   },
 
   "buttons": {
