@@ -16,9 +16,7 @@ const HomeBottomCTA = async () => {
         </div>
 
         <div className="relative z-[1] flex max-w-[374px] flex-col gap-4">
-          <ButtonOrLink variant="outlined">
-            {t("buttonConsultation")}
-          </ButtonOrLink>
+          <ButtonOrLink variant="light">{t("buttonConsultation")}</ButtonOrLink>
           <ButtonOrLink variant="transparent">{t("buttonCourse")}</ButtonOrLink>
         </div>
       </div>
