@@ -18,7 +18,7 @@ const NavMenu = ({ closeMenu }: INavMenuProps) => {
     { title: t("header.menu.experience"), path: "/experience" },
     { title: t("header.menu.publications"), path: "/publications" },
     { title: t("header.menu.contacts"), path: "/contacts" },
-    { title: t("header.menu.school"), path: "/school" },
+    { title: t("header.menu.education"), path: "/education" },
     { title: t("header.menu.announcements"), path: "/announcements" },
   ];
 
