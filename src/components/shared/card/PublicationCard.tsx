@@ -20,9 +20,12 @@ const PublicationCard = ({
   return (
     <article className="h-full">
       <InfoBox variant="withImage" classname="relative h-full">
-        <div className="h-[200px]">
+        <div className="relative -mx-6 -mt-6 h-[200px]">
           <Image
-            src={imgSrc}
+            src={
+              imgSrc ||
+              "/images/publications/publication-card-default-image.webp"
+            }
             alt="картинка до публікації"
             fill
             sizes="400px"
