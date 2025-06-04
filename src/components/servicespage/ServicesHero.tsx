@@ -6,7 +6,7 @@ const ServicesHero = async () => {
   return (
     <section className="relative h-[647px] max-md:pt-[120px] md:h-[493px] xl:h-[520px]">
       <div className="container flex h-full max-w-[1280px] flex-col justify-between md:flex-row md:pt-[388px]">
-        <p className="z-10 max-w-[268px] font-micra uppercase md:w-[250px]">
+        <p className="z-10 max-w-[268px] font-micra uppercase md:w-[250px] md:text-light">
           {t("subtitle")}
         </p>
 
@@ -25,6 +25,8 @@ const ServicesHero = async () => {
       </div>
 
       <div className="absolute -bottom-[40px] right-0 -z-[5] h-[575px] w-[351px] max-md:bg-[url('/images/servicespage/services-hero-person-mob.webp')] md:hidden" />
+
+      <div className="absolute -z-10 bg-no-repeat max-md:hidden md:left-0 md:top-0 md:h-full md:w-[45%] md:bg-[url('/images/servicespage//services-hero-bg.webp')]" />
     </section>
   );
 };
