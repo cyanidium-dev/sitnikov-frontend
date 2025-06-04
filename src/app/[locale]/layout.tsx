@@ -35,7 +35,7 @@ export default async function LocaleLayout({
     <html lang={locale} className="scroll-smooth">
       <body className="relative z-[1] flex min-h-screen flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          {/* <Header /> */}
           <main className="flex-grow overflow-x-hidden">{children}</main>
           <Footer />
         </NextIntlClientProvider>
