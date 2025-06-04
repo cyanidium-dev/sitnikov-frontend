@@ -14,7 +14,7 @@ const NavMenu = ({ closeMenu }: INavMenuProps) => {
   const menuList = [
     { title: t("home"), path: "/" },
     { title: t("services"), path: "/services" },
-    { title: t("events"), path: "/events" },
+    { title: t("gallery"), path: "/gallery" },
     { title: t("experience"), path: "/experience" },
     { title: t("publications"), path: "/publications" },
     { title: t("contacts"), path: "/contacts" },
