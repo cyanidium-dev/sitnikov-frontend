@@ -9,17 +9,17 @@ interface INavMenuProps {
 }
 
 const NavMenu = ({ closeMenu }: INavMenuProps) => {
-  const t = useTranslations();
+  const t = useTranslations("header.menu");
 
   const menuList = [
-    { title: t("header.menu.home"), path: "/" },
-    { title: t("header.menu.services"), path: "/services" },
-    { title: t("header.menu.events"), path: "/events" },
-    { title: t("header.menu.experience"), path: "/experience" },
-    { title: t("header.menu.publications"), path: "/publications" },
-    { title: t("header.menu.contacts"), path: "/contacts" },
-    { title: t("header.menu.school"), path: "/school" },
-    { title: t("header.menu.announcements"), path: "/announcements" },
+    { title: t("home"), path: "/" },
+    { title: t("services"), path: "/services" },
+    { title: t("events"), path: "/events" },
+    { title: t("experience"), path: "/experience" },
+    { title: t("publications"), path: "/publications" },
+    { title: t("contacts"), path: "/contacts" },
+    { title: t("education"), path: "/education" },
+    { title: t("announcements"), path: "/announcements" },
   ];
 
   return (
