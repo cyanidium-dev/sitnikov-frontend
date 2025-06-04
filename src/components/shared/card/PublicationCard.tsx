@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 import InfoBox from "../InfoBox";
-import ButtonOrLink from "../button/ButtonOrLink ";
-import { ArrowInCircleIcon, ClockIcon } from "../icons";
+import IconButtonOrLink from "../button/IconButtonOrLink";
+import { ClockIcon } from "../icons";
 
 export type PublicationItem = {
   title: string;
@@ -49,12 +49,7 @@ const PublicationCard = ({
         <div className="flex items-end gap-[18px]">
           <p className="line-clamp-5 tracking-normal">{descr}</p>
 
-          <ButtonOrLink
-            href="#"
-            className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-[8px] bg-[linear-gradient(157.5deg,_#7F9EE3_14.64%,_#46577D_174.32%)] p-0"
-          >
-            <ArrowInCircleIcon className="h-[31px] w-[31px]" />
-          </ButtonOrLink>
+          <IconButtonOrLink href="#" />
         </div>
       </InfoBox>
     </article>

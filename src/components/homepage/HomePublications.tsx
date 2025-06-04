@@ -25,7 +25,7 @@ const HomePublications = async () => {
             <p className="mb-8 font-light leading-[1.22] tracking-normal">
               {t("descr")}
             </p>
-            <ButtonOrLink variant="outlined">{t("button")}</ButtonOrLink>
+            <ButtonOrLink variant="light">{t("button")}</ButtonOrLink>
           </div>
         </div>
 
