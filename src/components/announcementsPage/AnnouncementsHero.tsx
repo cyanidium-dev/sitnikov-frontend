@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 const AnnouncementsHero = async () => {
   const t = await getTranslations("announcementsPage.hero");
+
   return (
     <section className="relative h-[513px] md:h-[528px] md:bg-dark">
       <div className="container -bottom-[258px] left-0 h-[274px] max-w-[1280px] bg-dark text-light max-md:absolute max-md:rounded-2xl md:h-full">
@@ -10,7 +11,7 @@ const AnnouncementsHero = async () => {
             <h1 className="font-micra text-[22px] uppercase xl:text-[44px]">
               {t("title")}
             </h1>
-            <p className="max-w-[231px] font-micra text-[14px] uppercase md:ml-auto xl:w-[302px] xl:text-[18px]">
+            <p className="font-micra text-[14px] uppercase max-xl:max-w-[231px] md:ml-auto xl:w-[302px] xl:text-[18px]">
               {t("subtitle")}
             </p>
           </div>
