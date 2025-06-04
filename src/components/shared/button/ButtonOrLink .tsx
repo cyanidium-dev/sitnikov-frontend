@@ -9,7 +9,7 @@ interface ButtonOrLinkProps {
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit";
-  variant?: "primary" | "outlined" | "transparent";
+  variant?: "dark" | "light" | "transparent";
   disabled?: boolean;
   isLoading?: boolean;
   ariaLabel?: string;
@@ -22,7 +22,7 @@ const ButtonOrLink = ({
   onClick,
   className = "",
   type = "button",
-  variant = "primary",
+  variant = "dark",
   disabled,
   isLoading,
   ariaLabel,
@@ -30,9 +30,9 @@ const ButtonOrLink = ({
 }: ButtonOrLinkProps) => {
   const baseStyles = cn(
     "group relative flex text-sm leading-[20px] font-medium items-center justify-center overflow-hidden rounded-full w-full py-[18px] transition duration-300 ease-out active:scale-95",
-    variant === "primary" &&
+    variant === "dark" &&
       "relative text-white before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:bg-[linear-gradient(94.05deg,_#091129_-15.57%,_#001C58_140.61%)] after:content-['']",
-    variant === "outlined" &&
+    variant === "light" &&
       "text-dark after:bg-light relative before:absolute before:inset-0 before:z-[-1] before:rounded-full before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:p-[1px] before:content-[''] after:absolute after:inset-[1px] after:z-[-1] after:rounded-full after:content-['']",
     variant === "transparent" &&
       "border-1 border-light text-light border border-solid bg-transparent",

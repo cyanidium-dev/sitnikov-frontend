@@ -19,7 +19,7 @@ const HomeKnowledge = async () => {
           </div>
 
           <div className="relative z-[1] max-w-[374px]">
-            <ButtonOrLink variant="outlined">{t("button")}</ButtonOrLink>
+            <ButtonOrLink variant="light">{t("button")}</ButtonOrLink>
           </div>
         </div>
       </div>
