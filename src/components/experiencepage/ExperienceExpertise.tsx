@@ -23,7 +23,7 @@ const ExperienceExpertise = async () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 h-[546px] w-[360px] bg-[url('/images/experiencePage/experience-expertise-person-mob.webp')] max-xl:right-0 xl:left-0 xl:h-[767px] xl:w-[533px] xl:bg-[url('/images/experiencePage/experience-expertise-person-desk.webp')]" />
+      <div className="absolute bottom-0 h-[478px] w-[676px] bg-[url('/images/experiencePage/experience-expertise-person-mob.webp')] bg-no-repeat max-xl:-right-[70px] xl:left-0 xl:h-[767px] xl:w-[533px] xl:bg-[url('/images/experiencePage/experience-expertise-person-desk.webp')]" />
     </section>
   );
 };
