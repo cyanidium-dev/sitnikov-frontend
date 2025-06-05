@@ -5,8 +5,8 @@ import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { GalleryImage } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
-import { GalleryImage } from "@/types/galleryItem";
 
 import IconButtonOrLink from "../button/IconButtonOrLink";
 
