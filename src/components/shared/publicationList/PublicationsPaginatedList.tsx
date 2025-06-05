@@ -1,18 +1,23 @@
-import { PublicationItem } from "../card/PublicationCard";
+import { PublicationItem } from "@/lib/sanity/types/queryTypes";
+import { Locale } from "@/types/locale";
+
 import PublicationList from "./PublicationList";
 
 interface IPublicationsPaginatedListProps {
   publicationList: PublicationItem[];
+  lang: Locale;
 }
 
 const PublicationsPaginatedList = ({
   publicationList,
+  lang,
 }: IPublicationsPaginatedListProps) => {
   return (
     <section className="relative overflow-hidden pb-[194px] pt-[329px] md:pb-[96px] md:pt-[82px]">
       <div className="container relative max-w-[1280px]">
-        <PublicationList data={publicationList} className="mb-8" />
+        <PublicationList data={publicationList} lang={lang} className="mb-8" />
 
+        {/* Paginator */}
         <div className="mx-auto h-[42px] w-[300px] bg-dark"></div>
 
         <div className="absolute left-0 top-[276px] -z-[5] h-[352px] w-[282px] max-md:hidden md:bg-[url('/images/publications/publications-decor-top-desk.webp')]" />

@@ -1,6 +1,9 @@
-import PublicationsContent from "@/components/publicationsPage/PublicationsContent";
-import PublicationsHero from "@/components/publicationsPage/PublicationsHero";
+import { getAllPublications } from "@/lib/sanity/queries/queries";
 import { Locale } from "@/types/locale";
+
+import PublicationsPaginatedList from "../shared/publicationList/PublicationsPaginatedList";
+
+export const revalidate = 3600;
 
 // const publicationList = [
 //   {
@@ -47,19 +50,11 @@ import { Locale } from "@/types/locale";
 //   },
 // ];
 
-const PublicationsPage = async ({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}) => {
-  const { locale } = await params;
+const PublicationsContent = async ({ lang }: { lang: Locale }) => {
+  const publList = await getAllPublications();
+  console.log(`🚀 ~ PublicationsPage ~ publList:`, publList);
 
-  return (
-    <>
-      <PublicationsHero />
-      <PublicationsContent lang={locale} />
-    </>
-  );
+  return <PublicationsPaginatedList publicationList={publList} lang={lang} />;
 };
 
-export default PublicationsPage;
+export default PublicationsContent;

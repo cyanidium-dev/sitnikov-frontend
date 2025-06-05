@@ -4,19 +4,19 @@ import InfoBox from "../InfoBox";
 import IconButtonOrLink from "../button/IconButtonOrLink";
 import { ClockIcon } from "../icons";
 
-export type PublicationItem = {
+interface IPublicationCardProps {
+  description: string;
+  imgSrc?: string;
+  info: string;
   title: string;
-  descr: string;
-  imgSrc: string;
-  timeToRead: string;
-};
+}
 
 const PublicationCard = ({
-  descr,
+  description,
   imgSrc,
-  timeToRead,
+  info,
   title,
-}: PublicationItem) => {
+}: IPublicationCardProps) => {
   return (
     <article className="h-full">
       <InfoBox variant="withImage" classname="relative h-full">
@@ -36,9 +36,7 @@ const PublicationCard = ({
         <div className="absolute left-6 top-[177px] max-w-[298px] rounded-[8px] p-[1px] before:absolute before:inset-0 before:z-0 before:rounded-[8px] before:bg-gradient-to-br before:from-[#EAEBFF] before:to-[#091129] before:content-['']">
           <div className="relative z-[1] flex gap-3 rounded-[8px] bg-white px-[22px] py-3 text-dark">
             <ClockIcon className="h-5 w-5 shrink-0" />
-            <span className="text-nowrap font-light leading-[1.3]">
-              {timeToRead}
-            </span>
+            <span className="text-nowrap font-light leading-[1.3]">{info}</span>
           </div>
         </div>
 
@@ -47,7 +45,7 @@ const PublicationCard = ({
         </h3>
 
         <div className="flex items-end gap-[18px]">
-          <p className="line-clamp-5 tracking-normal">{descr}</p>
+          <p className="line-clamp-5 tracking-normal">{description}</p>
 
           <IconButtonOrLink href="#" />
         </div>
