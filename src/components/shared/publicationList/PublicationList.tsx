@@ -23,7 +23,7 @@ const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
           <PublicationCard
             description={description[lang]}
             imgSrc={mainImageMobile?.asset.url}
-            info={"6 хв читати"}
+            info={"6 хв на читання"}
             title={title[lang]}
           />
         </li>

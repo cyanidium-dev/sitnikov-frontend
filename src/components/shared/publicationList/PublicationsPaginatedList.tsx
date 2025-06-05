@@ -1,6 +1,12 @@
+"use client";
+
+import { usePaginationPage } from "@/hooks/usePaginationPage";
+
 import { PublicationItem } from "@/lib/sanity/types/queryTypes";
+import { PUBLICATIONS_PER_PAGE } from "@/constants/pagination";
 import { Locale } from "@/types/locale";
 
+import Pagination from "../paginator/Paginator";
 import PublicationList from "./PublicationList";
 
 interface IPublicationsPaginatedListProps {
@@ -12,13 +18,25 @@ const PublicationsPaginatedList = ({
   publicationList,
   lang,
 }: IPublicationsPaginatedListProps) => {
+  const totalPages = Math.ceil(publicationList.length / PUBLICATIONS_PER_PAGE);
+  const { currentPage, changePage } = usePaginationPage(totalPages);
+
+  const startIdx = (currentPage - 1) * PUBLICATIONS_PER_PAGE;
+  const paginatedData = publicationList.slice(
+    startIdx,
+    startIdx + PUBLICATIONS_PER_PAGE
+  );
+
   return (
     <section className="relative overflow-hidden pb-[194px] pt-[329px] md:pb-[96px] md:pt-[82px]">
       <div className="container relative max-w-[1280px]">
-        <PublicationList data={publicationList} lang={lang} className="mb-8" />
+        <PublicationList data={paginatedData} lang={lang} className="mb-8" />
 
-        {/* Paginator */}
-        <div className="mx-auto h-[42px] w-[300px] bg-dark"></div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={changePage}
+        />
 
         <div className="absolute left-0 top-[276px] -z-[5] h-[352px] w-[282px] max-md:hidden md:bg-[url('/images/publications/publications-decor-top-desk.webp')]" />
         <div className="absolute -bottom-[74px] right-0 -z-[5] h-[433px] w-[357px] max-md:hidden md:bg-[url('/images/publications/publications-decor-mid-desk.webp')]" />

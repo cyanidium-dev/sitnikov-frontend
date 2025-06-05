@@ -19,7 +19,7 @@ export const gallery = async (): Promise<GalleryItem[]> => {
 
 export const getAllPublications = async (): Promise<PublicationItem[]> => {
   return await client.fetch<PublicationItem[]>(`
-      *[_type == "post"] {
+      *[_type == "post"] | order(_createdAt desc) {
         title,
         previewImage{
           asset->{url},

@@ -33,7 +33,7 @@ const PublicationCard = ({
           />
         </div>
 
-        <div className="absolute left-6 top-[177px] max-w-[298px] rounded-[8px] p-[1px] before:absolute before:inset-0 before:z-0 before:rounded-[8px] before:bg-gradient-to-br before:from-[#EAEBFF] before:to-[#091129] before:content-['']">
+        <div className="absolute left-6 top-[177px] min-w-[210px] max-w-[298px] rounded-[8px] p-[1px] before:absolute before:inset-0 before:z-0 before:rounded-[8px] before:bg-gradient-to-br before:from-[#EAEBFF] before:to-[#091129] before:content-['']">
           <div className="relative z-[1] flex gap-3 rounded-[8px] bg-white px-[22px] py-3 text-dark">
             <ClockIcon className="h-5 w-5 shrink-0" />
             <span className="text-nowrap font-light leading-[1.3]">{info}</span>
