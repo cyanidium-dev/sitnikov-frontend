@@ -22,9 +22,10 @@ const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
         <li key={slug} className="mx-auto w-full max-w-[400px]">
           <PublicationCard
             description={description[lang]}
-            imgSrc={mainImageMobile?.asset.url}
+            imgSrc={mainImageMobile?.url}
             info={"6 хв на читання"}
             title={title[lang]}
+            href={`/${lang}/publications/${slug}`}
           />
         </li>
       ))}

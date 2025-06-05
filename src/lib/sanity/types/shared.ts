@@ -1,7 +1,5 @@
 export type SanityImage = {
-  asset: {
-    url: string;
-  };
+  url: string;
   description?: string | null;
 };
 

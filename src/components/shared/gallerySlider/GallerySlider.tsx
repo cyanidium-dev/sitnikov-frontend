@@ -65,11 +65,11 @@ const GallerySlider = ({
         }}
         className={`mySwiper${prefix}`}
       >
-        {gallery.map(({ asset, description }) => (
-          <SwiperSlide key={asset.url} className="relative">
+        {gallery.map(({ url, description }) => (
+          <SwiperSlide key={url} className="relative">
             <div className="relative h-[296px] md:h-[330px] xl:h-[380px]">
               <Image
-                src={asset.url}
+                src={url}
                 alt={description || imgAlt}
                 fill
                 sizes="(min-width: 768px) 40vw, (min-width: 1280px) 33vw, 100vw"
