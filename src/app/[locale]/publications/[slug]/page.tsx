@@ -1,3 +1,7 @@
+import { notFound } from "next/navigation";
+
+import PublicationContent from "@/components/publicationPage/PublicationContent";
+import PublicationHero from "@/components/publicationPage/PublicationHero";
 import {
   getAllPublicationSlugs,
   getPublicationBySlug,
@@ -47,8 +51,34 @@ export async function generateStaticParams() {
   );
 }
 
-const PublicationPage = () => {
-  return <div>PublicationPage</div>;
+const PublicationPage = async ({
+  params,
+}: {
+  params: Promise<{ locale: Locale; slug: string }>;
+}) => {
+  const { locale, slug } = await params;
+  const post = await getPublicationBySlug(slug);
+
+  if (!post) return notFound();
+
+  const { title, description, content, gallery, mainImage, mainImageMobile } =
+    post;
+
+  return (
+    <>
+      <PublicationHero
+        title={title[locale]}
+        description={description[locale]}
+        mainImage={mainImage}
+        mainImageMobile={mainImageMobile}
+      />
+      <PublicationContent
+        content={content[locale]}
+        gallery={gallery}
+        title={title[locale]}
+      />
+    </>
+  );
 };
 
 export default PublicationPage;
