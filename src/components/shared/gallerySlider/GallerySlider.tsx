@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { GalleryImage } from "@/lib/sanity/types/shared";
+import { SanityImage } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
 
 import IconButtonOrLink from "../button/IconButtonOrLink";
@@ -15,7 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 interface IGallerySliderProps {
-  gallery: GalleryImage[];
+  gallery: SanityImage[];
   variant?: "light" | "dark";
   imgAlt: string;
   sliderId: string;
