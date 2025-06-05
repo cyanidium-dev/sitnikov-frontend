@@ -19,6 +19,7 @@ interface IGallerySliderProps {
   variant?: "light" | "dark";
   imgAlt: string;
   sliderId: string;
+  wrapperClassName?: string;
 }
 
 const GallerySlider = ({
@@ -26,6 +27,7 @@ const GallerySlider = ({
   variant = "light",
   imgAlt,
   sliderId,
+  wrapperClassName,
 }: IGallerySliderProps) => {
   const prefix = `slider-${sliderId}`;
 
@@ -36,7 +38,12 @@ const GallerySlider = ({
   );
 
   return (
-    <div className="container relative max-w-[400px] pb-[74px] md:max-w-[700px] xl:max-w-[1280px]">
+    <div
+      className={cn(
+        "relative mx-auto max-w-[400px] pb-[74px] md:max-w-[700px] xl:max-w-[1280px]",
+        wrapperClassName
+      )}
+    >
       <Swiper
         modules={[Navigation, Pagination]}
         breakpoints={{
@@ -100,7 +107,7 @@ const GallerySlider = ({
       </div>
 
       {variant === "light" && (
-        <div className="absolute -top-[220px] right-0 h-[417px] w-[399px] max-xl:hidden xl:bg-[url('/images/galleryPage/gallery-paginated-decor-desk.webp')]" />
+        <div className="absolute -right-[25px] -top-[220px] h-[417px] w-[399px] max-xl:hidden xl:bg-[url('/images/galleryPage/gallery-paginated-decor-desk.webp')]" />
       )}
     </div>
   );
