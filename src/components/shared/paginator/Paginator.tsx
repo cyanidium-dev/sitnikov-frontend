@@ -40,6 +40,7 @@ const Pagination = ({
     <div className="mt-10 flex items-center justify-center gap-6">
       <IconButtonOrLink
         iconClassName="rotate-180"
+        variant="light"
         aria-label={t("prev")}
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -63,6 +64,7 @@ const Pagination = ({
       </div>
 
       <IconButtonOrLink
+        variant="light"
         aria-label={t("next")}
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
