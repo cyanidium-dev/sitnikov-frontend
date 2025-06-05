@@ -9,13 +9,19 @@ export type LocalizedString = {
 };
 
 export type Block = {
+  _key: string;
+  _type: "block";
   style?: string;
-  markDefs?: {
+  markDefs: {
+    _key: string;
+    _type: "link";
     href: string;
   }[];
   children: {
-    marks?: string[];
+    _key: string;
+    _type: "span";
     text: string;
+    marks?: string[];
   }[];
 };
 
