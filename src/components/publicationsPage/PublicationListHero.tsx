@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-const PublicationsHero = async () => {
+const PublicationListHero = async () => {
   const t = await getTranslations("publicationsPage.hero");
 
   return (
@@ -32,4 +32,4 @@ const PublicationsHero = async () => {
   );
 };
 
-export default PublicationsHero;
+export default PublicationListHero;

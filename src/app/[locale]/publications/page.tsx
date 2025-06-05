@@ -1,5 +1,5 @@
-import PublicationsContent from "@/components/publicationsPage/PublicationsContent";
-import PublicationsHero from "@/components/publicationsPage/PublicationsHero";
+import PublicationsContent from "@/components/publicationsPage/PublicationListContent";
+import PublicationsHero from "@/components/publicationsPage/PublicationListHero";
 import { Locale } from "@/types/locale";
 
 const PublicationsPage = async ({

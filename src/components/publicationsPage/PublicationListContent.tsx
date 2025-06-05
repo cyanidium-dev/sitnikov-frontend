@@ -5,7 +5,7 @@ import PublicationsPaginatedList from "../shared/publicationList/PublicationsPag
 
 export const revalidate = 3600;
 
-const PublicationsContent = async ({ lang }: { lang: Locale }) => {
+const PublicationListContent = async ({ lang }: { lang: Locale }) => {
   const publicationList = await getAllPublications();
 
   return (
@@ -13,4 +13,4 @@ const PublicationsContent = async ({ lang }: { lang: Locale }) => {
   );
 };
 
-export default PublicationsContent;
+export default PublicationListContent;
