@@ -5,8 +5,8 @@ import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { SanityImage } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
-import { GalleryImage } from "@/types/galleryItem";
 
 import IconButtonOrLink from "../button/IconButtonOrLink";
 
@@ -15,10 +15,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 interface IGallerySliderProps {
-  gallery: GalleryImage[];
+  gallery: SanityImage[];
   variant?: "light" | "dark";
   imgAlt: string;
   sliderId: string;
+  wrapperClassName?: string;
 }
 
 const GallerySlider = ({
@@ -26,6 +27,7 @@ const GallerySlider = ({
   variant = "light",
   imgAlt,
   sliderId,
+  wrapperClassName,
 }: IGallerySliderProps) => {
   const prefix = `slider-${sliderId}`;
 
@@ -36,7 +38,12 @@ const GallerySlider = ({
   );
 
   return (
-    <div className="container relative max-w-[400px] pb-[74px] md:max-w-[700px] xl:max-w-[1280px]">
+    <div
+      className={cn(
+        "relative mx-auto max-w-[400px] pb-[74px] md:max-w-[700px] xl:max-w-[1280px]",
+        wrapperClassName
+      )}
+    >
       <Swiper
         modules={[Navigation, Pagination]}
         breakpoints={{
@@ -65,11 +72,11 @@ const GallerySlider = ({
         }}
         className={`mySwiper${prefix}`}
       >
-        {gallery.map(({ asset, description }) => (
-          <SwiperSlide key={asset.url} className="relative">
+        {gallery.map(({ url, description }) => (
+          <SwiperSlide key={url} className="relative">
             <div className="relative h-[296px] md:h-[330px] xl:h-[380px]">
               <Image
-                src={asset.url}
+                src={url}
                 alt={description || imgAlt}
                 fill
                 sizes="(min-width: 768px) 40vw, (min-width: 1280px) 33vw, 100vw"
@@ -100,7 +107,7 @@ const GallerySlider = ({
       </div>
 
       {variant === "light" && (
-        <div className="absolute -top-[220px] right-0 h-[417px] w-[399px] max-xl:hidden xl:bg-[url('/images/galleryPage/gallery-paginated-decor-desk.webp')]" />
+        <div className="absolute -right-[25px] -top-[220px] h-[417px] w-[399px] max-xl:hidden xl:bg-[url('/images/galleryPage/gallery-paginated-decor-desk.webp')]" />
       )}
     </div>
   );

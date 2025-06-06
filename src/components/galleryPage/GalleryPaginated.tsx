@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 
+import { GalleryItem } from "@/lib/sanity/types/queryTypes";
 import { cn } from "@/utils/cn";
-import { GalleryItem } from "@/types/galleryItem";
 import { Locale } from "@/types/locale";
 
 import GallerySlider from "../shared/gallerySlider/GallerySlider";

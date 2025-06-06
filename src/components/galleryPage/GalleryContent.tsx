@@ -1,4 +1,4 @@
-import { gallery } from "@/lib/queries";
+import { gallery } from "@/lib/sanity/queries/queries";
 import { Locale } from "@/types/locale";
 
 import GalleryPaginated from "./GalleryPaginated";

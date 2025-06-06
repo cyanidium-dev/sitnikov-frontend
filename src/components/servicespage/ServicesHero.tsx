@@ -26,7 +26,7 @@ const ServicesHero = async () => {
 
       <div className="absolute -bottom-[40px] right-0 -z-[5] h-[575px] w-[351px] max-md:bg-[url('/images/servicespage/services-hero-person-mob.webp')] md:hidden" />
 
-      <div className="absolute -z-10 bg-no-repeat max-md:hidden md:left-0 md:top-0 md:h-full md:w-[45%] md:bg-[url('/images/servicespage//services-hero-bg.webp')]" />
+      <div className="absolute -z-10 bg-no-repeat max-md:hidden md:left-0 md:top-0 md:h-full md:w-[45%] md:bg-[url('/images/servicespage/services-hero-bg.webp')]" />
     </section>
   );
 };
