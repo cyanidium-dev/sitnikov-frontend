@@ -1,17 +1,16 @@
-import { getMessages, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+
+import { getAllPublications } from "@/lib/sanity/queries/queries";
+import { mapItemToCardProps } from "@/utils/mapItemToCardProps";
+import { Locale } from "@/types/locale";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
-import PublicationCard, {
-  PublicationItem,
-} from "../shared/card/PublicationCard";
+import PublicationCard from "../shared/card/PublicationCard";
 
-const HomePublications = async () => {
+const HomePublications = async ({ lang }: { lang: Locale }) => {
   const t = await getTranslations("homepage.publications");
 
-  const messages = await getMessages();
-
-  const publicationsList = messages.homepage.publications
-    .publicationList as PublicationItem[];
+  const publicationList = await getAllPublications();
 
   return (
     <section className="relative py-[120px] xl:pb-[158px] xl:pt-[200px]">
@@ -30,24 +29,23 @@ const HomePublications = async () => {
         </div>
 
         <ul className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-          {publicationsList.map(({ descr, imgSrc, timeToRead, title }) => (
-            <li key={title} className="mx-auto h-full max-w-[400px]">
-              <PublicationCard
-                descr={descr}
-                imgSrc={imgSrc}
-                timeToRead={timeToRead}
-                title={title}
-              />
-            </li>
-          ))}
+          {publicationList.map(item => {
+            const cardProps = mapItemToCardProps(item, lang);
+
+            return (
+              <li
+                key={item.title[lang]}
+                className="mx-auto h-full max-w-[400px]"
+              >
+                <PublicationCard {...cardProps} />
+              </li>
+            );
+          })}
         </ul>
       </div>
 
       <div className="absolute left-0 top-0 -z-[5] h-[218px] w-[232px] bg-[url('/images/homepage/home-publications-decor-mob.webp')] xl:hidden" />
       <div className="absolute -left-[254px] top-[31px] -z-[1] h-[233px] w-[1146px] rotate-[11.31deg] rounded-full bg-[#ffffff] blur-[223px] xl:-left-[45%] xl:hidden" />
-      {/* 
-      <div className="absolute left-0 top-0 -z-[5] h-[218px] w-[232px] bg-[url('/images/homepage/home-publications-decor-mob.webp')] xl:left-[20%] xl:top-0 xl:h-[652px] xl:w-[675px] xl:bg-[url('/images/homepage/home-publications-decor-desk.webp')]" />
-      <div className="absolute -left-[254px] top-[31px] -z-[1] h-[233px] w-[1146px] rotate-[11.31deg] rounded-full bg-[#ffffff] blur-[223px] xl:-left-[45%] xl:top-[300px] xl:h-[456px] xl:w-[2238px] xl:rotate-[11.3deg] xl:bg-[#ffffff] xl:opacity-100" /> */}
     </section>
   );
 };
