@@ -1,4 +1,8 @@
-import { LocalizedBlockContent, LocalizedString, SanityImage } from "./shared";
+import {
+  LocalizedShortBlockContent,
+  LocalizedString,
+  SanityImage,
+} from "./shared";
 
 export type GalleryItem = {
   title: LocalizedString;
@@ -13,7 +17,7 @@ export type PublicationItem = {
   mainImageMobile?: SanityImage;
   slug: string;
   description: LocalizedString;
-  content: LocalizedBlockContent;
+  content: LocalizedShortBlockContent;
   gallery?: SanityImage[];
 };
 

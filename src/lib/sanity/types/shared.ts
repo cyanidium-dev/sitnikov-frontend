@@ -29,3 +29,12 @@ export type LocalizedBlockContent = {
   uk: (Block | SanityImage)[];
   ru: (Block | SanityImage)[];
 };
+
+export type ShortBlock = {
+  text: string;
+};
+
+export type LocalizedShortBlockContent = {
+  uk: ShortBlock[];
+  ru: ShortBlock[];
+};
