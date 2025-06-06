@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
-import { getAllPublications } from "@/lib/sanity/queries/queries";
+import { getPaginatedPublications } from "@/lib/sanity/queries/queries";
+import { HOME_PUBLICATIONS_PER_PAGE } from "@/constants/pagination";
 import { mapItemToCardProps } from "@/utils/mapItemToCardProps";
 import { Locale } from "@/types/locale";
 
@@ -10,7 +11,9 @@ import PublicationCard from "../shared/card/PublicationCard";
 const HomePublications = async ({ lang }: { lang: Locale }) => {
   const t = await getTranslations("homepage.publications");
 
-  const publicationList = await getAllPublications();
+  const publicationList = await getPaginatedPublications(
+    HOME_PUBLICATIONS_PER_PAGE
+  );
 
   return (
     <section className="relative py-[120px] xl:pb-[158px] xl:pt-[200px]">
