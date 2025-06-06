@@ -15,8 +15,10 @@ const PublicationHero = ({
   mainImage,
   mainImageMobile,
 }: IPublicationHeroProps) => {
-  const defaultMobileImage = "/images/publication-hero-default-bg-mob.webp";
-  const defaultDesktopImage = "/images/publication-hero-default-bg-desk.webp";
+  const defaultMobileImage =
+    "/images/publicationPage/publication-hero-default-bg-mob.webp";
+  const defaultDesktopImage =
+    "/images/publicationPage/publication-hero-default-bg-desk.webp";
   const bgMobile = mainImageMobile?.url || defaultMobileImage;
   const bgDesktop = mainImage?.url || defaultDesktopImage;
 

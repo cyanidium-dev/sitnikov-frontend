@@ -27,7 +27,7 @@ const PublicationContent = ({
           ))}
         </section>
 
-        {gallery && (
+        {gallery && gallery?.length > 0 && (
           <GallerySlider
             wrapperClassName="mb-[46px]"
             gallery={gallery}
