@@ -46,6 +46,38 @@ export const getAllPublications = async (): Promise<PublicationItem[]> => {
     `);
 };
 
+export const getPaginatedPublications = async (
+  limit = 3
+): Promise<PublicationItem[]> => {
+  return await client.fetch<PublicationItem[]>(
+    `
+      *[_type == "post"] | order(_createdAt desc)[0...$limit] {
+        title,
+        previewImage{
+          "url": asset->url,
+          description
+        },
+        mainImage{
+          "url": asset->url,
+          description
+        },
+        mainImageMobile{
+          "url": asset->url,
+          description
+        },
+        "slug": slug.current,
+        description,
+        content,
+        gallery[]{
+          "url": asset->url,
+          description
+        }
+      }
+    `,
+    { limit }
+  );
+};
+
 export const getPublicationBySlug = async (
   slug: string
 ): Promise<PublicationItem> => {
