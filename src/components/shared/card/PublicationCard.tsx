@@ -19,15 +19,15 @@ const PublicationCard = ({
   title,
   href,
 }: IPublicationCardProps) => {
+  const defaultCardImage =
+    "/images/publications/publication-card-default-image.webp";
+
   return (
     <article className="h-full">
       <InfoBox variant="withImage" classname="relative h-full flex flex-col">
         <div className="relative -mx-6 -mt-6 h-[200px] shrink-0">
           <Image
-            src={
-              imgSrc ||
-              "/images/publications/publication-card-default-image.webp"
-            }
+            src={imgSrc || defaultCardImage}
             alt="картинка до публікації"
             fill
             sizes="400px"

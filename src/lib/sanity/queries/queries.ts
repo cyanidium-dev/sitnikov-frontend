@@ -1,4 +1,8 @@
-import { GalleryItem, PublicationItem } from "@/lib/sanity/types/queryTypes";
+import {
+  AnnouncementItem,
+  GalleryItem,
+  PublicationItem,
+} from "@/lib/sanity/types/queryTypes";
 
 import { client } from "../../sanity";
 
@@ -83,11 +87,14 @@ export const getAllPublicationSlugs = async (): Promise<{ slug: string }[]> => {
   );
 };
 
-export const getAllAnnouncement = async () => {
-  return await client.fetch(`
+export const getAllAnnouncements = async (): Promise<AnnouncementItem[]> => {
+  return await client.fetch<AnnouncementItem[]>(`
     *[_type == "announcement"] | order(startDate desc) {
       title,
       description,
-      startDate
+      startDate,
+      previewImage{
+         "url": asset->url
+        },
     }`);
 };

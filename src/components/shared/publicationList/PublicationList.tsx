@@ -1,11 +1,15 @@
-import { PublicationItem } from "@/lib/sanity/types/queryTypes";
+import {
+  AnnouncementItem,
+  PublicationItem,
+} from "@/lib/sanity/types/queryTypes";
 import { cn } from "@/utils/cn";
+import { mapItemToCardProps } from "@/utils/mapItemToCardProps";
 import { Locale } from "@/types/locale";
 
 import PublicationCard from "../card/PublicationCard";
 
 interface IPublicationListProps {
-  data: PublicationItem[];
+  data: PublicationItem[] | AnnouncementItem[];
   lang: Locale;
   className?: string;
 }
@@ -18,17 +22,15 @@ const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
 
   return (
     <ul className={listStyles}>
-      {data.map(({ description, title, slug, mainImageMobile }) => (
-        <li key={slug} className="mx-auto w-full max-w-[400px]">
-          <PublicationCard
-            description={description[lang]}
-            imgSrc={mainImageMobile?.url}
-            info={"6 хв на читання"}
-            title={title[lang]}
-            href={`/${lang}/publications/${slug}`}
-          />
-        </li>
-      ))}
+      {data.map(item => {
+        const cardProps = mapItemToCardProps(item, lang);
+
+        return (
+          <li key={item.title[lang]} className="mx-auto w-full max-w-[400px]">
+            <PublicationCard {...cardProps} />
+          </li>
+        );
+      })}
     </ul>
   );
 };

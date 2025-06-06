@@ -2,15 +2,22 @@
 
 import { usePaginationPage } from "@/hooks/usePaginationPage";
 
-import { PublicationItem } from "@/lib/sanity/types/queryTypes";
-import { PUBLICATIONS_PER_PAGE } from "@/constants/pagination";
+import {
+  AnnouncementItem,
+  PublicationItem,
+} from "@/lib/sanity/types/queryTypes";
+import {
+  ANNOUNCEMENTS_PER_PAGE,
+  PUBLICATIONS_PER_PAGE,
+} from "@/constants/pagination";
+import { isPublicationList } from "@/utils/isPublicationList";
 import { Locale } from "@/types/locale";
 
 import Pagination from "../paginator/Paginator";
 import PublicationList from "./PublicationList";
 
 interface IPublicationsPaginatedListProps {
-  publicationList: PublicationItem[];
+  publicationList: PublicationItem[] | AnnouncementItem[];
   lang: Locale;
 }
 
@@ -18,13 +25,18 @@ const PublicationsPaginatedList = ({
   publicationList,
   lang,
 }: IPublicationsPaginatedListProps) => {
-  const totalPages = Math.ceil(publicationList.length / PUBLICATIONS_PER_PAGE);
+  const isPublications = isPublicationList(publicationList);
+  const itemsPerPage = isPublications
+    ? PUBLICATIONS_PER_PAGE
+    : ANNOUNCEMENTS_PER_PAGE;
+
+  const totalPages = Math.ceil(publicationList.length / itemsPerPage);
   const { currentPage, changePage } = usePaginationPage(totalPages);
 
-  const startIdx = (currentPage - 1) * PUBLICATIONS_PER_PAGE;
+  const startIdx = (currentPage - 1) * itemsPerPage;
   const paginatedData = publicationList.slice(
     startIdx,
-    startIdx + PUBLICATIONS_PER_PAGE
+    startIdx + itemsPerPage
   );
 
   return (
