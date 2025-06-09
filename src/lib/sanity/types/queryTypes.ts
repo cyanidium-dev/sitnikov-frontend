@@ -45,6 +45,6 @@ export type CourseItem = {
   };
   secondBlock: {
     title: LocalizedString;
-    accordion: AccordionContent;
+    accordion: AccordionContent[];
   };
 };

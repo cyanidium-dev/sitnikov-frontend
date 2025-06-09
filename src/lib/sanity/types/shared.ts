@@ -42,5 +42,5 @@ export type LocalizedShortBlockContent = {
 export type AccordionContent = {
   tags: LocalizedString[];
   title: LocalizedString;
-  videoUrl: string;
+  videoUrl?: string;
 };
