@@ -11,7 +11,7 @@ export default {
     extend: {
       screens: {
         sm: "360px",
-        md: "786px",
+        md: "768px",
         xl: "1280px",
       },
       colors: {
