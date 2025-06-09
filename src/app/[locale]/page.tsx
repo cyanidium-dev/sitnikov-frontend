@@ -8,7 +8,7 @@ import HeroPublications from "@/components/homepage/HomePublications";
 import HeroTopCTA from "@/components/homepage/HomeTopCTA";
 import { Locale } from "@/types/locale";
 
-export default async function Homeasync({
+export default async function Home({
   params,
 }: {
   params: Promise<{ locale: Locale }>;
