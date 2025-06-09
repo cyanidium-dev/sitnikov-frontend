@@ -15,7 +15,7 @@ const EducationFilter = ({
   currentCourseCategory,
 }: IEducationFilterProps) => {
   return (
-    <div className="mb-6 overflow-x-auto">
+    <div className="mb-4 overflow-x-auto xl:mb-[54px]">
       <div className="flex w-[928px] flex-row gap-4">
         {CATEGORIES.map(category => (
           <ButtonOrLink

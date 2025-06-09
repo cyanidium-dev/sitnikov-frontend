@@ -1,13 +1,7 @@
-import EducationContent from "@/components/educationPage/EducationContent";
-import EducationHero from "@/components/educationPage/EducationHero";
+import { redirect } from "next/navigation";
 
 const EducationPage = () => {
-  return (
-    <>
-      <EducationHero />
-      <EducationContent />
-    </>
-  );
+  redirect("/education/free-courses");
 };
 
 export default EducationPage;

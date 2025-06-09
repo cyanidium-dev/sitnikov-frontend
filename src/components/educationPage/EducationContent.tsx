@@ -46,15 +46,11 @@ const EducationContent = () => {
   const lang = params.locale as Locale;
   const selectedCategory = params.category as string | undefined;
 
-  const [allCourses, setAllCourses] = useState<CourseItem[]>([]);
+  const [courses, setCourses] = useState<CourseItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentCourseCategory, setCurrentCourseCategory] = useState<
     string | null
   >(selectedCategory || null);
-
-  const filteredCourses = allCourses.filter(
-    course => course.courseType?.slug === currentCourseCategory
-  );
 
   useEffect(() => {
     async function fetchCourses() {
@@ -64,7 +60,7 @@ const EducationContent = () => {
       try {
         const res = await fetch(`/api/courses/${currentCourseCategory}`);
         const data: CourseItem[] = await res.json();
-        setAllCourses(data);
+        setCourses(data);
       } catch (error) {
         console.error("Error fetching courses:", error);
       } finally {
@@ -93,7 +89,7 @@ const EducationContent = () => {
           <p>Загрузка...</p>
         ) : (
           <ul>
-            {filteredCourses.map(course => (
+            {courses.map(course => (
               <li key={course.title.uk}>{course.title[lang]}</li>
             ))}
           </ul>
