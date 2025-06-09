@@ -132,9 +132,12 @@ export const getAllAnnouncements = async (): Promise<AnnouncementItem[]> => {
     }`);
 };
 
-export const getCoursesByCategory = async (): Promise<CourseItem[]> => {
-  return await client.fetch<CourseItem[]>(`
-    *[_type == "course"] {
+export const getCoursesByCategory = async (
+  categorySlug: string
+): Promise<CourseItem[]> => {
+  return await client.fetch<CourseItem[]>(
+    `
+    *[_type == "course" && courseType->slug.current == $categorySlug] {
       title,
       description,
       "courseType": {
@@ -169,5 +172,7 @@ export const getCoursesByCategory = async (): Promise<CourseItem[]> => {
         accordion
       }
     }
-  `);
+  `,
+    { categorySlug }
+  );
 };

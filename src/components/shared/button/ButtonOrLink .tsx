@@ -9,7 +9,7 @@ interface ButtonOrLinkProps {
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit";
-  variant?: "dark" | "light" | "transparent";
+  variant?: "dark" | "light" | "transparent" | "light-gradient";
   disabled?: boolean;
   isLoading?: boolean;
   ariaLabel?: string;
@@ -33,9 +33,11 @@ const ButtonOrLink = ({
     variant === "dark" &&
       "relative text-white before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:bg-[linear-gradient(94.05deg,_#091129_-15.57%,_#001C58_140.61%)] after:content-['']",
     variant === "light" &&
-      "text-dark after:bg-light relative before:absolute before:inset-0 before:z-[-1] before:rounded-full before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:p-[1px] before:content-[''] after:absolute after:inset-[1px] after:z-[-1] after:rounded-full after:content-['']",
+      "text-dark after:bg-light relative before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:z-[-1] after:rounded-full after:content-['']",
     variant === "transparent" &&
       "border-1 border-light text-light border border-solid bg-transparent",
+    variant === "light-gradient" &&
+      "relative text-dark before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(128.72deg,_rgba(33,_55,_103,_0.5)_-16.95%,_rgba(203,_219,_255,_0.5)_104.2%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:content-[''] after:bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]",
     disabled || isLoading ? "opacity-50 cursor-not-allowed" : "",
     className
   );

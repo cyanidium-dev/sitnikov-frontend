@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 import { CourseItem } from "@/lib/sanity/types/queryTypes";
+import { Locale } from "@/types/locale";
 
-const CATEGORIES = [
+import EducationFilter from "./EducationFilter";
+
+export const CATEGORIES = [
   {
     value: "free-courses",
     label: {
@@ -37,37 +40,65 @@ const CATEGORIES = [
 ];
 
 const EducationContent = () => {
-  const [currentCourseCategory, setCurrentCourseCategory] = useState();
-  console.log(
-    `🚀 ~ EducationContent ~ currentCourseCategory:`,
-    currentCourseCategory
-  );
-  const [loading, setLoading] = useState(true);
+  const router = useRouter();
   const params = useParams();
-  console.log(`🚀 ~ EducationContent ~ params:`, params);
+
+  const lang = params.locale as Locale;
+  const selectedCategory = params.category as string | undefined;
+
+  const [allCourses, setAllCourses] = useState<CourseItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [currentCourseCategory, setCurrentCourseCategory] = useState<
+    string | null
+  >(selectedCategory || null);
+
+  const filteredCourses = allCourses.filter(
+    course => course.courseType?.slug === currentCourseCategory
+  );
 
   useEffect(() => {
     async function fetchCourses() {
+      if (!currentCourseCategory) return;
+
+      setLoading(true);
       try {
-        const res = await fetch("/api/courses");
+        const res = await fetch(`/api/courses/${currentCourseCategory}`);
         const data: CourseItem[] = await res.json();
-        console.log(`🚀 ~ fetchCourses ~ data:`, data);
-        // setCourseCategory(data);
+        setAllCourses(data);
       } catch (error) {
-        console.error("Ошибка загрузки курсов:", error);
+        console.error("Error fetching courses:", error);
       } finally {
         setLoading(false);
       }
     }
 
     fetchCourses();
-  }, []);
+  }, [currentCourseCategory]);
 
-  if (loading) return <div>Загрузка...</div>;
+  const handleCategoryChange = (categoryValue: string) => {
+    setCurrentCourseCategory(categoryValue);
+    router.push(`/${lang}/education/${categoryValue}`);
+  };
 
   return (
-    <section>
-      <div className="container max-w-[1280px]"></div>
+    <section className="pb-[120px] pt-[50px] xl:pb-[200px] xl:pt-[100px]">
+      <div className="container max-w-[1280px]">
+        <EducationFilter
+          onClick={handleCategoryChange}
+          currentCourseCategory={currentCourseCategory}
+          lang={lang}
+        />
+
+        {loading ? (
+          <p>Загрузка...</p>
+        ) : (
+          <ul>
+            {filteredCourses.map(course => (
+              <li key={course.title.uk}>{course.title[lang]}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </section>
   );
 };
