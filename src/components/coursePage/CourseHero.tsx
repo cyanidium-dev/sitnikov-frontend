@@ -1,14 +1,18 @@
-const CourseHero = () => {
+interface ICourseHeroProps {
+  title: string;
+  descr: string;
+}
+
+const CourseHero = ({ title, descr }: ICourseHeroProps) => {
   return (
     <section className="relative h-[771px] overflow-hidden rounded-b-2xl bg-dark pt-[136px] text-light md:h-[520px]">
       <div className="container max-w-[1280px]">
         <div className="relative z-10 w-[300px] md:ml-auto md:w-[464px] md:text-right">
           <h1 className="mb-6 font-micra text-[22px] uppercase md:mb-[21px] md:text-[32px] xl:text-[40px]">
-            Вступ до юриспруденції
+            {title}
           </h1>
           <p className="ml-auto max-w-[236px] text-[14px] font-light max-md:mr-[110px]">
-            Дізнайся, що таке право, які існують його галузі, та яку роль
-            відіграє юрист у суспільстві.
+            {descr}
           </p>
         </div>
       </div>
