@@ -2,18 +2,24 @@
 
 import { useState } from "react";
 
+import { AccordionContent } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
+import { Locale } from "@/types/locale";
 
+import AccordionCourseRow from "./AccordionCourseRow";
 import AccordionRow from "./AccordionRow";
 import { AccordionItem } from "./type";
 
 interface IAccordionProps {
-  data: AccordionItem[];
+  data: AccordionItem[] | AccordionContent[];
   className?: string;
+  lang?: Locale;
 }
 
-const Accordion = ({ data, className }: IAccordionProps) => {
+const Accordion = ({ data, className, lang }: IAccordionProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const isCourse = "tags" in data[0];
 
   const handleToggle = (index: number) => {
     setOpenIndex(prevIndex => (prevIndex === index ? null : index));
@@ -21,14 +27,24 @@ const Accordion = ({ data, className }: IAccordionProps) => {
 
   return (
     <ul className={cn("flex flex-col gap-10", className)}>
-      {data.map((data, index) => (
-        <AccordionRow
-          key={index}
-          data={data}
-          isOpen={openIndex === index}
-          onClick={() => handleToggle(index)}
-        />
-      ))}
+      {isCourse
+        ? data.map((item, index) => (
+            <AccordionCourseRow
+              key={index}
+              data={item as AccordionContent}
+              lang={lang}
+              isOpen={openIndex === index}
+              onClick={() => handleToggle(index)}
+            />
+          ))
+        : data.map((item, index) => (
+            <AccordionRow
+              key={index}
+              data={item as AccordionItem}
+              isOpen={openIndex === index}
+              onClick={() => handleToggle(index)}
+            />
+          ))}
     </ul>
   );
 };
