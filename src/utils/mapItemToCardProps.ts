@@ -5,6 +5,8 @@ import {
 import { formatStartDate } from "@/utils/dateFormatter";
 import { Locale } from "@/types/locale";
 
+import { getReadingTimeMinutes } from "./getReadingTimeMinutes";
+
 interface MappedCardProps {
   title: string;
   description: string;
@@ -27,7 +29,8 @@ export const mapItemToCardProps = (
 
   const info = isAnnouncement
     ? formatStartDate(item.startDate, lang)
-    : "6 хв на читання"; // Change on timeRead when it'll be ready
+    : getReadingTimeMinutes(item.content, lang);
+  // : "6 хв на читання"; // Change on timeRead when it'll be ready
 
   const href = isAnnouncement
     ? undefined

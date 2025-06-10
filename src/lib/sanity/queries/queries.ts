@@ -38,7 +38,14 @@ export const getAllPublications = async (): Promise<PublicationItem[]> => {
         },
         "slug": slug.current,
         description,
-        content,
+        "content": {
+          "uk": content.uk[]{
+            "text": children[].text
+          },
+          "ru": content.ru[]{
+            "text": children[].text
+          }
+        },
         gallery[]{
           "url": asset->url,
           description
@@ -130,6 +137,10 @@ export const getAllAnnouncements = async (): Promise<AnnouncementItem[]> => {
          "url": asset->url
         },
     }`);
+};
+
+export const getAllCourses = async () => {
+  return await client.fetch(`*[_type == "course"]`);
 };
 
 export const getCoursesByCategory = async (

@@ -6,6 +6,7 @@ import {
   getAllPublicationSlugs,
   getPublicationBySlug,
 } from "@/lib/sanity/queries/queries";
+import { getReadingTimeMinutes } from "@/utils/getReadingTimeMinutes";
 import { Locale } from "@/types/locale";
 
 export async function generateMetadata({
@@ -64,6 +65,8 @@ const PublicationPage = async ({
   const { title, description, content, gallery, mainImage, mainImageMobile } =
     post;
 
+  const readingTime = getReadingTimeMinutes(content, locale);
+
   return (
     <>
       <PublicationHero
@@ -71,6 +74,7 @@ const PublicationPage = async ({
         description={description[locale]}
         mainImage={mainImage}
         mainImageMobile={mainImageMobile}
+        readingTime={readingTime}
       />
       <PublicationContent
         content={content[locale]}
