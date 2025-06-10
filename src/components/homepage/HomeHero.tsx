@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { ROUTES } from "@/constants/routes";
+
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 
 const HomeHero = async () => {
@@ -21,7 +23,9 @@ const HomeHero = async () => {
           <h1 className="font-micra text-2xl leading-[1.22] text-light xl:text-[44px]">
             {t("title")}
           </h1>
-          <ButtonOrLink>{t("button")}</ButtonOrLink>
+          <ButtonOrLink href={ROUTES.FREE_EDUCATION}>
+            {t("button")}
+          </ButtonOrLink>
         </div>
       </div>
 

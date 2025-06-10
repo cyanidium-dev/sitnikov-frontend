@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { ROUTES } from "@/constants/routes";
+
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 
 const HomeKnowledge = async () => {
@@ -19,7 +21,9 @@ const HomeKnowledge = async () => {
           </div>
 
           <div className="relative z-[1] max-w-[374px]">
-            <ButtonOrLink variant="light">{t("button")}</ButtonOrLink>
+            <ButtonOrLink href={ROUTES.FREE_EDUCATION} variant="light">
+              {t("button")}
+            </ButtonOrLink>
           </div>
         </div>
       </div>
