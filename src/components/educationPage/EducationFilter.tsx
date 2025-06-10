@@ -1,7 +1,7 @@
+import { COURSE_CATEGORIES } from "@/constants/courseCategories";
 import { Locale } from "@/types/locale";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
-import { CATEGORIES } from "./EducationContent";
 
 interface IEducationFilterProps {
   onClick: (val: string) => void;
@@ -17,7 +17,7 @@ const EducationFilter = ({
   return (
     <div className="mb-4 overflow-x-auto xl:mb-[54px]">
       <div className="flex w-[928px] flex-row gap-4">
-        {CATEGORIES.map(category => (
+        {COURSE_CATEGORIES.map(category => (
           <ButtonOrLink
             key={category.value}
             onClick={() => onClick(category.value)}
