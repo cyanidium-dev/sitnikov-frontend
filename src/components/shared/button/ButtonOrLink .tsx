@@ -60,7 +60,12 @@ const ButtonOrLink = ({
     }
 
     return (
-      <Link href={href} aria-label={ariaLabel} className={baseStyles}>
+      <Link
+        href={href}
+        aria-label={ariaLabel}
+        onClick={onClick}
+        className={baseStyles}
+      >
         {content}
       </Link>
     );
