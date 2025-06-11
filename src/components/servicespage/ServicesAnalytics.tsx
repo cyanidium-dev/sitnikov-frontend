@@ -1,5 +1,7 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
+import { APPLICATION } from "@/constants/application";
+
 import ModalTrigger from "../module/modal/ModalTrigger";
 import ServiceList from "./ServiceList";
 
@@ -29,6 +31,7 @@ const ServicesAnalytics = async () => {
           variant="service"
           buttonVariant="light"
           buttonClassName="bg-light text-dark xl:ml-auto xl:max-w-[509px]"
+          messageFrom={APPLICATION.SERVICE}
         />
       </div>
     </section>

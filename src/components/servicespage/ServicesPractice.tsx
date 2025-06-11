@@ -1,5 +1,7 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
+import { APPLICATION } from "@/constants/application";
+
 import ModalTrigger from "../module/modal/ModalTrigger";
 import ServiceList from "./ServiceList";
 
@@ -30,6 +32,7 @@ const ServicesPractice = async () => {
         <ModalTrigger
           variant="service"
           buttonClassName="md:mr-auto md:w-[343px]"
+          messageFrom={APPLICATION.SERVICE}
         />
       </div>
 

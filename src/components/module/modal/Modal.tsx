@@ -4,23 +4,27 @@ import { RefObject, useEffect } from "react";
 
 import ModalForm from "./ModalForm";
 
-type ModalProps = {
+interface IModalProps {
   title: string;
   description: string;
   buttonText: string;
-  priceText?: string;
   onClose: () => void;
   dialogRef: RefObject<HTMLDialogElement | null>;
-};
+  messageFrom: string;
+  priceText?: string;
+  courseUrl?: string;
+}
 
-export function Modal({
+const Modal = ({
   title,
   description,
   buttonText,
   priceText,
   dialogRef,
   onClose,
-}: ModalProps) {
+  courseUrl,
+  messageFrom,
+}: IModalProps) => {
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
@@ -73,8 +77,12 @@ export function Modal({
           buttonText={buttonText}
           priceText={priceText}
           closeDialog={onClose}
+          courseUrl={courseUrl}
+          messageFrom={messageFrom}
         />
       </div>
     </dialog>
   );
-}
+};
+
+export default Modal;

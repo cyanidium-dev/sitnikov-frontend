@@ -8,16 +8,26 @@ import useModalFormSchema, {
 } from "@/schemas/useModalFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import sendTelegramMessage from "@/lib/telegram/sendTelegramMessage";
+
 import ButtonOrLink from "../../shared/button/ButtonOrLink ";
 import FormField from "../../shared/formField/FormField";
 
 interface IModalFormProps {
   buttonText: string;
-  priceText?: string;
+  messageFrom: string;
   closeDialog: () => void;
+  priceText?: string;
+  courseUrl?: string;
 }
 
-const ModalForm = ({ buttonText, closeDialog, priceText }: IModalFormProps) => {
+const ModalForm = ({
+  buttonText,
+  closeDialog,
+  priceText,
+  courseUrl,
+  messageFrom,
+}: IModalFormProps) => {
   const t = useTranslations("form");
 
   const validationSchema = useModalFormSchema();
@@ -27,10 +37,21 @@ const ModalForm = ({ buttonText, closeDialog, priceText }: IModalFormProps) => {
   });
   const { handleSubmit, reset } = methods;
 
-  const onSubmit = (data: ModalFormSchema) => {
-    console.log("Форма отправлена", data);
-    reset();
-    closeDialog();
+  const onSubmit = async (data: ModalFormSchema) => {
+    const fullData = { messageFrom, ...data, course: courseUrl };
+
+    const success = await sendTelegramMessage(fullData);
+
+    if (success) {
+      // setSent(true);
+      reset();
+      closeDialog();
+    } else {
+      alert("Ошибка при отправке");
+    }
+
+    // console.log(`🚀 ~ onSubmit ~ fullData:`, fullData);
+    // reset();
   };
 
   return (

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink ";
 
-import { Modal } from "./Modal";
+import Modal from "./Modal";
 
 type Variant = "course" | "consultation" | "service";
 
@@ -16,7 +16,6 @@ const modalVariants: Record<
     title: string;
     description: string;
     modalButton: string;
-    priceText?: string;
     buttonClass?: string;
   }
 > = {
@@ -25,8 +24,6 @@ const modalVariants: Record<
     title: "course.title",
     description: "course.description",
     modalButton: "course.modalButton",
-    // priceText: undefined,
-    // buttonClass: "bg-blue-600 text-white",
   },
   consultation: {
     buttonText: "consultation.triggerButton",
@@ -44,14 +41,18 @@ const modalVariants: Record<
 
 interface IModalTriggerProps {
   variant: Variant;
-  buttonVariant?: "dark" | "light" | "transparent" | "light-gradient";
   buttonClassName?: string;
+  messageFrom: string;
+  buttonVariant?: "dark" | "light" | "transparent" | "light-gradient";
+  courseUrl?: string;
 }
 
 const ModalTrigger = ({
   variant,
   buttonVariant = "dark",
   buttonClassName,
+  courseUrl,
+  messageFrom,
 }: IModalTriggerProps) => {
   const t = useTranslations("modal");
   const config = modalVariants[variant];
@@ -82,9 +83,10 @@ const ModalTrigger = ({
         title={t(config.title)}
         description={t(config.description)}
         buttonText={t(config.modalButton)}
-        priceText={config.priceText}
         dialogRef={dialogRef}
         onClose={closeDialog}
+        courseUrl={courseUrl}
+        messageFrom={messageFrom}
       />
     </>
   );

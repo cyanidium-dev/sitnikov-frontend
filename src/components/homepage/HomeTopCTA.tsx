@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { APPLICATION } from "@/constants/application";
+
 import ModalTrigger from "../module/modal/ModalTrigger";
 
 const HomeTopCTA = async () => {
@@ -21,6 +23,7 @@ const HomeTopCTA = async () => {
           variant="consultation"
           buttonVariant="light"
           buttonClassName="max-w-[374px]"
+          messageFrom={APPLICATION.CONSULTATION}
         />
       </div>
 

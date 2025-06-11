@@ -3,10 +3,12 @@ export async function POST(req: Request): Promise<Response> {
     const body = (await req.json()) as {
       name: string;
       phone: string;
+      messageFrom: string;
       message?: string;
+      course?: string;
     };
 
-    const { name, phone, message } = body;
+    const { name, phone, message, course, messageFrom } = body;
 
     const token = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -19,12 +21,16 @@ export async function POST(req: Request): Promise<Response> {
       );
     }
 
-    const text = `
-    💬 Новое сообщение с сайта:
-    👤 Имя: ${name}
-    📞 Телефон: ${phone || "-"}
-    📝 Сообщение: ${message}
-    `;
+    let text = `
+💬 ${messageFrom}: 
+👤 Имя: ${name}
+📞 Телефон: ${phone}
+📝 Сообщение: ${message || "-"}
+    `.trim();
+
+    if (course) {
+      text += `\n🎓 Курс: ${course}`;
+    }
 
     const telegramRes = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
