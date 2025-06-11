@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { BeatLoader } from "react-spinners";
 import { useTranslations } from "next-intl";
 
 import useModalFormSchema, {
@@ -28,6 +30,8 @@ const ModalForm = ({
   courseUrl,
   messageFrom,
 }: IModalFormProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const t = useTranslations("form");
 
   const validationSchema = useModalFormSchema();
@@ -38,20 +42,19 @@ const ModalForm = ({
   const { handleSubmit, reset } = methods;
 
   const onSubmit = async (data: ModalFormSchema) => {
+    setIsLoading(true);
     const fullData = { messageFrom, ...data, course: courseUrl };
 
     const success = await sendTelegramMessage(fullData);
 
     if (success) {
-      // setSent(true);
       reset();
       closeDialog();
     } else {
       alert("Ошибка при отправке");
     }
 
-    // console.log(`🚀 ~ onSubmit ~ fullData:`, fullData);
-    // reset();
+    setIsLoading(false);
   };
 
   return (
@@ -83,17 +86,9 @@ const ModalForm = ({
           </span>
         )}
 
-        <ButtonOrLink className="bg-dark" type="submit">
-          {buttonText}
+        <ButtonOrLink className="bg-dark" type="submit" disabled={isLoading}>
+          {isLoading ? <BeatLoader color="#5188FF" /> : buttonText}
         </ButtonOrLink>
-
-        {/* <button
-      type="submit"
-      disabled={isSubmitting}
-      className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
-    >
-      {isSubmitting ? "Отправка..." : buttonText}
-    </button> */}
       </form>
     </FormProvider>
   );

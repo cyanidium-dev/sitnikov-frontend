@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { BeatLoader } from "react-spinners";
 
 import useFeedbackFormSchema, {
   FeedbackFormSchema,
@@ -24,7 +25,7 @@ const ContactFeedbackForm = ({
   formPlaceholder,
   btnText,
 }: IContactFeedbackFormProps) => {
-  const [sent, setSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const validationSchema = useFeedbackFormSchema();
 
   const methods = useForm<FeedbackFormSchema>({
@@ -33,14 +34,16 @@ const ContactFeedbackForm = ({
   const { handleSubmit, reset } = methods;
 
   const onSubmit = async (data: FeedbackFormSchema) => {
+    setIsLoading(true);
     const success = await sendTelegramMessage(data);
 
     if (success) {
-      setSent(true);
       reset();
     } else {
       alert("Ошибка при отправке");
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -68,7 +71,9 @@ const ContactFeedbackForm = ({
 
         <FormTextarea name="message" placeholder="Повідомлення" />
 
-        <ButtonOrLink type="submit">{btnText}</ButtonOrLink>
+        <ButtonOrLink type="submit" disabled={isLoading}>
+          {isLoading ? <BeatLoader color="#5188FF" /> : btnText}
+        </ButtonOrLink>
       </form>
     </FormProvider>
   );
