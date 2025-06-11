@@ -6,10 +6,10 @@ import { z } from "zod";
 
 import { nameRegex, onlyDigitsRegex } from "@/regex/regex";
 
-const useFeedbackFormSchema = () => {
+const useModalFormSchema = () => {
   const t = useTranslations("form.formValidation");
 
-  const feedbackFormSchema = z.object({
+  const modalFormSchema = z.object({
     name: z
       .string()
       .min(2, t("nameMinMaxValidation"))
@@ -21,14 +21,11 @@ const useFeedbackFormSchema = () => {
       .min(7, t("phoneMinMaxValidation"))
       .max(15, t("phoneMinMaxValidation"))
       .regex(onlyDigitsRegex, t("phoneOnlyDigits")),
-    message: z.string().max(1000, t("messageValidation")).nullable(),
   });
 
-  return feedbackFormSchema;
+  return modalFormSchema;
 };
 
-export type FeedbackFormSchema = z.infer<
-  ReturnType<typeof useFeedbackFormSchema>
->;
+export type ModalFormSchema = z.infer<ReturnType<typeof useModalFormSchema>>;
 
-export default useFeedbackFormSchema;
+export default useModalFormSchema;
