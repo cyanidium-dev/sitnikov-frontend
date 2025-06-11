@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 import useFeedbackFormSchema, {
   FeedbackFormSchema,
 } from "@/schemas/useFeedbackFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import sendTelegramMessage from "@/lib/telegram/sendTelegramMessage";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 import FormField from "../shared/formField/FormField";
@@ -21,6 +24,7 @@ const ContactFeedbackForm = ({
   formPlaceholder,
   btnText,
 }: IContactFeedbackFormProps) => {
+  const [sent, setSent] = useState(false);
   const validationSchema = useFeedbackFormSchema();
 
   const methods = useForm<FeedbackFormSchema>({
@@ -28,9 +32,15 @@ const ContactFeedbackForm = ({
   });
   const { handleSubmit, reset } = methods;
 
-  const onSubmit = (data: FeedbackFormSchema) => {
-    console.log(data);
-    reset();
+  const onSubmit = async (data: FeedbackFormSchema) => {
+    const success = await sendTelegramMessage(data);
+
+    if (success) {
+      setSent(true);
+      reset();
+    } else {
+      alert("Ошибка при отправке");
+    }
   };
 
   return (

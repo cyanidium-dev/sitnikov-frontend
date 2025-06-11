@@ -26,7 +26,7 @@ const ServicesAnalytics = async () => {
         />
 
         <ModalTrigger
-          variant="newsletter"
+          variant="service"
           buttonVariant="light"
           buttonClassName="bg-light text-dark xl:ml-auto xl:max-w-[509px]"
         />

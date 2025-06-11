@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { ROUTES } from "@/constants/routes";
 
+import ModalTrigger from "../module/modal/ModalTrigger";
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 
 const HomeBottomCTA = async () => {
@@ -18,7 +19,7 @@ const HomeBottomCTA = async () => {
         </div>
 
         <div className="relative z-[1] flex max-w-[374px] flex-col gap-4">
-          <ButtonOrLink variant="light">{t("buttonConsultation")}</ButtonOrLink>
+          <ModalTrigger variant="consultation" buttonVariant="light" />
           <ButtonOrLink href={ROUTES.FREE_EDUCATION} variant="transparent">
             {t("buttonCourse")}
           </ButtonOrLink>

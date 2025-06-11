@@ -19,7 +19,7 @@ const ServicesHero = async () => {
               {t("descr")}
             </p>
 
-            <div className="absolute max-md:hidden md:-bottom-[190px] md:-left-[410px] md:h-[488px] md:w-[503px] md:bg-[url('/images/servicespage/services-hero-person-desk.webp')]" />
+            <div className="absolute max-md:hidden md:-left-[410px] md:-top-[152px] md:h-[488px] md:w-[503px] md:bg-[url('/images/servicespage/services-hero-person-desk.webp')] xl:-top-[125px]" />
           </div>
         </div>
       </div>

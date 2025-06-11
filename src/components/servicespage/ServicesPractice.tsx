@@ -28,7 +28,7 @@ const ServicesPractice = async () => {
         </div>
 
         <ModalTrigger
-          variant="newsletter"
+          variant="service"
           buttonClassName="md:mr-auto md:w-[343px]"
         />
       </div>
