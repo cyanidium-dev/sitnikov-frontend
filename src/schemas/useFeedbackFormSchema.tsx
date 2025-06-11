@@ -14,14 +14,13 @@ const useFeedbackFormSchema = () => {
       .string()
       .min(2, t("nameMinMaxValidation"))
       .max(150, t("nameMinMaxValidation"))
-      .regex(nameRegex, t("nameAllowedSymbols"))
-      .nullable(),
+      .regex(nameRegex, t("nameAllowedSymbols")),
     phone: z
       .string()
       .min(7, t("phoneMinMaxValidation"))
       .max(15, t("phoneMinMaxValidation"))
       .regex(onlyDigitsRegex, t("phoneOnlyDigits")),
-    message: z.string().max(1000, t("messageValidation")).nullable(),
+    message: z.string().max(1000, t("messageValidation")),
   });
 
   return feedbackFormSchema;
