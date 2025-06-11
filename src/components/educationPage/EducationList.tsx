@@ -18,7 +18,7 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
         <li
           key={title[lang]}
           className={cn(
-            "flex flex-col items-center bg-dark px-11 py-16 text-light",
+            "flex flex-col items-center rounded-lg bg-dark px-11 py-16 text-light",
             styles.item
           )}
         >
