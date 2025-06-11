@@ -3,10 +3,15 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
+import { usePaginationPage } from "@/hooks/usePaginationPage";
+
 import { CourseItem } from "@/lib/sanity/types/queryTypes";
+import { COURSES_PER_PAGE } from "@/constants/pagination";
 import { Locale } from "@/types/locale";
 
+import Pagination from "../shared/paginator/Paginator";
 import EducationFilter from "./EducationFilter";
+import EducationList from "./EducationList";
 
 const EducationContent = () => {
   const router = useRouter();
@@ -20,6 +25,11 @@ const EducationContent = () => {
   const [currentCourseCategory, setCurrentCourseCategory] = useState<
     string | null
   >(selectedCategory || null);
+
+  const totalPages = Math.ceil(courses.length / COURSES_PER_PAGE);
+  const { currentPage, changePage } = usePaginationPage(totalPages);
+  const startIdx = (currentPage - 1) * COURSES_PER_PAGE;
+  const paginatedData = courses.slice(startIdx, startIdx + COURSES_PER_PAGE);
 
   useEffect(() => {
     async function fetchCourses() {
@@ -57,12 +67,14 @@ const EducationContent = () => {
         {loading ? (
           <p>Загрузка...</p>
         ) : (
-          <ul>
-            {courses.map(course => (
-              <li key={course.title.uk}>{course.title[lang]}</li>
-            ))}
-          </ul>
+          <EducationList courses={paginatedData} lang={lang} />
         )}
+
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={changePage}
+        />
       </div>
     </section>
   );
