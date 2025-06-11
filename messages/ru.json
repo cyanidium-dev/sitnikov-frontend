@@ -380,12 +380,20 @@
     }
   },
 
-  "formValidation": {
-    "nameMinMaxValidation": "Имя должно содержать от 2 до 150 символов",
-    "nameAllowedSymbols": "Допустимы буквы и дефис, апостроф, кавычки",
-    "phoneMinMaxValidation": "Номер должен содержать от 7 до 15 цифр",
-    "phoneOnlyDigits": "Поле может содержать только цифры",
-    "messageValidation": "Максимум 1000 символов"
+  "form": {
+    "formPlaceholder": {
+      "name": "Имя",
+      "tel": "Номер телефона",
+      "mes": "Сообщение"
+    },
+    "formValidation": {
+      "nameMinMaxValidation": "Имя должно содержать от 2 до 150 символов",
+      "nameAllowedSymbols": "Допустимы буквы и дефис, апостроф, кавычки",
+      "phoneMinMaxValidation": "Номер должен содержать от 7 до 15 цифр",
+      "phoneOnlyDigits": "Поле может содержать только цифры",
+      "messageValidation": "Максимум 1000 символов"
+    },
+    "price": "Сумма к оплате"
   },
 
   "buttons": {
