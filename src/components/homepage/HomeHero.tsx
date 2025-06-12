@@ -10,7 +10,7 @@ const HomeHero = async () => {
   const t = await getTranslations("homepage.hero");
 
   return (
-    <section className="relative h-dvh overflow-hidden pt-[108px] xl:pt-[185px]">
+    <section className="relative h-dvh min-h-[773px] overflow-hidden pt-[108px] xl:pt-[185px]">
       <div className="container flex h-full max-w-[1280px] flex-col leading-[1.22]">
         <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
           <p className="mb-5 max-w-[400px] font-micra text-[20px] xl:mb-7 xl:w-[251px]">
