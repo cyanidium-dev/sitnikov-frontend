@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 
 import { cn } from "@/utils/cn";
 
-type Direction = "up" | "down" | "left" | "right";
+export type AnimatedListDirection = "up" | "down" | "left" | "right";
 
 interface AnimatedListItemProps {
   children: ReactNode;
   className?: string;
-  direction?: Direction;
+  direction?: AnimatedListDirection;
 }
 
-const getVariants = (direction: Direction = "up") => {
+const getVariants = (direction: AnimatedListDirection = "up") => {
   const distance = 50;
 
   const offset = {
