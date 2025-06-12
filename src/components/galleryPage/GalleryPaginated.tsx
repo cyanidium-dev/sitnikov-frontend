@@ -3,7 +3,9 @@ import { nanoid } from "nanoid";
 import { GalleryItem } from "@/lib/sanity/types/queryTypes";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
+import { fadeInAnimation } from "@/helpers/animation";
 
+import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 import GallerySlider from "../shared/gallerySlider/GallerySlider";
 
 interface IGalleryPaginatedProps {
@@ -30,20 +32,24 @@ const GalleryPaginated = ({ data, lang, index }: IGalleryPaginatedProps) => {
       )}
 
       <div className="container relative z-[5] max-w-[1280px]">
-        <h2 className="mb-4 max-w-[680px] font-micra text-[22px] xl:text-[40px] xl:leading-[1.4]">
-          {title[lang]}
-        </h2>
-        <p className="mb-[52px] max-w-[431px] font-light xl:text-[20px]">
-          {description[lang]}
-        </p>
-      </div>
+        <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
+          <h2 className="mb-4 max-w-[680px] font-micra text-[22px] xl:text-[40px] xl:leading-[1.4]">
+            {title[lang]}
+          </h2>
+          <p className="mb-[52px] max-w-[431px] font-light xl:text-[20px]">
+            {description[lang]}
+          </p>
+        </AnimatedWrapper>
 
-      <GallerySlider
-        variant={isEven ? "light" : "dark"}
-        imgAlt={title[lang]}
-        gallery={images}
-        sliderId={sliderId}
-      />
+        <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.3 })}>
+          <GallerySlider
+            variant={isEven ? "light" : "dark"}
+            imgAlt={title[lang]}
+            gallery={images}
+            sliderId={sliderId}
+          />
+        </AnimatedWrapper>
+      </div>
 
       {isEven && (
         <div className="absolute -bottom-[240px] left-0 h-[411px] w-[360px] max-xl:bg-[url('/images/galleryPage/gallery-paginated-decor-bot-mob.webp')] xl:hidden" />
