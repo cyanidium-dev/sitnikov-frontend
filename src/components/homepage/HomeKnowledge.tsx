@@ -38,7 +38,8 @@ const HomeKnowledge = async () => {
       </div>
 
       <AnimatedWrapper
-        animation={fadeInAnimation({ x: 150, y: 150, delay: 0.7, scale: 0.8 })}
+        viewport={{ amount: 0.2 }}
+        animation={fadeInAnimation({ x: 50, y: 50, delay: 0.7, scale: 0.8 })}
         className="absolute -bottom-[145px] -right-[90px] z-10 h-[540px] w-[665px] bg-[url('/images/homepage/home-knowledge-femida-mob.webp')] bg-no-repeat xl:-bottom-[154px] xl:left-0 xl:h-[759px] xl:w-[682px] xl:bg-[url('/images/homepage/home-knowledge-femida-desk.webp')]"
       />
     </section>

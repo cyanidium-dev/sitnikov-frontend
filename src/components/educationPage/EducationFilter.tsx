@@ -23,7 +23,9 @@ const EducationFilter = ({
     <div className="mb-4 overflow-x-auto xl:mb-[54px]">
       <AnimatedWrapper
         as={motion.ul}
-        viewport={{ once: true, amount: 0.4 }}
+        initial="hidden"
+        animate="visible"
+        viewport={{ once: false, amount: 0 }}
         animation={listVariants({ staggerChildren: 0.35 })}
         className="flex w-[928px] flex-row gap-4"
       >

@@ -33,7 +33,7 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
             styles.item
           )}
         >
-          <h3 className="mb-4 font-micra text-[32px] uppercase">
+          <h3 className="mb-4 font-micra text-[22px] uppercase">
             {title[lang]}
           </h3>
           <p className="text-[20px] font-light">{description[lang]}</p>
