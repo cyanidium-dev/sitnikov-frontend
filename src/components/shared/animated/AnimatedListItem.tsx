@@ -4,26 +4,52 @@ import { ReactNode } from "react";
 
 import { motion } from "framer-motion";
 
+import { cn } from "@/utils/cn";
+
+type Direction = "up" | "down" | "left" | "right";
+
 interface AnimatedListItemProps {
   children: ReactNode;
-  className: string;
+  className?: string;
+  direction?: Direction;
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1 },
-  },
+const getVariants = (direction: Direction = "up") => {
+  const distance = 50;
+
+  const offset = {
+    up: { y: distance, x: 0 },
+    down: { y: -distance, x: 0 },
+    left: { x: distance, y: 0 },
+    right: { x: -distance, y: 0 },
+  }[direction];
+
+  return {
+    hidden: {
+      opacity: 0,
+      ...offset,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
 };
 
 const AnimatedListItem = ({
   children,
-  className = "",
+  className,
+  direction = "up",
 }: AnimatedListItemProps) => {
   return (
-    <motion.li variants={itemVariants} className={className}>
+    <motion.li
+      variants={getVariants(direction)}
+      className={cn("list-none", className)}
+    >
       {children}
     </motion.li>
   );

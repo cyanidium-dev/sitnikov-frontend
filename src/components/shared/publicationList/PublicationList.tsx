@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import {
   AnnouncementItem,
   PublicationItem,
@@ -5,7 +7,10 @@ import {
 import { cn } from "@/utils/cn";
 import { mapItemToCardProps } from "@/utils/mapItemToCardProps";
 import { Locale } from "@/types/locale";
+import { listVariants } from "@/helpers/animation";
 
+import AnimatedListItem from "../animated/AnimatedListItem";
+import AnimatedWrapper from "../animated/AnimatedWrapper";
 import PublicationCard from "../card/PublicationCard";
 
 interface IPublicationListProps {
@@ -21,17 +26,25 @@ const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
   );
 
   return (
-    <ul className={listStyles}>
+    <AnimatedWrapper
+      as={motion.ul}
+      viewport={{ once: true, amount: 0.4 }}
+      animation={listVariants({ staggerChildren: 0.5 })}
+      className={listStyles}
+    >
       {data.map(item => {
         const cardProps = mapItemToCardProps(item, lang);
 
         return (
-          <li key={item.title[lang]} className="mx-auto w-full max-w-[400px]">
+          <AnimatedListItem
+            key={item.title[lang]}
+            className="mx-auto w-full max-w-[400px]"
+          >
             <PublicationCard {...cardProps} />
-          </li>
+          </AnimatedListItem>
         );
       })}
-    </ul>
+    </AnimatedWrapper>
   );
 };
 
