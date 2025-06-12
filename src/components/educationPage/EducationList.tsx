@@ -1,7 +1,12 @@
+import { motion } from "framer-motion";
+
 import { CourseItem } from "@/lib/sanity/types/queryTypes";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
+import { listVariants } from "@/helpers/animation";
 
+import AnimatedListItem from "../shared/animated/AnimatedListItem";
+import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 import styles from "./styles.module.css";
 
 interface IEducationListProps {
@@ -13,9 +18,15 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
   // const testArr = ["1", "2", "3", "4", "5", "6", "7", "8"];
 
   return (
-    <ul className={styles.list}>
+    <AnimatedWrapper
+      as={motion.ul}
+      viewport={{ once: true, amount: 0.4 }}
+      animation={listVariants({ staggerChildren: 0.3 })}
+      className={styles.list}
+    >
       {courses.map(({ title, description }) => (
-        <li
+        <AnimatedListItem
+          direction="down"
           key={title[lang]}
           className={cn(
             "flex flex-col items-center rounded-lg bg-dark px-11 py-16 text-light",
@@ -26,7 +37,7 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
             {title[lang]}
           </h3>
           <p className="text-[20px] font-light">{description[lang]}</p>
-        </li>
+        </AnimatedListItem>
       ))}
 
       {/* {testArr.map((item, index) => (
@@ -40,7 +51,7 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
           <p className="text-light">{item}</p>
         </li>
       ))} */}
-    </ul>
+    </AnimatedWrapper>
   );
 };
 

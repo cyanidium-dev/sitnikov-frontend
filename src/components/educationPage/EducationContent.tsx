@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BeatLoader } from "react-spinners";
 import { useParams, useRouter } from "next/navigation";
 
 import { usePaginationPage } from "@/hooks/usePaginationPage";
@@ -65,7 +66,7 @@ const EducationContent = () => {
         />
 
         {loading ? (
-          <p>Загрузка...</p>
+          <BeatLoader color="#5188FF" className="mx-auto mt-[50px] w-[100px]" />
         ) : (
           <EducationList courses={paginatedData} lang={lang} />
         )}
