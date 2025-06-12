@@ -1,5 +1,9 @@
 import { getTranslations } from "next-intl/server";
 
+import { fadeInAnimation } from "@/helpers/animation";
+
+import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
+
 const PublicationListHero = async () => {
   const t = await getTranslations("publicationsPage.hero");
 
@@ -7,16 +11,21 @@ const PublicationListHero = async () => {
     <section className="relative h-[562px] md:h-[528px] md:bg-dark">
       <div className="container -bottom-[189px] left-0 max-w-[1280px] bg-dark text-light max-md:absolute max-md:rounded-2xl md:h-full">
         <div className="flex h-full flex-col gap-5 pb-8 pt-12 max-md:mx-auto max-md:max-w-[400px] md:ml-auto md:w-[50%] md:justify-between md:pb-[62px] md:pt-[180px] xl:w-[660px]">
-          <h1 className="font-micra text-[22px] uppercase md:text-right xl:text-[44px]">
-            {t("title")}
-          </h1>
+          <AnimatedWrapper animation={fadeInAnimation({ x: 50 })}>
+            <h1 className="font-micra text-[22px] uppercase md:text-right xl:text-[44px]">
+              {t("title")}
+            </h1>
+          </AnimatedWrapper>
 
-          <div className="flex flex-col gap-8 md:max-w-[387px] md:flex-col-reverse">
+          <AnimatedWrapper
+            animation={fadeInAnimation({ x: -50 })}
+            className="flex flex-col gap-8 md:max-w-[387px] md:flex-col-reverse"
+          >
             <p className="text-[14px] font-light">{t("descr")}</p>
             <p className="font-micra uppercase leading-[1.3] max-md:text-right xl:text-[18px] xl:leading-[1.22]">
               {t("subtitle")}
             </p>
-          </div>
+          </AnimatedWrapper>
 
           <div className="absolute right-0 top-0 h-[251px] w-[247px] max-md:rounded-2xl max-md:bg-[url('/images/publicationsPage/publications-hero-decor-mob.webp')] md:hidden" />
         </div>
