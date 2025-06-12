@@ -21,14 +21,20 @@ interface IPublicationListProps {
 
 const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
   const listStyles = cn(
-    "grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 md:mx-auto md:max-w-[804px] xl:max-w-full",
+    "grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 md:mx-auto md:max-w-[804px] xl:max-w-full",
     className
   );
 
+  // Because you need invoke animation after pagination
+  const animationKey = data.map(item => item.title[lang]).join("-");
+
   return (
     <AnimatedWrapper
+      key={animationKey}
       as={motion.ul}
-      viewport={{ once: true, amount: 0.4 }}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: false, amount: 0.1 }}
       animation={listVariants({ staggerChildren: 0.5 })}
       className={listStyles}
     >
