@@ -21,6 +21,7 @@ interface IModalFormProps {
   closeDialog: () => void;
   priceText?: string;
   courseUrl?: string;
+  openResponseDialog: (success: boolean) => void;
 }
 
 const ModalForm = ({
@@ -29,6 +30,7 @@ const ModalForm = ({
   priceText,
   courseUrl,
   messageFrom,
+  openResponseDialog,
 }: IModalFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,50 +49,50 @@ const ModalForm = ({
 
     const success = await sendTelegramMessage(fullData);
 
-    if (success) {
-      reset();
-      closeDialog();
-    } else {
-      alert("Ошибка при отправке");
-    }
-
     setIsLoading(false);
+
+    reset();
+    closeDialog();
+
+    openResponseDialog(success);
   };
 
   return (
-    <FormProvider {...methods}>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="mx-auto flex w-full flex-col"
-      >
-        <div className="mb-8 flex flex-col gap-4">
-          <FormField
-            name="name"
-            type="text"
-            placeholder={t("formPlaceholder.name")}
-            variant="basic"
-          />
+    <>
+      <FormProvider {...methods}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mx-auto flex w-full flex-col"
+        >
+          <div className="mb-8 flex flex-col gap-4">
+            <FormField
+              name="name"
+              type="text"
+              placeholder={t("formPlaceholder.name")}
+              variant="basic"
+            />
 
-          <FormField
-            name="phone"
-            type="tel"
-            placeholder={`* ${t("formPlaceholder.tel")}`}
-            required
-            variant="basic"
-          />
-        </div>
+            <FormField
+              name="phone"
+              type="tel"
+              placeholder={`* ${t("formPlaceholder.tel")}`}
+              required
+              variant="basic"
+            />
+          </div>
 
-        {priceText && (
-          <span className="mb-5 leading-[20px] max-md:text-center">
-            {t("price")}: {priceText} грн
-          </span>
-        )}
+          {priceText && (
+            <span className="mb-5 leading-[20px] max-md:text-center">
+              {t("price")}: {priceText} грн
+            </span>
+          )}
 
-        <ButtonOrLink className="bg-dark" type="submit" disabled={isLoading}>
-          {isLoading ? <BeatLoader color="#5188FF" /> : buttonText}
-        </ButtonOrLink>
-      </form>
-    </FormProvider>
+          <ButtonOrLink className="bg-dark" type="submit" disabled={isLoading}>
+            {isLoading ? <BeatLoader color="#5188FF" /> : buttonText}
+          </ButtonOrLink>
+        </form>
+      </FormProvider>
+    </>
   );
 };
 

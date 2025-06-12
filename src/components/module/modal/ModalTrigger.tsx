@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink ";
+import ResponseModal from "@/components/shared/modal/ResponseModal";
 
-import Modal from "./Modal";
+import ModalWithForm from "./ModalWithForm";
 
 type Variant = "course" | "consultation" | "service";
 
@@ -54,10 +55,13 @@ const ModalTrigger = ({
   courseUrl,
   messageFrom,
 }: IModalTriggerProps) => {
+  const [isError, setIsError] = useState(false);
+
   const t = useTranslations("modal");
   const config = modalVariants[variant];
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const responseDialogRef = useRef<HTMLDialogElement | null>(null);
 
   const openDialog = () => {
     dialogRef.current?.showModal();
@@ -66,6 +70,17 @@ const ModalTrigger = ({
 
   const closeDialog = () => {
     dialogRef.current?.close();
+    document.body.style.overflow = "";
+  };
+
+  const openResponseDialog = (success: boolean) => {
+    setIsError(!success);
+    responseDialogRef.current?.showModal();
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeResponseDialog = () => {
+    responseDialogRef.current?.close();
     document.body.style.overflow = "";
   };
 
@@ -79,7 +94,7 @@ const ModalTrigger = ({
         {t(config.buttonText)}
       </ButtonOrLink>
 
-      <Modal
+      <ModalWithForm
         title={t(config.title)}
         description={t(config.description)}
         buttonText={t(config.modalButton)}
@@ -87,6 +102,13 @@ const ModalTrigger = ({
         onClose={closeDialog}
         courseUrl={courseUrl}
         messageFrom={messageFrom}
+        openResponseDialog={openResponseDialog}
+      />
+
+      <ResponseModal
+        dialogRef={responseDialogRef}
+        onClose={closeResponseDialog}
+        isError={isError}
       />
     </>
   );
