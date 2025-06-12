@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import { extractVideoId } from "@/utils/extractVideoId";
 import { Locale } from "@/types/locale";
 
+import AnimatedListItem from "../animated/AnimatedListItem";
 import { ArrowInCircleIcon } from "../icons";
 
 interface IAccordionCourseRowProps {
@@ -34,7 +35,7 @@ const AccordionCourseRow = ({
   }, [isOpen]);
 
   return (
-    <li>
+    <AnimatedListItem>
       <div className="relative rounded-md p-5 text-light before:absolute before:inset-0 before:z-[-1] before:rounded-md before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:p-[1px] before:content-[''] after:absolute after:inset-[1px] after:z-[-1] after:rounded-md after:bg-[linear-gradient(94.05deg,_#091129_-15.57%,_#001C58_140.61%)] after:content-[''] xl:p-6">
         <button
           type="button"
@@ -94,7 +95,7 @@ const AccordionCourseRow = ({
           />
         </div>
       )}
-    </li>
+    </AnimatedListItem>
   );
 };
 

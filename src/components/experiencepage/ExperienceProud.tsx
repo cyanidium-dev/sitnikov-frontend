@@ -1,6 +1,12 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
+import { motion } from "framer-motion";
+
+import { fadeInAnimation, listVariants } from "@/helpers/animation";
+
 import InfoBox from "../shared/InfoBox";
+import AnimatedListItem from "../shared/animated/AnimatedListItem";
+import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 
 type ProudItem = {
   title: string;
@@ -21,15 +27,23 @@ const ExperienceProud = async () => {
   return (
     <section className="relative overflow-hidden pb-[120px] pt-[152px] xl:pb-[200px] xl:pt-[100px]">
       <div className="container max-w-[1280px]">
-        <h2 className="mx-auto mb-[52px] max-w-[490px] text-center font-micra text-[24px] xl:mb-[60px] xl:text-[40px]">
-          {t("title")}
-        </h2>
+        <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
+          <h2 className="mx-auto mb-[52px] max-w-[490px] text-center font-micra text-[24px] xl:mb-[60px] xl:text-[40px]">
+            {t("title")}
+          </h2>
+        </AnimatedWrapper>
 
         <div className="relative mx-auto flex flex-col gap-4 max-md:max-w-[400px] md:flex-row md:justify-between md:gap-6">
           {columns.map((column, colIdx) => (
-            <ul key={colIdx} className="flex flex-col gap-4 md:w-[32%]">
+            <AnimatedWrapper
+              as={motion.ul}
+              viewport={{ once: true, amount: 0.4 }}
+              animation={listVariants()}
+              key={colIdx}
+              className="flex flex-col gap-4 md:w-[32%]"
+            >
               {column.map(({ title, descr }, idx) => (
-                <li key={idx} className="h-full">
+                <AnimatedListItem key={idx} className="h-full">
                   <InfoBox
                     variant="gradient"
                     classname="flex flex-col gap-4 h-full md:pb-[35px] md:pt-8"
@@ -39,9 +53,9 @@ const ExperienceProud = async () => {
                     </h3>
                     <p className="font-light max-xl:text-[14px]">{descr}</p>
                   </InfoBox>
-                </li>
+                </AnimatedListItem>
               ))}
-            </ul>
+            </AnimatedWrapper>
           ))}
           <div className="absolute -bottom-[223px] left-0 -z-[3] h-[507px] w-[511px] bg-no-repeat max-md:hidden md:bg-[url('/images/experiencePage/experience-proud-decor-desk.webp')]" />
         </div>
