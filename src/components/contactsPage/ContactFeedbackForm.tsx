@@ -10,6 +10,7 @@ import useFeedbackFormSchema, {
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import sendTelegramMessage from "@/lib/telegram/sendTelegramMessage";
+import { APPLICATION } from "@/constants/application";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 import FormField from "../shared/formField/FormField";
@@ -35,7 +36,9 @@ const ContactFeedbackForm = ({
 
   const onSubmit = async (data: FeedbackFormSchema) => {
     setIsLoading(true);
-    const success = await sendTelegramMessage(data);
+
+    const fullData = { messageFrom: APPLICATION.CONTACTS, ...data };
+    const success = await sendTelegramMessage(fullData);
 
     if (success) {
       reset();
