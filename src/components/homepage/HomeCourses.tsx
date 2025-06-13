@@ -1,5 +1,8 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
+import { ROUTES } from "@/constants/routes";
+
+import ButtonOrLink from "../shared/button/ButtonOrLink ";
 import CourseCard from "../shared/card/CourseCard";
 import StatCard from "../shared/card/StatCard";
 
@@ -38,7 +41,7 @@ const HomeCourses = async () => {
           ))}
         </ul>
 
-        <div className="flex flex-col gap-5 max-xl:mx-auto max-xl:max-w-[400px] xl:flex-row">
+        <div className="flex flex-col gap-5 max-xl:mx-auto max-xl:max-w-[400px] xl:mb-8 xl:flex-row">
           <div className="relative h-[424px] rounded-[4px] p-[1px] before:absolute before:inset-0 before:z-0 before:rounded-[4px] before:bg-[linear-gradient(326.45deg,_#071434_-11.97%,_#9CBBFF_99.8%)] before:content-[''] xl:h-[570px] xl:w-[480px]">
             <div className="relative z-[1] h-full rounded-[4px] bg-[url('/images/homepage/home-courses-main.webp')] object-cover px-6 pt-16 text-light xl:h-[570px] xl:w-[480px]">
               <h2 className="mb-6 font-micra text-[32px] xl:w-[291px] xl:text-[48px]">
@@ -52,7 +55,7 @@ const HomeCourses = async () => {
             </div>
           </div>
 
-          <ul className="mb-4 flex flex-col gap-5 xl:flex-row">
+          <ul className="flex flex-col gap-5 max-xl:mb-4 xl:flex-row">
             <div className="flex flex-col gap-5 xl:flex-col-reverse">
               <li>
                 <CourseCard {...courseList[0]} />
@@ -67,9 +70,18 @@ const HomeCourses = async () => {
           </ul>
         </div>
 
-        <p className="text-[12px] font-light text-light max-xl:mx-auto max-xl:max-w-[400px] xl:mr-auto xl:w-[480px] xl:text-[20px]">
-          Юридичні знання, які реально працюють у практиці, а не лише в теорії.
-        </p>
+        <div className="flex flex-col gap-10 max-xl:mx-auto max-xl:max-w-[400px] xl:flex-row xl:justify-between">
+          <p className="text-[12px] font-light text-light max-xl:mx-auto max-xl:max-w-[400px] xl:mr-auto xl:w-[480px] xl:text-[20px]">
+            {t("tagline")}
+          </p>
+          <ButtonOrLink
+            href={ROUTES.FREE_EDUCATION}
+            variant="light"
+            className="bg-light xl:w-[318px]"
+          >
+            {t("button")}
+          </ButtonOrLink>
+        </div>
       </div>
     </section>
   );

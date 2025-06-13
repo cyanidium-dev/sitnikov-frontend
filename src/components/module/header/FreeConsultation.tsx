@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink ";
+import { ROUTES } from "@/constants/routes";
 
 interface FreeConsultationProps {
   closeMenu: () => void;
@@ -18,7 +19,11 @@ const FreeConsultation = ({ closeMenu }: FreeConsultationProps) => {
         {t("header.freeConsultation.description")}
       </p>
 
-      <ButtonOrLink variant="transparent" onClick={closeMenu}>
+      <ButtonOrLink
+        href={ROUTES.CONTACTS}
+        variant="transparent"
+        onClick={closeMenu}
+      >
         {t("buttons.leaveContacts")}
       </ButtonOrLink>
     </div>

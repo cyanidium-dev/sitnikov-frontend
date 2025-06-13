@@ -1,6 +1,8 @@
 import { getTranslations } from "next-intl/server";
 
-import ButtonOrLink from "../shared/button/ButtonOrLink ";
+import { APPLICATION } from "@/constants/application";
+
+import ModalTrigger from "../module/modal/ModalTrigger";
 
 const HomeTopCTA = async () => {
   const t = await getTranslations("homepage.topCTA");
@@ -17,9 +19,12 @@ const HomeTopCTA = async () => {
           </p>
         </div>
 
-        <div className="relative z-[1] max-w-[374px]">
-          <ButtonOrLink variant="light">{t("button")}</ButtonOrLink>
-        </div>
+        <ModalTrigger
+          variant="consultation"
+          buttonVariant="light"
+          buttonClassName="max-w-[374px]"
+          messageFrom={APPLICATION.CONSULTATION}
+        />
       </div>
 
       <div className="absolute -right-[178px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/home-topCTA-person-mob.webp')] bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-topCTA-person-desk.webp')]" />

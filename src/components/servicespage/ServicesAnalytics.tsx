@@ -1,6 +1,8 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
-import ButtonOrLink from "../shared/button/ButtonOrLink ";
+import { APPLICATION } from "@/constants/application";
+
+import ModalTrigger from "../module/modal/ModalTrigger";
 import ServiceList from "./ServiceList";
 
 const ServicesAnalytics = async () => {
@@ -25,9 +27,12 @@ const ServicesAnalytics = async () => {
           className="mb-10 xl:mb-[68px] xl:ml-auto xl:max-w-[509px]"
         />
 
-        <ButtonOrLink className="bg-light text-dark xl:ml-auto xl:max-w-[509px]">
-          {t("button")}
-        </ButtonOrLink>
+        <ModalTrigger
+          variant="service"
+          buttonVariant="light"
+          buttonClassName="bg-light text-dark xl:ml-auto xl:max-w-[509px]"
+          messageFrom={APPLICATION.SERVICE}
+        />
       </div>
     </section>
   );

@@ -2,11 +2,11 @@ import { getTranslations } from "next-intl/server";
 
 import { getPaginatedPublications } from "@/lib/sanity/queries/queries";
 import { HOME_PUBLICATIONS_PER_PAGE } from "@/constants/pagination";
-import { mapItemToCardProps } from "@/utils/mapItemToCardProps";
+import { ROUTES } from "@/constants/routes";
 import { Locale } from "@/types/locale";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
-import PublicationCard from "../shared/card/PublicationCard";
+import PublicationList from "../shared/publicationList/PublicationList";
 
 const HomePublications = async ({ lang }: { lang: Locale }) => {
   const t = await getTranslations("homepage.publications");
@@ -27,24 +27,13 @@ const HomePublications = async ({ lang }: { lang: Locale }) => {
             <p className="mb-8 font-light leading-[1.22] tracking-normal">
               {t("descr")}
             </p>
-            <ButtonOrLink variant="light">{t("button")}</ButtonOrLink>
+            <ButtonOrLink href={ROUTES.PUBLICATIONS} variant="light">
+              {t("button")}
+            </ButtonOrLink>
           </div>
         </div>
 
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-          {publicationList.map(item => {
-            const cardProps = mapItemToCardProps(item, lang);
-
-            return (
-              <li
-                key={item.title[lang]}
-                className="mx-auto h-full max-w-[400px]"
-              >
-                <PublicationCard {...cardProps} />
-              </li>
-            );
-          })}
-        </ul>
+        <PublicationList data={publicationList} lang={lang} />
       </div>
 
       <div className="absolute left-0 top-0 -z-[5] h-[218px] w-[232px] bg-[url('/images/homepage/home-publications-decor-mob.webp')] xl:hidden" />

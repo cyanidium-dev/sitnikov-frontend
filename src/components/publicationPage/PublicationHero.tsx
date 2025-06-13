@@ -7,6 +7,7 @@ interface IPublicationHeroProps {
   description: string;
   mainImage?: SanityImage;
   mainImageMobile?: SanityImage;
+  readingTime: string;
 }
 
 const PublicationHero = ({
@@ -14,6 +15,7 @@ const PublicationHero = ({
   description,
   mainImage,
   mainImageMobile,
+  readingTime,
 }: IPublicationHeroProps) => {
   const defaultMobileImage =
     "/images/publicationPage/publication-hero-default-bg-mob.webp";
@@ -53,7 +55,7 @@ const PublicationHero = ({
               borderImageSlice: 1,
             }}
           >
-            <ClockIcon className="mr-2 inline h-5 w-5" /> 6 хв на читання
+            <ClockIcon className="mr-2 inline h-5 w-5" /> {readingTime}
           </div>
         </div>
       </div>

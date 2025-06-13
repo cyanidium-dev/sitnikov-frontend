@@ -1,11 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { BeatLoader } from "react-spinners";
 
 import useFeedbackFormSchema, {
   FeedbackFormSchema,
 } from "@/schemas/useFeedbackFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import sendTelegramMessage from "@/lib/telegram/sendTelegramMessage";
+import { APPLICATION } from "@/constants/application";
 
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 import FormField from "../shared/formField/FormField";
@@ -21,6 +26,7 @@ const ContactFeedbackForm = ({
   formPlaceholder,
   btnText,
 }: IContactFeedbackFormProps) => {
+  const [isLoading, setIsLoading] = useState(false);
   const validationSchema = useFeedbackFormSchema();
 
   const methods = useForm<FeedbackFormSchema>({
@@ -28,9 +34,19 @@ const ContactFeedbackForm = ({
   });
   const { handleSubmit, reset } = methods;
 
-  const onSubmit = (data: FeedbackFormSchema) => {
-    console.log(data);
-    reset();
+  const onSubmit = async (data: FeedbackFormSchema) => {
+    setIsLoading(true);
+
+    const fullData = { messageFrom: APPLICATION.CONTACTS, ...data };
+    const success = await sendTelegramMessage(fullData);
+
+    if (success) {
+      reset();
+    } else {
+      alert("Ошибка при отправке");
+    }
+
+    setIsLoading(false);
   };
 
   return (
@@ -58,7 +74,9 @@ const ContactFeedbackForm = ({
 
         <FormTextarea name="message" placeholder="Повідомлення" />
 
-        <ButtonOrLink type="submit">{btnText}</ButtonOrLink>
+        <ButtonOrLink type="submit" disabled={isLoading}>
+          {isLoading ? <BeatLoader color="#5188FF" /> : btnText}
+        </ButtonOrLink>
       </form>
     </FormProvider>
   );

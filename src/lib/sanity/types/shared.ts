@@ -38,3 +38,9 @@ export type LocalizedShortBlockContent = {
   uk: ShortBlock[];
   ru: ShortBlock[];
 };
+
+export type AccordionContent = {
+  tags: LocalizedString[];
+  title: LocalizedString;
+  videoUrl?: string;
+};

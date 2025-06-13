@@ -12,6 +12,8 @@ const ExperienceExpertise = async () => {
 
   return (
     <section className="relative bg-dark pb-[441px] pt-[52px] text-light xl:h-[796px] xl:pb-[158px] xl:pt-[88px]">
+      <div className="absolute bottom-0 h-[478px] w-[676px] bg-[url('/images/experiencePage/experience-expertise-person-mob.webp')] bg-no-repeat max-xl:-right-[70px] xl:left-0 xl:h-[767px] xl:w-[533px] xl:bg-[url('/images/experiencePage/experience-expertise-person-desk.webp')]" />
+
       <div className="container max-w-[1280px]">
         <h2 className="hidden">{t("title")}</h2>
 
@@ -22,8 +24,6 @@ const ExperienceExpertise = async () => {
           />
         </div>
       </div>
-
-      <div className="absolute bottom-0 h-[478px] w-[676px] bg-[url('/images/experiencePage/experience-expertise-person-mob.webp')] bg-no-repeat max-xl:-right-[70px] xl:left-0 xl:h-[767px] xl:w-[533px] xl:bg-[url('/images/experiencePage/experience-expertise-person-desk.webp')]" />
     </section>
   );
 };
