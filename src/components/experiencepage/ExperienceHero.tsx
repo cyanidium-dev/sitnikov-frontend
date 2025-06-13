@@ -17,7 +17,7 @@ const ExperienceHero = async () => {
             animation={fadeInAnimation({ y: -50 })}
           >
             <h1 className="mb-7 font-micra text-[24px] max-xl:leading-[1.6] max-md:mx-auto max-md:max-w-[400px] md:mb-8 md:text-[32px] xl:text-[48px]">
-              {t.rich("title", {
+              {t.rich("titlePlain", {
                 span: chunks => (
                   <span className="text-[#00279D]">{chunks}</span>
                 ),
@@ -31,7 +31,7 @@ const ExperienceHero = async () => {
             className="md:w-[374px] xl:ml-auto"
           >
             <div>
-              <p className="font-light max-md:text-[13px]">{t("descr1")}</p>
+              <p className="font-light max-md:text-[13px]">{t("descr")}</p>
               <p className="font-light max-md:text-[13px]">{t("descr2")}</p>
             </div>
           </AnimatedWrapper>

@@ -11,8 +11,10 @@ const EducationHero = async () => {
     <section className="relative h-[665px] bg-dark pt-[136px] text-light max-md:rounded-b-2xl md:h-[480px] xl:h-[520px]">
       <div className="container max-w-[1280px] md:pl-[420px] xl:pl-[582px]">
         <AnimatedWrapper
-          viewport={{ amount: 0 }}
-          animation={fadeInAnimation({ y: -50 })}
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: false, amount: 0 }}
+          animation={fadeInAnimation({ x: 50 })}
         >
           <h1 className="mb-8 font-micra text-[22px] uppercase max-xl:max-w-[390px] md:mb-[38px] md:text-[28px] xl:w-[662px] xl:text-[36px]">
             {t("title")}
@@ -20,7 +22,9 @@ const EducationHero = async () => {
         </AnimatedWrapper>
 
         <AnimatedWrapper
-          viewport={{ amount: 0 }}
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: false, amount: 0 }}
           animation={fadeInAnimation({ x: -50, delay: 0.3 })}
         >
           <p className="max-w-[306px] text-[14px] font-light max-md:mr-[110px] md:ml-auto md:text-right">
