@@ -1,12 +1,10 @@
-import * as motion from "motion/react-client";
-
 import { CourseItem } from "@/lib/sanity/types/queryTypes";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
 import { listVariants } from "@/helpers/animation";
 
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem from "../shared/animated/AnimatedListItem";
-import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 import styles from "./styles.module.css";
 
 interface IEducationListProps {
@@ -20,9 +18,8 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
   const animationKey = courses.map(item => item.title[lang]).join("-");
 
   return (
-    <AnimatedWrapper
+    <AnimatedList
       key={animationKey}
-      as={motion.ul}
       initial="hidden"
       animate="visible"
       viewport={{ once: false, amount: 0.1 }}
@@ -56,7 +53,7 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
           <p className="text-light">{item}</p>
         </li>
       ))} */}
-    </AnimatedWrapper>
+    </AnimatedList>
   );
 };
 

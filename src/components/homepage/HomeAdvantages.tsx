@@ -1,10 +1,9 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
-import * as motion from "motion/react-client";
-
 import { fadeInAnimation, listVariants } from "@/helpers/animation";
 
 import InfoBox from "../shared/InfoBox";
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem from "../shared/animated/AnimatedListItem";
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 
@@ -35,8 +34,7 @@ const HomeAdvantages = async () => {
             <p className="font-light">{t("descr")}</p>
           </AnimatedWrapper>
 
-          <AnimatedWrapper
-            as={motion.ul}
+          <AnimatedList
             viewport={{ once: true, amount: 0.4 }}
             animation={listVariants({ staggerChildren: 0.5 })}
             className="grid gap-4 md:grid-cols-2"
@@ -49,7 +47,7 @@ const HomeAdvantages = async () => {
                 </InfoBox>
               </AnimatedListItem>
             ))}
-          </AnimatedWrapper>
+          </AnimatedList>
         </div>
       </div>
 

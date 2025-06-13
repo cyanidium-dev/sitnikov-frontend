@@ -1,12 +1,10 @@
-import * as motion from "motion/react-client";
-
 import { cn } from "@/utils/cn";
 import { listVariants } from "@/helpers/animation";
 
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem, {
   AnimatedListDirection,
 } from "../shared/animated/AnimatedListItem";
-import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 
 interface IServiceListProps {
   data: string[];
@@ -16,8 +14,7 @@ interface IServiceListProps {
 
 const ServiceList = ({ data, className, direction }: IServiceListProps) => {
   return (
-    <AnimatedWrapper
-      as={motion.ul}
+    <AnimatedList
       viewport={{ once: true, amount: 0.4 }}
       animation={listVariants({ staggerChildren: 0.35 })}
       className={cn("flex flex-col gap-4 md:gap-[18px]", className)}
@@ -31,7 +28,7 @@ const ServiceList = ({ data, className, direction }: IServiceListProps) => {
           <p className="leading-[1.4] max-xl:text-[14px]">{item}</p>
         </AnimatedListItem>
       ))}
-    </AnimatedWrapper>
+    </AnimatedList>
   );
 };
 export default ServiceList;

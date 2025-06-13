@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 
-import * as motion from "motion/react-client";
-
 import { AccordionContent } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
 import { listVariants } from "@/helpers/animation";
 
-import AnimatedWrapper from "../animated/AnimatedWrapper";
+import AnimatedList from "../animated/AnimatedList";
 import AccordionCourseRow from "./AccordionCourseRow";
 import AccordionRow from "./AccordionRow";
 import { AccordionItem } from "./type";
@@ -30,8 +28,7 @@ const Accordion = ({ data, className, lang }: IAccordionProps) => {
   };
 
   return (
-    <AnimatedWrapper
-      as={motion.ul}
+    <AnimatedList
       viewport={{ once: true, amount: 0.4 }}
       animation={listVariants({ staggerChildren: 0.3 })}
       className={cn("flex flex-col gap-10", className)}
@@ -54,7 +51,7 @@ const Accordion = ({ data, className, lang }: IAccordionProps) => {
               onClick={() => handleToggle(index)}
             />
           ))}
-    </AnimatedWrapper>
+    </AnimatedList>
   );
 };
 

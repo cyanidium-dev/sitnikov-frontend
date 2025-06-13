@@ -7,6 +7,10 @@ export const revalidate = 3600;
 
 const PublicationListContent = async ({ lang }: { lang: Locale }) => {
   const publicationList = await getAllPublications();
+  // console.log(
+  //   `🚀 ~ PublicationListContent ~ publicationList:`,
+  //   publicationList
+  // );
 
   return (
     <PublicationsPaginatedList publicationList={publicationList} lang={lang} />

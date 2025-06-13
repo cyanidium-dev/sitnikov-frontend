@@ -1,10 +1,9 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
-import * as motion from "motion/react-client";
-
 import { ROUTES } from "@/constants/routes";
 import { fadeInAnimation, listVariants } from "@/helpers/animation";
 
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem from "../shared/animated/AnimatedListItem";
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
@@ -35,8 +34,7 @@ const HomeCourses = async () => {
   return (
     <section className="bg-dark pb-[110px] pt-20">
       <div className="container max-w-[1280px]">
-        <AnimatedWrapper
-          as={motion.ul}
+        <AnimatedList
           viewport={{ once: true, amount: 0.4 }}
           animation={listVariants({ staggerChildren: 0.5 })}
           className="mb-[120px] flex flex-col gap-5 md:flex-row xl:mb-[200px]"
@@ -49,7 +47,7 @@ const HomeCourses = async () => {
               <StatCard {...card} />
             </AnimatedListItem>
           ))}
-        </AnimatedWrapper>
+        </AnimatedList>
 
         <div className="flex flex-col gap-5 max-xl:mx-auto max-xl:max-w-[400px] xl:mb-8 xl:flex-row">
           <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
@@ -67,8 +65,7 @@ const HomeCourses = async () => {
             </div>
           </AnimatedWrapper>
 
-          <AnimatedWrapper
-            as={motion.ul}
+          <AnimatedList
             viewport={{ once: true, amount: 0.4 }}
             animation={listVariants()}
             className="flex flex-col gap-5 max-xl:mb-4 xl:flex-row"
@@ -84,7 +81,7 @@ const HomeCourses = async () => {
             <AnimatedListItem direction="left">
               <CourseCard {...courseList[2]} />
             </AnimatedListItem>
-          </AnimatedWrapper>
+          </AnimatedList>
         </div>
 
         <AnimatedWrapper

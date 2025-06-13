@@ -1,11 +1,10 @@
 import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-import * as motion from "motion/react-client";
-
 import { fadeInAnimation, listVariants } from "@/helpers/animation";
 
 import InfoBox from "../shared/InfoBox";
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem from "../shared/animated/AnimatedListItem";
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 
@@ -78,8 +77,7 @@ const HomeExperience = async () => {
           </div>
         </div>
 
-        <AnimatedWrapper
-          as={motion.ul}
+        <AnimatedList
           viewport={{ once: true, amount: 0.4 }}
           animation={listVariants({ staggerChildren: 0.5 })}
           className="grid gap-4 md:grid-cols-2 xl:md:grid-cols-3 xl:gap-5"
@@ -98,7 +96,7 @@ const HomeExperience = async () => {
               </InfoBox>
             </AnimatedListItem>
           ))}
-        </AnimatedWrapper>
+        </AnimatedList>
       </div>
     </section>
   );

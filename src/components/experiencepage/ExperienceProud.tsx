@@ -1,10 +1,9 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
-import * as motion from "motion/react-client";
-
 import { fadeInAnimation, listVariants } from "@/helpers/animation";
 
 import InfoBox from "../shared/InfoBox";
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem from "../shared/animated/AnimatedListItem";
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 
@@ -35,8 +34,7 @@ const ExperienceProud = async () => {
 
         <div className="relative mx-auto flex flex-col gap-4 max-md:max-w-[400px] md:flex-row md:justify-between md:gap-6">
           {columns.map((column, colIdx) => (
-            <AnimatedWrapper
-              as={motion.ul}
+            <AnimatedList
               viewport={{ once: true, amount: 0.4 }}
               animation={listVariants()}
               key={colIdx}
@@ -55,7 +53,7 @@ const ExperienceProud = async () => {
                   </InfoBox>
                 </AnimatedListItem>
               ))}
-            </AnimatedWrapper>
+            </AnimatedList>
           ))}
           <div className="absolute -bottom-[223px] left-0 -z-[3] h-[507px] w-[511px] bg-no-repeat max-md:hidden md:bg-[url('/images/experiencePage/experience-proud-decor-desk.webp')]" />
         </div>

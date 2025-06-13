@@ -1,11 +1,9 @@
-import * as motion from "motion/react-client";
-
 import { COURSE_CATEGORIES } from "@/constants/courseCategories";
 import { Locale } from "@/types/locale";
 import { listVariants } from "@/helpers/animation";
 
+import AnimatedList from "../shared/animated/AnimatedList";
 import AnimatedListItem from "../shared/animated/AnimatedListItem";
-import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
 import ButtonOrLink from "../shared/button/ButtonOrLink ";
 
 interface IEducationFilterProps {
@@ -21,8 +19,7 @@ const EducationFilter = ({
 }: IEducationFilterProps) => {
   return (
     <div className="mb-4 overflow-x-auto xl:mb-[54px]">
-      <AnimatedWrapper
-        as={motion.ul}
+      <AnimatedList
         initial="hidden"
         animate="visible"
         viewport={{ once: false, amount: 0 }}
@@ -44,7 +41,7 @@ const EducationFilter = ({
             </ButtonOrLink>
           </AnimatedListItem>
         ))}
-      </AnimatedWrapper>
+      </AnimatedList>
     </div>
   );
 };
