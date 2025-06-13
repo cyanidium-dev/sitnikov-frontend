@@ -28,7 +28,7 @@ export async function generateMetadata({
     openGraph: {
       title: title[locale],
       description: description[locale],
-      images: previewImage?.url ? [previewImage?.url] : [],
+      images: previewImage?.url ? [previewImage.url] : [],
       type: "article",
     },
     twitter: {
