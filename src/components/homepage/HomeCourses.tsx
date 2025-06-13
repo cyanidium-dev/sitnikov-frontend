@@ -1,6 +1,6 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 import { ROUTES } from "@/constants/routes";
 import { fadeInAnimation, listVariants } from "@/helpers/animation";

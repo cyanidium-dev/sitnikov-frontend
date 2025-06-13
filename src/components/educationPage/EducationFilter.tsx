@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 import { COURSE_CATEGORIES } from "@/constants/courseCategories";
 import { Locale } from "@/types/locale";

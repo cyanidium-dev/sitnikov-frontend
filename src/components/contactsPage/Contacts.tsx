@@ -1,6 +1,6 @@
 import { getMessages } from "next-intl/server";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 import { ContactItemRaw, mapContactList } from "@/utils/mapContactList";
 import { listVariants } from "@/helpers/animation";

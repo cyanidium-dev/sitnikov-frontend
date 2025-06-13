@@ -1,7 +1,7 @@
 import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 import { fadeInAnimation, listVariants } from "@/helpers/animation";
 
