@@ -14,6 +14,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import { fadeInAnimation } from "@/helpers/animation";
+
+import AnimatedWrapper from "../animated/AnimatedWrapper";
+
 interface IGallerySliderProps {
   gallery: SanityImage[];
   variant?: "light" | "dark";
@@ -87,24 +91,26 @@ const GallerySlider = ({
         ))}
       </Swiper>
 
-      <div className="absolute bottom-0 left-1/2 z-10 flex -translate-x-1/2 flex-row gap-6">
-        <IconButtonOrLink
-          variant={variant}
-          buttonClassName={`${prefix}-prev`}
-          iconClassName="rotate-180"
-          aria-label="Попередній слайд"
-        />
+      <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.6 })}>
+        <div className="absolute -bottom-[74px] left-1/2 z-10 flex -translate-x-1/2 flex-row gap-6">
+          <IconButtonOrLink
+            variant={variant}
+            buttonClassName={`${prefix}-prev`}
+            iconClassName="rotate-180"
+            aria-label="Попередній слайд"
+          />
 
-        <div
-          className={`${prefix}-pagination !relative !bottom-0 !flex !flex-row !items-center`}
-        />
+          <div
+            className={`${prefix}-pagination !relative !bottom-0 !flex !flex-row !items-center`}
+          />
 
-        <IconButtonOrLink
-          variant={variant}
-          buttonClassName={`${prefix}-next`}
-          aria-label="Наступний слайд"
-        />
-      </div>
+          <IconButtonOrLink
+            variant={variant}
+            buttonClassName={`${prefix}-next`}
+            aria-label="Наступний слайд"
+          />
+        </div>
+      </AnimatedWrapper>
 
       {variant === "light" && (
         <div className="absolute -right-[25px] -top-[220px] h-[417px] w-[399px] max-xl:hidden xl:bg-[url('/images/galleryPage/gallery-paginated-decor-desk.webp')]" />

@@ -13,6 +13,7 @@
     "@sanity/client": "^7.4.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "framer-motion": "^12.17.0",
     "groq": "^3.90.0",
     "motion": "^12.12.2",
     "nanoid": "^5.1.5",

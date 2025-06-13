@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/utils/cn";
 
+import AnimatedListItem from "../animated/AnimatedListItem";
 import { MinusIcon, PlusIcon } from "../icons";
 import { AccordionItem } from "./type";
 
@@ -28,7 +29,7 @@ const AccordionRow = ({ data, isOpen, onClick }: AccordionRowProps) => {
   const buttonStyles = "absolute inset-0 transition-opacity duration-300";
 
   return (
-    <li>
+    <AnimatedListItem>
       <button
         type="button"
         onClick={onClick}
@@ -62,7 +63,7 @@ const AccordionRow = ({ data, isOpen, onClick }: AccordionRowProps) => {
           ))}
         </ul>
       </div>
-    </li>
+    </AnimatedListItem>
   );
 };
 

@@ -1,6 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
+import { fadeInAnimation } from "@/helpers/animation";
+
+import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
+
 const ContactsHero = async () => {
   const t = await getTranslations("contactsPage.hero");
 
@@ -8,16 +12,23 @@ const ContactsHero = async () => {
     <section className="relative h-[770px] bg-[linear-gradient(188.96deg,_#FFFFFF_-9.07%,_#E0EAFF_56.87%,_#FFFFFF_112.06%)] pb-[10px] pt-[124px] md:h-[528px] md:pb-0">
       <div className="container h-full max-w-[1280px]">
         <div className="mx-auto flex h-full flex-col justify-between max-md:max-w-[400px] md:flex-row">
-          <p className="font-micra md:mb-[30px] md:mt-auto md:max-w-[340px] xl:mb-[50px] xl:max-w-[479px] xl:text-[18px] xl:leading-[1.4]">
-            {t("descr")}
-          </p>
+          <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
+            <p className="font-micra md:mb-[30px] md:mt-auto md:max-w-[340px] xl:mb-[50px] xl:max-w-[479px] xl:text-[18px] xl:leading-[1.4]">
+              {t("descr")}
+            </p>
+          </AnimatedWrapper>
 
           <div className="relative z-[5] flex flex-col max-md:-mx-[22px] md:-mr-[32px] md:mt-auto xl:-mr-[50px] xl:mt-0">
-            <h1 className="mb-5 text-right font-micra text-[24px] max-md:mx-[22px] md:mr-[32px] xl:mb-7 xl:mr-[50px] xl:text-[48px]">
-              {t("title")}
-            </h1>
+            <AnimatedWrapper animation={fadeInAnimation({ x: 50, delay: 0.3 })}>
+              <h1 className="mb-5 text-right font-micra text-[24px] max-md:mx-[22px] md:mr-[32px] xl:mb-7 xl:mr-[50px] xl:text-[48px]">
+                {t("title")}
+              </h1>
+            </AnimatedWrapper>
 
-            <div className="relative h-[334px] w-full md:w-[480px] xl:w-[680px]">
+            <AnimatedWrapper
+              animation={fadeInAnimation({ y: 50, delay: 0.6 })}
+              className="relative h-[334px] w-full md:w-[480px] xl:w-[680px]"
+            >
               <Image
                 src="/images/contactsPage/contacts-hero-photo.webp"
                 fill
@@ -25,7 +36,7 @@ const ContactsHero = async () => {
                 alt={t("imgAlt")}
                 className="object-cover max-md:rounded-2xl md:rounded-l-lg xl:rounded-lg"
               />
-            </div>
+            </AnimatedWrapper>
           </div>
         </div>
       </div>

@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+
 import { AccordionContent } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
+import { listVariants } from "@/helpers/animation";
 
+import AnimatedWrapper from "../animated/AnimatedWrapper";
 import AccordionCourseRow from "./AccordionCourseRow";
 import AccordionRow from "./AccordionRow";
 import { AccordionItem } from "./type";
@@ -26,7 +30,12 @@ const Accordion = ({ data, className, lang }: IAccordionProps) => {
   };
 
   return (
-    <ul className={cn("flex flex-col gap-10", className)}>
+    <AnimatedWrapper
+      as={motion.ul}
+      viewport={{ once: true, amount: 0.4 }}
+      animation={listVariants({ staggerChildren: 0.3 })}
+      className={cn("flex flex-col gap-10", className)}
+    >
       {isCourse
         ? data.map((item, index) => (
             <AccordionCourseRow
@@ -45,7 +54,7 @@ const Accordion = ({ data, className, lang }: IAccordionProps) => {
               onClick={() => handleToggle(index)}
             />
           ))}
-    </ul>
+    </AnimatedWrapper>
   );
 };
 
