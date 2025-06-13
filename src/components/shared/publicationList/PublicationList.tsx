@@ -1,5 +1,3 @@
-import * as motion from "motion/react-client";
-
 import {
   AnnouncementItem,
   PublicationItem,
@@ -9,8 +7,8 @@ import { mapItemToCardProps } from "@/utils/mapItemToCardProps";
 import { Locale } from "@/types/locale";
 import { listVariants } from "@/helpers/animation";
 
+import AnimatedList from "../animated/AnimatedList";
 import AnimatedListItem from "../animated/AnimatedListItem";
-import AnimatedWrapper from "../animated/AnimatedWrapper";
 import PublicationCard from "../card/PublicationCard";
 
 interface IPublicationListProps {
@@ -29,9 +27,8 @@ const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
   const animationKey = data.map(item => item.title[lang]).join("-");
 
   return (
-    <AnimatedWrapper
+    <AnimatedList
       key={animationKey}
-      as={motion.ul}
       initial="hidden"
       animate="visible"
       viewport={{ once: false, amount: 0.1 }}
@@ -50,7 +47,7 @@ const PublicationList = ({ data, className, lang }: IPublicationListProps) => {
           </AnimatedListItem>
         );
       })}
-    </AnimatedWrapper>
+    </AnimatedList>
   );
 };
 
