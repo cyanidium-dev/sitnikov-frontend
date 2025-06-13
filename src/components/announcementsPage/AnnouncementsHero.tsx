@@ -1,7 +1,5 @@
 import { getTranslations } from "next-intl/server";
 
-import { motion } from "framer-motion";
-
 import { fadeInAnimation } from "@/helpers/animation";
 
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
@@ -27,12 +25,8 @@ const AnnouncementsHero = async () => {
             </AnimatedWrapper>
           </div>
 
-          <AnimatedWrapper
-            as={motion.p}
-            animation={fadeInAnimation({ y: 50, delay: 0.5 })}
-            className="max-w-[280px] text-[14px] font-light"
-          >
-            {t("descr")}
+          <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.5 })}>
+            <p className="max-w-[280px] text-[14px] font-light">{t("descr")}</p>
           </AnimatedWrapper>
 
           <div className="absolute right-0 top-0 h-[213px] w-[111px] max-md:rounded-2xl max-md:bg-[url('/images/announcementsPage/announcements-hero-decor-mob.webp')] md:hidden" />

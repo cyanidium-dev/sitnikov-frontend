@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 import { AccordionContent } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";

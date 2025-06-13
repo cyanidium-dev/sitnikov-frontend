@@ -31,15 +31,26 @@ const ButtonOrLink = ({
   const baseStyles = cn(
     "group relative flex text-sm leading-[20px] font-medium items-center justify-center overflow-hidden rounded-full w-full py-[18px] transition duration-300 ease-out active:scale-95",
     variant === "dark" &&
-      "relative text-white before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:bg-[linear-gradient(94.05deg,_#091129_-15.57%,_#001C58_140.61%)] after:content-['']",
+      "text-white before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:bg-[linear-gradient(94.05deg,_#091129_-15.57%,_#001C58_140.61%)] after:content-['']",
     variant === "light" &&
-      "text-dark after:bg-light relative before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:z-[-1] after:rounded-full after:content-['']",
+      "text-dark after:bg-light before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(90deg,_#304F94_0%,_#6582C2_100%)] before:content-[''] after:absolute after:inset-[1px] after:z-[-1] after:rounded-full after:content-['']",
     variant === "transparent" &&
       "border-1 border-light text-light border border-solid bg-transparent",
     variant === "light-gradient" &&
-      "relative text-dark before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(128.72deg,_rgba(33,_55,_103,_0.5)_-16.95%,_rgba(203,_219,_255,_0.5)_104.2%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:content-[''] after:bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]",
+      "text-dark before:absolute before:inset-0 before:rounded-full before:z-[-1] before:p-[1px] before:bg-[linear-gradient(128.72deg,_rgba(33,_55,_103,_0.5)_-16.95%,_rgba(203,_219,_255,_0.5)_104.2%)] before:content-[''] after:absolute after:inset-[1px] after:rounded-full after:z-[-1] after:content-[''] after:bg-[linear-gradient(152.98deg,_#FFFFFF_16.89%,_#C0D4FF_274.64%)]",
     disabled || isLoading ? "opacity-50 cursor-not-allowed" : "",
     className
+  );
+
+  const shimmerStyles = cn(
+    "absolute left-[-150%] top-0 h-full w-full skew-x-[-40deg] bg-gradient-to-r opacity-70 transition-all duration-[800ms] ease-in-out group-[focus-visible]:left-[120%] xl:group-hover:left-[120%]",
+    variant === "dark" && "via-blue/30 from-white/20 to-white/20",
+    variant === "light" &&
+      "via-blue/50 from-blue-700/20 via-[#11285280] to-blue-700/20",
+    variant === "transparent" &&
+      "via-blue/50 from-blue-700/20 via-[#11285280] to-blue-700/20",
+    variant === "light-gradient" &&
+      "via-blue/50 from-blue-700/20 via-[#11285280] to-blue-700/20"
   );
 
   const content = isLoading ? "Loading..." : children;
@@ -55,6 +66,7 @@ const ButtonOrLink = ({
           rel="noopener noreferrer"
         >
           {content}
+          <span className={shimmerStyles} />
         </a>
       );
     }
@@ -67,6 +79,7 @@ const ButtonOrLink = ({
         className={baseStyles}
       >
         {content}
+        <span className={shimmerStyles} />
       </Link>
     );
   }
@@ -81,7 +94,7 @@ const ButtonOrLink = ({
     >
       {content}
 
-      <span className="via-blue/30 absolute left-[-150%] top-0 h-full w-full skew-x-[-40deg] bg-gradient-to-r from-white/20 to-white/20 opacity-70 transition-all duration-[800ms] ease-in-out group-[focus-visible]:left-[120%] xl:group-hover:left-[120%]" />
+      <span className={shimmerStyles} />
     </button>
   );
 };

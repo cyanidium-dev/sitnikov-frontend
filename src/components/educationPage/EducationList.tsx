@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 import { CourseItem } from "@/lib/sanity/types/queryTypes";
 import { cn } from "@/utils/cn";
@@ -17,10 +17,15 @@ interface IEducationListProps {
 const EducationList = ({ courses, lang }: IEducationListProps) => {
   // const testArr = ["1", "2", "3", "4", "5", "6", "7", "8"];
 
+  const animationKey = courses.map(item => item.title[lang]).join("-");
+
   return (
     <AnimatedWrapper
+      key={animationKey}
       as={motion.ul}
-      viewport={{ once: true, amount: 0.4 }}
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: false, amount: 0.1 }}
       animation={listVariants({ staggerChildren: 0.3 })}
       className={styles.list}
     >
