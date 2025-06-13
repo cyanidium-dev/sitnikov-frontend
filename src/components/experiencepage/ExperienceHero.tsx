@@ -32,7 +32,6 @@ const ExperienceHero = async () => {
           >
             <div>
               <p className="font-light max-md:text-[13px]">{t("descr")}</p>
-              <p className="font-light max-md:text-[13px]">{t("descr2")}</p>
             </div>
           </AnimatedWrapper>
         </div>
