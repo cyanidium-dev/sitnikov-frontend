@@ -10,6 +10,7 @@ interface IPublicationCardProps {
   info: string;
   title: string;
   href?: string;
+  ariaLabel?: string;
 }
 
 const PublicationCard = ({
@@ -18,6 +19,7 @@ const PublicationCard = ({
   info,
   title,
   href,
+  ariaLabel,
 }: IPublicationCardProps) => {
   const defaultCardImage =
     "/images/publications/publication-card-default-image.webp";
@@ -51,7 +53,7 @@ const PublicationCard = ({
 
           <div className="mt-auto flex gap-[18px]">
             <p className="line-clamp-4 tracking-normal">{description}</p>
-            {href && <IconButtonOrLink href={href} />}
+            {href && <IconButtonOrLink href={href} ariaLabel={ariaLabel} />}
           </div>
         </div>
       </InfoBox>

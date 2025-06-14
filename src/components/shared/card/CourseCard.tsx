@@ -9,6 +9,7 @@ interface ICourseCardProps {
   variant: "light" | "accent" | "dark";
   href: string;
   className?: string;
+  ariaLabel: string;
 }
 
 const CourseCard = ({
@@ -17,6 +18,7 @@ const CourseCard = ({
   title,
   href,
   className,
+  ariaLabel,
 }: ICourseCardProps) => {
   const wrapperStyles = cn(
     "relative w-full flex flex-col rounded overflow-hidden",
@@ -66,7 +68,11 @@ const CourseCard = ({
         <p className={descrStyles}>{descr}</p>
 
         <div className="z-[3]">
-          <ButtonOrLink href={href} className={linkStyles}>
+          <ButtonOrLink
+            href={href}
+            className={linkStyles}
+            ariaLabel={ariaLabel}
+          >
             <ArrowInCircleIcon className="h-[31px] w-[31px] text-dark" />
           </ButtonOrLink>
         </div>
