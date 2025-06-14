@@ -75,7 +75,14 @@ export const getPaginatedPublications = async (
         },
         "slug": slug.current,
         description,
-        content,
+        "content": {
+          "uk": content.uk[]{
+            "text": children[].text
+          },
+          "ru": content.ru[]{
+            "text": children[].text
+          }
+        },
         gallery[]{
           "url": asset->url,
           description

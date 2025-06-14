@@ -30,7 +30,6 @@ export const mapItemToCardProps = (
   const info = isAnnouncement
     ? formatStartDate(item.startDate, lang)
     : getReadingTimeMinutes(item.content, lang);
-  // : "6 хв на читання"; // Change on timeRead when it'll be ready
 
   const href = isAnnouncement
     ? undefined
