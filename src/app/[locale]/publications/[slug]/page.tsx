@@ -9,6 +9,8 @@ import {
 import { getReadingTimeMinutes } from "@/utils/getReadingTimeMinutes";
 import { Locale } from "@/types/locale";
 
+export const dynamic = "force-static";
+
 export async function generateMetadata({
   params,
 }: {
@@ -44,6 +46,7 @@ export async function generateStaticParams() {
   const posts = await getAllPublicationSlugs();
 
   const languages = ["uk", "ru"];
+
   return posts.flatMap(post =>
     languages.map(lang => ({
       slug: post.slug,
