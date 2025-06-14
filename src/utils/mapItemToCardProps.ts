@@ -13,6 +13,7 @@ interface MappedCardProps {
   imgSrc?: string;
   info: string;
   href?: string;
+  ariaLabel?: string;
 }
 
 export const mapItemToCardProps = (
@@ -35,5 +36,10 @@ export const mapItemToCardProps = (
     ? undefined
     : `/${lang}/publications/${item.slug}`;
 
-  return { title, description, imgSrc, info, href };
+  const ariaLabel =
+    !isAnnouncement && lang === "uk"
+      ? "Посилання на повну публікацію"
+      : "Ссылка на полную публикацию";
+
+  return { title, description, imgSrc, info, href, ariaLabel };
 };

@@ -72,14 +72,14 @@ const HomeCourses = async () => {
           >
             <div className="flex flex-col gap-5 xl:flex-col-reverse">
               <AnimatedListItem direction="left">
-                <CourseCard {...courseList[0]} />
+                <CourseCard {...courseList[0]} ariaLabel={t("a11yLink")} />
               </AnimatedListItem>
               <AnimatedListItem direction="left">
-                <CourseCard {...courseList[1]} />
+                <CourseCard {...courseList[1]} ariaLabel={t("a11yLink")} />
               </AnimatedListItem>
             </div>
             <AnimatedListItem direction="left">
-              <CourseCard {...courseList[2]} />
+              <CourseCard {...courseList[2]} ariaLabel={t("a11yLink")} />
             </AnimatedListItem>
           </AnimatedList>
         </div>
