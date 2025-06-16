@@ -35,7 +35,7 @@ const CourseCard = ({
     "z-[3] font-micra text-[24px] mb-6",
     variant === "light" && "",
     variant === "accent" && "",
-    variant === "dark" && ""
+    variant === "dark" && "max-w-[265px]"
   );
 
   const descrStyles = cn(
@@ -58,7 +58,7 @@ const CourseCard = ({
       "bottom-0 left-0 h-[308px] w-[382px] bg-[url('/images/homepage/home-courses-person-1.webp')]",
     variant === "accent" && "",
     variant === "dark" &&
-      "-bottom-[340] -left-[220] h-[709px] w-[664px] bg-[url('/images/homepage/home-courses-person-2-mob.webp')] xl:bottom-0 xl:left-0 xl:h-[482px] xl:w-[280px] xl:bg-[url('/images/homepage/home-courses-person-2-desk.webp')]"
+      "-bottom-[10px] -left-[20px] w-[471px] h-[264px] bg-[url('/images/homepage/home-courses-person-2-mob.webp')] xl:bottom-0 xl:left-0 xl:h-[482px] xl:w-[280px] xl:bg-[url('/images/homepage/home-courses-person-2-desk.webp')]"
   );
 
   return (
