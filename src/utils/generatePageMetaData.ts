@@ -36,7 +36,7 @@ export async function generatePageMetadata({
     alternates[loc] = loc === defaultLocale ? path : `/${loc}${path}`;
   });
 
-  const defaultOgImage = `${baseUrl}/images/og/default.webp`;
+  const defaultOgImage = `${baseUrl}/images/seo-default.webp`;
 
   const metadata: Metadata = {
     title: `${companyName} | ${title}`,
