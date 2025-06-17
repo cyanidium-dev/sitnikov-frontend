@@ -16,7 +16,7 @@ const ServicesConsulting = async () => {
 
   return (
     <section className="relative overflow-hidden pb-[261px] pt-[120px] xl:py-[112px]">
-      <div className="container max-w-[400px] md:max-w-[700px] xl:max-w-[1280px]">
+      <div className="container relative z-10 max-w-[400px] md:max-w-[700px] xl:max-w-[1280px]">
         <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
           <h2 className="mb-[52px] font-micra text-[24px] xl:mb-12 xl:max-w-[409px] xl:text-[40px]">
             {t("title")}
@@ -39,7 +39,7 @@ const ServicesConsulting = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: 100, y: 50, scale: 0.8, delay: 0.7 })}
-        className="absolute bottom-0 right-0 xl:-bottom-[50px] xl:h-[726px] xl:w-[827px] xl:bg-[url('/images/servicespage/services-analytics-person-desk.webp')]"
+        className="absolute bottom-0 right-0 h-[430px] w-[400px] bg-[url('/images/servicespage/services-consulting-person-mob.webp')] bg-contain xl:-bottom-[50px] xl:h-[726px] xl:w-[827px] xl:bg-[url('/images/servicespage/services-consulting-person-desk.webp')]"
       />
     </section>
   );
