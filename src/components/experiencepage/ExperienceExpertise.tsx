@@ -21,7 +21,7 @@ const ExperienceExpertise = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: 50, y: 50, scale: 0.8, delay: 0.5 })}
-        className="absolute bottom-0 h-[478px] w-[676px] bg-[url('/images/experiencePage/experience-expertise-person-mob.webp')] max-xl:-right-[70px] xl:hidden"
+        className="absolute bottom-0 h-[478px] w-[676px] bg-[url('/images/experiencePage/experience-expertise-person-mob.webp')] bg-contain max-xl:-right-[70px] xl:hidden"
       />
 
       <div className="container relative z-[5] max-w-[1280px]">

@@ -13,7 +13,7 @@ const ExperienceHero = async () => {
       <div className="container max-md:max-w-[462px] md:max-w-[1280px] xl:relative xl:h-full">
         <div className="max-md:mr-auto max-md:max-w-[190px]">
           <AnimatedWrapper
-            viewport={{ amount: 0 }}
+            viewport={{ once: true, amount: 0 }}
             animation={fadeInAnimation({ y: -50 })}
           >
             <h1 className="mb-7 font-micra text-[24px] max-xl:leading-[1.6] max-md:mx-auto max-md:max-w-[400px] md:mb-8 md:text-[32px] xl:text-[48px]">
@@ -26,7 +26,7 @@ const ExperienceHero = async () => {
           </AnimatedWrapper>
 
           <AnimatedWrapper
-            viewport={{ amount: 0 }}
+            viewport={{ once: true, amount: 0 }}
             animation={fadeInAnimation({ x: 50 })}
             className="md:w-[374px] xl:ml-auto"
           >
@@ -38,7 +38,7 @@ const ExperienceHero = async () => {
 
         <div className="absolute z-[5] h-[221px] w-full max-w-[400px] max-xl:-bottom-[177px] max-xl:left-1/2 max-xl:-translate-x-1/2 md:h-[301px] md:max-w-[829px] xl:-bottom-[99px] xl:left-0">
           <AnimatedWrapper
-            viewport={{ amount: 0 }}
+            viewport={{ once: true, amount: 0 }}
             animation={fadeInAnimation({ y: 50, delay: 0.5 })}
             className="h-full w-full"
           >

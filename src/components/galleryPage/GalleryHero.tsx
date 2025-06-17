@@ -29,7 +29,7 @@ const GalleryHero = async () => {
       </div>
 
       <AnimatedWrapper animation={fadeInAnimation({ delay: 0.6, scale: 0.8 })}>
-        <div className="absolute bottom-[207px] right-[30%] h-[269px] w-[360px] bg-[url('/images/galleryPage/gallery-hero-person-mob.webp')] max-xl:translate-x-1/4 md:bottom-0 md:right-1/2 xl:-bottom-[50px] xl:h-[446px] xl:w-[713px] xl:translate-x-[15%] xl:bg-[url('/images/galleryPage/gallery-hero-person-desk.webp')]" />
+        <div className="absolute bottom-[207px] right-[30%] h-[269px] w-[360px] bg-[url('/images/galleryPage/gallery-hero-person-mob.webp')] bg-contain max-xl:translate-x-1/4 md:bottom-0 md:right-1/2 xl:-bottom-[50px] xl:h-[446px] xl:w-[713px] xl:translate-x-[15%] xl:bg-[url('/images/galleryPage/gallery-hero-person-desk.webp')]" />
       </AnimatedWrapper>
 
       <div className="absolute left-0 top-0 -z-[5] h-full w-full bg-[url('/images/galleryPage/gallery-hero-bg-mob.webp')] bg-cover bg-no-repeat md:w-[45%] md:bg-[url('/images/galleryPage/gallery-hero-bg-desk.webp')]" />
