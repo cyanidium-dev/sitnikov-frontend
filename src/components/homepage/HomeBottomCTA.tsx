@@ -43,7 +43,7 @@ const HomeBottomCTA = async () => {
         animation={fadeInAnimation({ x: 150, delay: 0.5, scale: 0.8 })}
         className="absolute bottom-0 right-0 h-full w-full"
       >
-        <div className="absolute -right-[30px] bottom-0 z-10 h-[591px] w-[360px] bg-[url('/images/homepage/home-bottomCTA-person-mob.webp')] bg-contain bg-no-repeat object-cover xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-bottomCTA-person-desk.webp')]" />
+        <div className="absolute -right-0 bottom-0 z-10 h-[591px] w-[360px] bg-[url('/images/homepage/home-bottomCTA-person-mob.webp')] bg-contain bg-no-repeat object-cover xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-bottomCTA-person-desk.webp')]" />
         <div className="absolute bottom-0 right-0 z-[8] h-[581px] w-[744px] bg-no-repeat object-cover xl:bg-[url('/images/homepage/home-bottomCTA-decor-desk.webp')]" />
       </AnimatedWrapper>
     </section>

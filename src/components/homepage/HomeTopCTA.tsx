@@ -36,7 +36,7 @@ const HomeTopCTA = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: 50, delay: 0.7, scale: 0.8 })}
-        className="absolute -right-[138px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/home-topCTA-person-mob.webp')] bg-contain bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-topCTA-person-desk.webp')]"
+        className="absolute -right-[122px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/home-topCTA-person-mob.webp')] bg-contain bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-topCTA-person-desk.webp')]"
       />
 
       <AnimatedWrapper
