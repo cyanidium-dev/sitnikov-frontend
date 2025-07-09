@@ -1,23 +1,8 @@
+import { client } from "@/lib/sanity";
 import {
   AnnouncementItem,
-  GalleryItem,
   PublicationItem,
 } from "@/lib/sanity/types/queryTypes";
-
-import { client } from "../../sanity";
-
-export const gallery = async (): Promise<GalleryItem[]> => {
-  return await client.fetch<GalleryItem[]>(`
-      *[_type == "gallery"] {
-        title,
-        description,
-        images[] {
-          "url": asset->url,
-          description
-        }
-      }
-    `);
-};
 
 export const getAllPublications = async (): Promise<PublicationItem[]> => {
   return await client.fetch<PublicationItem[]>(`

@@ -4,12 +4,6 @@ import {
   SanityImage,
 } from "./shared";
 
-export type GalleryItem = {
-  title: LocalizedString;
-  description: LocalizedString;
-  images: SanityImage[];
-};
-
 export type PublicationItem = {
   title: LocalizedString;
   previewImage?: SanityImage;

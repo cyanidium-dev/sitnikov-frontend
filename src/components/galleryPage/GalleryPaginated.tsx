@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-import { GalleryItem } from "@/lib/sanity/types/queryTypes";
+import { GalleryItem } from "@/lib/sanity/types/galleryType";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
 import { fadeInAnimation } from "@/helpers/animation";

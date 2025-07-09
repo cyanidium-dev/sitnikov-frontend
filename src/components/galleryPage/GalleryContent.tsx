@@ -1,4 +1,4 @@
-import { gallery } from "@/lib/sanity/queries/queries";
+import { getGallery } from "@/lib/sanity/queries/gallery";
 import { Locale } from "@/types/locale";
 
 import GalleryPaginated from "./GalleryPaginated";
@@ -6,7 +6,7 @@ import GalleryPaginated from "./GalleryPaginated";
 export const revalidate = 3600;
 
 const GalleryContent = async ({ lang }: { lang: Locale }) => {
-  const galleryList = await gallery();
+  const galleryList = await getGallery();
 
   return (
     <>
