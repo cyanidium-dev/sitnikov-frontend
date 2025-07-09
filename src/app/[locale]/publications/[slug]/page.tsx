@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import PublicationContent from "@/components/publicationPage/PublicationContent";
 import PublicationHero from "@/components/publicationPage/PublicationHero";
 import {
-  getAllPublicationSlugs,
+  // getAllPublicationSlugs,
   getPublicationBySlug,
 } from "@/lib/sanity/queries/queries";
 import { getReadingTimeMinutes } from "@/utils/getReadingTimeMinutes";
 import { Locale } from "@/types/locale";
 
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,
@@ -42,18 +42,18 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const posts = await getAllPublicationSlugs();
+// export async function generateStaticParams() {
+//   const posts = await getAllPublicationSlugs();
 
-  const languages = ["uk", "ru"];
+//   const languages = ["uk", "ru"];
 
-  return posts.flatMap(post =>
-    languages.map(lang => ({
-      slug: post.slug,
-      lang,
-    }))
-  );
-}
+//   return posts.flatMap(post =>
+//     languages.map(lang => ({
+//       slug: post.slug,
+//       lang,
+//     }))
+//   );
+// }
 
 const PublicationPage = async ({
   params,
