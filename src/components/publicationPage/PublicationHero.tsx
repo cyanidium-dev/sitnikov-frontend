@@ -40,7 +40,9 @@ const PublicationHero = ({
 
       <div className="container flex h-full max-w-[1280px] flex-col justify-between">
         <AnimatedWrapper
-          viewport={{ amount: 0 }}
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: false, amount: 0 }}
           animation={fadeInAnimation({ y: -50 })}
         >
           <h1 className="mb-10 max-w-[340px] font-micra uppercase md:max-w-[822px] md:text-[32px] xl:text-[48px]">
@@ -52,7 +54,9 @@ const PublicationHero = ({
         </AnimatedWrapper>
 
         <AnimatedWrapper
-          viewport={{ amount: 0 }}
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: false, amount: 0 }}
           animation={fadeInAnimation({ x: -50 })}
           className="ml-[21px]"
         >

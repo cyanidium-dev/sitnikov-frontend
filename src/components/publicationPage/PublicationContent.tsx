@@ -18,32 +18,27 @@ const PublicationContent = ({
   return (
     <article>
       <div className="container max-w-[1280px]">
-        <section>
-          <AnimatedWrapper
-            animation={fadeInAnimation({ y: 50 })}
-            className="flex flex-col gap-6 py-[120px] md:py-[100px]"
-          >
-            {content.map(({ text }, i) => (
-              <p
-                key={text}
-                className={`${i === 0 ? "font-semibold" : ""} leading-[1.6]`}
-              >
-                {text}
-              </p>
-            ))}
-          </AnimatedWrapper>
-        </section>
+        <section className="flex flex-col gap-6 py-[120px] md:py-[100px]">
+          {content.map(({ text }, i) => (
+            <p
+              key={text}
+              className={`${i === 0 ? "font-semibold" : ""} leading-[1.6]`}
+            >
+              {text}
+            </p>
+          ))}
 
-        {gallery && gallery?.length > 0 && (
-          <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.4 })}>
-            <GallerySlider
-              wrapperClassName="mb-[46px]"
-              gallery={gallery}
-              imgAlt={title}
-              sliderId="1"
-            />
-          </AnimatedWrapper>
-        )}
+          {gallery && gallery?.length > 0 && (
+            <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.4 })}>
+              <GallerySlider
+                wrapperClassName="mb-[46px]"
+                gallery={gallery}
+                imgAlt={title}
+                sliderId="1"
+              />
+            </AnimatedWrapper>
+          )}
+        </section>
       </div>
     </article>
   );

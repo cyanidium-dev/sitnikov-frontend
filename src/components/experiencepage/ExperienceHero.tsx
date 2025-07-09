@@ -9,7 +9,7 @@ const ExperienceHero = async () => {
   const t = await getTranslations("experiencePage.hero");
 
   return (
-    <section className="relative bg-[linear-gradient(153.1deg,_#FFFFFF_16.83%,_#C0D4FF_172.17%)] pb-[99px] pt-[124px] md:h-[528px] xl:overflow-hidden">
+    <section className="relative bg-[linear-gradient(153.1deg,_#FFFFFF_16.83%,_#C0D4FF_172.17%)] pb-[99px] pt-[124px] md:h-[528px] xl:overflow-hidden xl:pt-[136px]">
       <div className="container max-md:max-w-[462px] md:max-w-[1280px] xl:relative xl:h-full">
         <div className="max-md:mr-auto max-md:max-w-[190px]">
           <AnimatedWrapper
