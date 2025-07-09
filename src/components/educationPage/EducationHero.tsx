@@ -1,36 +1,18 @@
 import { getTranslations } from "next-intl/server";
 
-import { fadeInAnimation } from "@/helpers/animation";
-
-import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
-
 const EducationHero = async () => {
   const t = await getTranslations("educationPage.hero");
 
   return (
     <section className="relative h-[665px] bg-dark pt-[136px] text-light max-md:rounded-b-2xl md:h-[480px] xl:h-[520px]">
       <div className="container max-w-[1280px] md:pl-[420px] xl:pl-[582px]">
-        <AnimatedWrapper
-          initial="hidden"
-          animate="visible"
-          viewport={{ once: false, amount: 0 }}
-          animation={fadeInAnimation({ x: 50 })}
-        >
-          <h1 className="mb-8 font-micra text-[22px] uppercase max-xl:max-w-[390px] md:mb-[38px] md:text-[28px] xl:w-[662px] xl:text-[36px]">
-            {t("title")}
-          </h1>
-        </AnimatedWrapper>
+        <h1 className="mb-8 font-micra text-[22px] uppercase max-xl:max-w-[390px] md:mb-[38px] md:text-[28px] xl:w-[662px] xl:text-[36px]">
+          {t("title")}
+        </h1>
 
-        <AnimatedWrapper
-          initial="hidden"
-          animate="visible"
-          viewport={{ once: false, amount: 0 }}
-          animation={fadeInAnimation({ x: -50, delay: 0.3 })}
-        >
-          <p className="max-w-[306px] text-[14px] font-light max-md:mr-[110px] md:ml-auto md:text-right">
-            {t("descr")}
-          </p>
-        </AnimatedWrapper>
+        <p className="max-w-[306px] text-[14px] font-light max-md:mr-[110px] md:ml-auto md:text-right">
+          {t("descr")}
+        </p>
       </div>
 
       <div className="absolute left-0 z-[5] h-[233px] w-full bg-[url('/images/educationPage/education-hero-bg.webp')] bg-cover bg-no-repeat max-md:bottom-0 max-md:rounded-b-2xl md:top-0 md:h-full md:w-[390px] xl:w-[40%]" />
