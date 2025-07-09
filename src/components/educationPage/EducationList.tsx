@@ -1,4 +1,4 @@
-import { CourseItem } from "@/lib/sanity/types/queryTypes";
+import { CourseItem } from "@/lib/sanity/types/courseTypes";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
 import { listVariants } from "@/helpers/animation";

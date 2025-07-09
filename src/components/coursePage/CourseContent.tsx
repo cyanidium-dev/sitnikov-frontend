@@ -1,4 +1,4 @@
-import { CourseItem } from "@/lib/sanity/types/queryTypes";
+import { CourseItem } from "@/lib/sanity/types/courseTypes";
 import { Locale } from "@/types/locale";
 import { fadeInAnimation } from "@/helpers/animation";
 
