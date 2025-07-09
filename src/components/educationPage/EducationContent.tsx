@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { BeatLoader } from "react-spinners";
 import { useParams, useRouter } from "next/navigation";
 
 import { usePaginationPage } from "@/hooks/usePaginationPage";
@@ -16,41 +14,29 @@ import EducationList from "./EducationList";
 
 const EducationContent = ({
   courseCategories,
+  allCourses,
+  lang,
 }: {
   courseCategories: CourseCategoryItem[];
+  allCourses: CourseItem[];
+  lang: Locale;
 }) => {
   const router = useRouter();
   const params = useParams();
-
-  const lang = params.locale as Locale;
   const selectedCategory = params.category as string | undefined;
 
-  const [courses, setCourses] = useState<CourseItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const filteredCourses = selectedCategory
+    ? allCourses.filter(course => course.courseType?.slug === selectedCategory)
+    : allCourses;
 
-  const totalPages = Math.ceil(courses.length / COURSES_PER_PAGE);
+  const totalPages = Math.ceil(filteredCourses.length / COURSES_PER_PAGE);
   const { currentPage, changePage } = usePaginationPage(totalPages);
+
   const startIdx = (currentPage - 1) * COURSES_PER_PAGE;
-  const paginatedData = courses.slice(startIdx, startIdx + COURSES_PER_PAGE);
-
-  useEffect(() => {
-    async function fetchCourses() {
-      if (!selectedCategory) return;
-
-      setLoading(true);
-      try {
-        const res = await fetch(`/api/courses/${selectedCategory}`);
-        const data: CourseItem[] = await res.json();
-        setCourses(data);
-      } catch (error) {
-        console.error("Error fetching courses:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchCourses();
-  }, [selectedCategory]);
+  const paginatedData = filteredCourses.slice(
+    startIdx,
+    startIdx + COURSES_PER_PAGE
+  );
 
   const handleCategoryChange = (categoryValue: string) => {
     router.push(`/${lang}/education/${categoryValue}`);
@@ -66,11 +52,7 @@ const EducationContent = ({
           lang={lang}
         />
 
-        {loading ? (
-          <BeatLoader color="#5188FF" className="mx-auto mt-[50px] w-[100px]" />
-        ) : (
-          <EducationList courses={paginatedData} lang={lang} />
-        )}
+        <EducationList courses={paginatedData} lang={lang} />
 
         <Pagination
           currentPage={currentPage}

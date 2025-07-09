@@ -1,11 +1,14 @@
 import { Metadata } from "next";
-import { Locale } from "next-intl";
 
 import EducationContent from "@/components/educationPage/EducationContent";
 import EducationHero from "@/components/educationPage/EducationHero";
-import { getCourseCategories } from "@/lib/sanity/queries/courses";
+import {
+  getAllCourses,
+  getCourseCategories,
+} from "@/lib/sanity/queries/courses";
 import { ROUTES } from "@/constants/routes";
 import { generatePageMetadata } from "@/utils/generatePageMetaData";
+import { Locale } from "@/types/locale";
 
 export async function generateMetadata({
   params,
@@ -21,15 +24,26 @@ export async function generateMetadata({
   });
 }
 
-const EducationPage = async () => {
+const EducationCategoryPage = async ({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) => {
+  const { locale } = await params;
+
   const courseCategories = await getCourseCategories();
+  const allCourses = await getAllCourses();
 
   return (
     <>
       <EducationHero />
-      <EducationContent courseCategories={courseCategories} />
+      <EducationContent
+        courseCategories={courseCategories}
+        allCourses={allCourses}
+        lang={locale}
+      />
     </>
   );
 };
 
-export default EducationPage;
+export default EducationCategoryPage;
