@@ -1,6 +1,5 @@
 import {
   AnnouncementItem,
-  CourseItem,
   GalleryItem,
   PublicationItem,
 } from "@/lib/sanity/types/queryTypes";
@@ -144,53 +143,4 @@ export const getAllAnnouncements = async (): Promise<AnnouncementItem[]> => {
          "url": asset->url
         },
     }`);
-};
-
-export const getAllCourses = async () => {
-  return await client.fetch(`*[_type == "course"]`);
-};
-
-export const getCoursesByCategory = async (
-  categorySlug: string
-): Promise<CourseItem[]> => {
-  return await client.fetch<CourseItem[]>(
-    `
-    *[_type == "course" && courseType->slug.current == $categorySlug] {
-      title,
-      description,
-      "courseType": {
-        "slug": courseType->slug.current,
-        "title": courseType->title
-      },
-      previewImage{
-        "url": asset->url,
-        description
-      },
-      mainImage{
-        "url": asset->url,
-        description
-      },
-      mainImageMobile{
-        "url": asset->url,
-        description
-      },
-      firstBlock{
-        title,
-        "content": {
-          "uk": content.uk[]{
-            "text": children[].text
-          },
-          "ru": content.ru[]{
-            "text": children[].text
-          }
-        }
-      },
-      secondBlock{
-        title,
-        accordion
-      }
-    }
-  `,
-    { categorySlug }
-  );
 };

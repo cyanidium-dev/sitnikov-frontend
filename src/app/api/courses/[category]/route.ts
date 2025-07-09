@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getCoursesByCategory } from "@/lib/sanity/queries/queries";
+import { getCoursesByCategory } from "@/lib/sanity/queries/courses";
 
 export const dynamic = "force-dynamic";
 

@@ -1,5 +1,4 @@
 import {
-  AccordionContent,
   LocalizedShortBlockContent,
   LocalizedString,
   SanityImage,
@@ -27,24 +26,4 @@ export type AnnouncementItem = {
   previewImage?: SanityImage;
   description: LocalizedString;
   startDate: string;
-};
-
-export type CourseItem = {
-  title: LocalizedString;
-  description: LocalizedString;
-  courseType: {
-    slug: string;
-    title: LocalizedString;
-  };
-  previewImage?: SanityImage;
-  mainImage?: SanityImage;
-  mainImageMobile?: SanityImage;
-  firstBlock: {
-    title: LocalizedString;
-    content: LocalizedShortBlockContent;
-  };
-  secondBlock: {
-    title: LocalizedString;
-    accordion: AccordionContent[];
-  };
 };

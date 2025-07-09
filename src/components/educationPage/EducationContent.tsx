@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 
 import { usePaginationPage } from "@/hooks/usePaginationPage";
 
-import { CourseItem } from "@/lib/sanity/types/queryTypes";
+import { CourseCategoryItem, CourseItem } from "@/lib/sanity/types/courseTypes";
 import { COURSES_PER_PAGE } from "@/constants/pagination";
 import { Locale } from "@/types/locale";
 
@@ -14,7 +14,11 @@ import Pagination from "../shared/paginator/Paginator";
 import EducationFilter from "./EducationFilter";
 import EducationList from "./EducationList";
 
-const EducationContent = () => {
+const EducationContent = ({
+  courseCategories,
+}: {
+  courseCategories: CourseCategoryItem[];
+}) => {
   const router = useRouter();
   const params = useParams();
 
@@ -23,9 +27,6 @@ const EducationContent = () => {
 
   const [courses, setCourses] = useState<CourseItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentCourseCategory, setCurrentCourseCategory] = useState<
-    string | null
-  >(selectedCategory || null);
 
   const totalPages = Math.ceil(courses.length / COURSES_PER_PAGE);
   const { currentPage, changePage } = usePaginationPage(totalPages);
@@ -34,11 +35,11 @@ const EducationContent = () => {
 
   useEffect(() => {
     async function fetchCourses() {
-      if (!currentCourseCategory) return;
+      if (!selectedCategory) return;
 
       setLoading(true);
       try {
-        const res = await fetch(`/api/courses/${currentCourseCategory}`);
+        const res = await fetch(`/api/courses/${selectedCategory}`);
         const data: CourseItem[] = await res.json();
         setCourses(data);
       } catch (error) {
@@ -49,10 +50,9 @@ const EducationContent = () => {
     }
 
     fetchCourses();
-  }, [currentCourseCategory]);
+  }, [selectedCategory]);
 
   const handleCategoryChange = (categoryValue: string) => {
-    setCurrentCourseCategory(categoryValue);
     router.push(`/${lang}/education/${categoryValue}`);
   };
 
@@ -60,8 +60,9 @@ const EducationContent = () => {
     <section className="pb-[120px] pt-[50px] xl:pb-[200px] xl:pt-[100px]">
       <div className="container max-w-[1280px]">
         <EducationFilter
+          courseCategories={courseCategories}
           onClick={handleCategoryChange}
-          currentCourseCategory={currentCourseCategory}
+          currentCourseCategory={selectedCategory}
           lang={lang}
         />
 

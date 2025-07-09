@@ -1,6 +1,6 @@
 import CourseContent from "@/components/coursePage/CourseContent";
 import CourseHero from "@/components/coursePage/CourseHero";
-import { getCoursesByCategory } from "@/lib/sanity/queries/queries";
+import { getCoursesByCategory } from "@/lib/sanity/queries/courses";
 import { Locale } from "@/types/locale";
 
 const CoursePage = async ({
