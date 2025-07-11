@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import EducationContent from "@/components/educationPage/EducationContent";
 import EducationHero from "@/components/educationPage/EducationHero";
 import {
-  getAllCourses,
   getCourseCategories,
+  getCoursesByCategory,
 } from "@/lib/sanity/queries/courses";
 import { ROUTES } from "@/constants/routes";
 import { generatePageMetadata } from "@/utils/generatePageMetaData";
@@ -27,12 +27,12 @@ export async function generateMetadata({
 const EducationCategoryPage = async ({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: Locale; category: string }>;
 }) => {
-  const { locale } = await params;
+  const { locale, category } = await params;
 
   const courseCategories = await getCourseCategories();
-  const allCourses = await getAllCourses();
+  const allCourses = await getCoursesByCategory(category);
 
   return (
     <>
