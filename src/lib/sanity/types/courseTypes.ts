@@ -8,6 +8,7 @@ import {
 export type CourseItem = {
   title: LocalizedString;
   description: LocalizedString;
+  slug: string;
   courseType: {
     slug: string;
     title: LocalizedString;

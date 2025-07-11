@@ -25,18 +25,11 @@ const EducationContent = ({
   const params = useParams();
   const selectedCategory = params.category as string | undefined;
 
-  const filteredCourses = selectedCategory
-    ? allCourses.filter(course => course.courseType?.slug === selectedCategory)
-    : allCourses;
-
-  const totalPages = Math.ceil(filteredCourses.length / COURSES_PER_PAGE);
+  const totalPages = Math.ceil(allCourses.length / COURSES_PER_PAGE);
   const { currentPage, changePage } = usePaginationPage(totalPages);
 
   const startIdx = (currentPage - 1) * COURSES_PER_PAGE;
-  const paginatedData = filteredCourses.slice(
-    startIdx,
-    startIdx + COURSES_PER_PAGE
-  );
+  const paginatedData = allCourses.slice(startIdx, startIdx + COURSES_PER_PAGE);
 
   const handleCategoryChange = (categoryValue: string) => {
     router.push(`/${lang}/education/${categoryValue}`);
