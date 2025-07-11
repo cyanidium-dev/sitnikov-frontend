@@ -14,11 +14,15 @@ const CoursePage = async ({
 
   if (!course) return null;
 
+  const { title, description, mainImage, mainImageMobile } = course;
+
   return (
     <>
       <CourseHero
-        title={course.title[locale]}
-        descr={course.description[locale]}
+        title={title[locale]}
+        descr={description[locale]}
+        mainImage={mainImage}
+        mainImageMobile={mainImageMobile}
       />
       <CourseContent course={course} lang={locale} />
     </>
