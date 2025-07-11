@@ -20,7 +20,7 @@ const NavMenu = ({ closeMenu }: INavMenuProps) => {
     { title: t("experience"), path: `${ROUTES.EXPERIENCE}` },
     { title: t("publications"), path: `${ROUTES.PUBLICATIONS}` },
     { title: t("contacts"), path: `${ROUTES.CONTACTS}` },
-    { title: t("education"), path: `${ROUTES.FREE_EDUCATION}` },
+    { title: t("education"), path: `${ROUTES.EDUCATION}` },
     { title: t("announcements"), path: `${ROUTES.ANNOUNCEMENTS}` },
   ];
 

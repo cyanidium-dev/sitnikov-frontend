@@ -30,7 +30,7 @@ const HomeExperience = async () => {
           <div className="max-xl:mb-10">
             <AnimatedWrapper
               animation={fadeInAnimation({ y: -50 })}
-              className="flex flex-col gap-5 xl:mb-8 xl:w-[349px] xl:flex-col-reverse xl:gap-7"
+              className="flex flex-col gap-5 xl:mb-8 xl:flex-col-reverse xl:gap-7"
             >
               <h2 className="font-micra text-2xl leading-[1.22] xl:text-[40px]">
                 {t("title")}

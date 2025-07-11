@@ -93,7 +93,7 @@ const HomeCourses = async () => {
           </p>
 
           <ButtonOrLink
-            href={ROUTES.FREE_EDUCATION}
+            href={ROUTES.EDUCATION}
             variant="light"
             className="bg-light xl:w-[318px]"
           >

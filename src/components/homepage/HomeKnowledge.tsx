@@ -27,7 +27,7 @@ const HomeKnowledge = async () => {
 
           <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.4 })}>
             <ButtonOrLink
-              href={ROUTES.FREE_EDUCATION}
+              href={ROUTES.EDUCATION}
               variant="light"
               className="max-w-[374px]"
             >

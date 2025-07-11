@@ -33,7 +33,7 @@ const HomeBottomCTA = async () => {
             buttonVariant="light"
             messageFrom={APPLICATION.CONSULTATION}
           />
-          <ButtonOrLink href={ROUTES.FREE_EDUCATION} variant="transparent">
+          <ButtonOrLink href={ROUTES.EDUCATION} variant="transparent">
             {t("buttonCourse")}
           </ButtonOrLink>
         </AnimatedWrapper>
