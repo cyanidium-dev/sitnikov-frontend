@@ -73,7 +73,7 @@ const CourseCard = ({
 
         <div className="z-[3]">
           <ButtonOrLink
-            href={`/${lang}/${ROUTES.EDUCATION}/${href}`}
+            href={`/${lang}${ROUTES.EDUCATION}/${href}`}
             className={linkStyles}
             ariaLabel={ariaLabel}
           >

@@ -43,7 +43,7 @@ const EducationCard = ({ course, lang }: IEducationCardProps) => {
           <ButtonOrLink
             variant="dark"
             className="relative z-[1]"
-            href={`/${lang}/${ROUTES.EDUCATION}/${courseType.slug}/${slug}`}
+            href={`/${lang}${ROUTES.EDUCATION}/${courseType.slug}/${slug}`}
           >
             Переглянути курс
           </ButtonOrLink>
