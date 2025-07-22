@@ -27,7 +27,7 @@ const EducationList = ({ courses, lang }: IEducationListProps) => {
         <AnimatedListItem
           direction="down"
           key={course.title[lang]}
-          className="mx-auto w-full max-w-[400px]"
+          className="mx-auto min-h-[451px] w-full max-w-[400px] xl:min-h-[508px]"
         >
           <EducationCard course={course} lang={lang} />
         </AnimatedListItem>

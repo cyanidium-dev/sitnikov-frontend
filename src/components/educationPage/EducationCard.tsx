@@ -31,23 +31,23 @@ const EducationCard = ({ course, lang }: IEducationCardProps) => {
           />
         </div>
 
-        <div className="flex grow flex-col justify-between gap-4 pt-[50px] xl:gap-6">
-          <h3 className="line-clamp-4 font-micra text-[20px] uppercase tracking-normal xl:text-[24px]">
+        <div className="flex flex-col justify-between gap-4 pt-[30px] xl:gap-6">
+          <h3 className="line-clamp-4 font-micra uppercase tracking-normal xl:text-[20px]">
             {title[lang]}
           </h3>
 
-          <p className="mt-auto line-clamp-4 flex gap-[18px] tracking-normal">
+          <p className="mt-auto line-clamp-4 gap-[18px] tracking-normal">
             {description[lang]}
           </p>
-
-          <ButtonOrLink
-            variant="dark"
-            className="relative z-[1]"
-            href={`/${lang}${ROUTES.EDUCATION}/${courseType.slug}/${slug}`}
-          >
-            Переглянути курс
-          </ButtonOrLink>
         </div>
+
+        <ButtonOrLink
+          variant="dark"
+          className="relative z-[1] mt-auto"
+          href={`/${lang}${ROUTES.EDUCATION}/${courseType.slug}/${slug}`}
+        >
+          Переглянути курс
+        </ButtonOrLink>
       </InfoBox>
     </article>
   );
