@@ -1,4 +1,6 @@
+import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
+import { Locale } from "@/types/locale";
 
 import ButtonOrLink from "../button/ButtonOrLink ";
 import { ArrowInCircleIcon } from "../icons";
@@ -10,6 +12,7 @@ interface ICourseCardProps {
   href: string;
   className?: string;
   ariaLabel: string;
+  lang: Locale;
 }
 
 const CourseCard = ({
@@ -19,6 +22,7 @@ const CourseCard = ({
   href,
   className,
   ariaLabel,
+  lang,
 }: ICourseCardProps) => {
   const wrapperStyles = cn(
     "relative w-full flex flex-col rounded overflow-hidden",
@@ -32,23 +36,23 @@ const CourseCard = ({
   );
 
   const titleStyles = cn(
-    "z-[3] font-micra text-[24px] mb-6",
-    variant === "light" && "",
-    variant === "accent" && "",
-    variant === "dark" && "max-w-[265px]"
+    "z-[3] font-micra mb-6",
+    variant === "light" && "text-[20px]",
+    variant === "accent" && "text-[16px] max-w-[246px]",
+    variant === "dark" && "text-[18px] max-w-[265px]"
   );
 
   const descrStyles = cn(
-    "z-[3] font-light mb-auto w-[135px] xl:w-[167px] max-xl:text-[14px] ",
-    variant === "light" && "ml-auto",
-    variant === "accent" && "",
-    variant === "dark" && "text-right ml-auto"
+    "z-[3] font-light mb-auto xl:w-[167px] max-xl:text-[14px] ",
+    variant === "light" && "ml-auto w-[141px] xl:w-[194px]",
+    variant === "accent" && "w-[167px]",
+    variant === "dark" && "max-xl:text-right max-xl:ml-auto max-w-[240px]"
   );
 
   const linkStyles = cn(
     "flex h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-light p-0 xl:h-[70px] xl:w-[70px]",
     variant === "light" && "ml-auto",
-    variant === "accent" && "ml-auto xl:absolute xl:top-7 xl:right-6",
+    variant === "accent" && "max-xl:bottom-6 right-6 absolute xl:top-7",
     variant === "dark" && "ml-auto"
   );
 
@@ -69,7 +73,7 @@ const CourseCard = ({
 
         <div className="z-[3]">
           <ButtonOrLink
-            href={href}
+            href={`/${lang}/${ROUTES.EDUCATION}/${href}`}
             className={linkStyles}
             ariaLabel={ariaLabel}
           >

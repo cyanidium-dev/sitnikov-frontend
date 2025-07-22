@@ -36,7 +36,7 @@ export default async function Home({
   return (
     <>
       <HomeHero />
-      <HomeCourses />
+      <HomeCourses lang={locale} />
       <HomeAdvantages />
       <HeroTopCTA />
       <HeroPublications lang={locale} />
