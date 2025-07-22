@@ -42,7 +42,7 @@ const CourseHero = ({
       />
 
       <div className="container max-w-[1280px]">
-        <div className="relative z-10 w-[300px] md:ml-auto md:w-[534px] md:text-right">
+        <div className="relative z-10 w-[300px] md:ml-auto md:w-[634px] md:text-right">
           <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
             <h1 className="mb-6 font-micra text-[22px] uppercase md:mb-[21px] md:text-[32px] xl:text-[40px]">
               {title}
@@ -50,7 +50,7 @@ const CourseHero = ({
           </AnimatedWrapper>
 
           <AnimatedWrapper animation={fadeInAnimation({ x: 50, delay: 0.3 })}>
-            <p className="mb-8 ml-auto max-w-[236px] text-[14px] font-light max-md:mr-[110px] md:mb-[74px]">
+            <p className="mb-8 ml-auto max-w-[236px] text-[14px] font-light max-md:mr-[110px] md:mb-[74px] xl:max-w-[400px]">
               {descr}
             </p>
           </AnimatedWrapper>
