@@ -49,6 +49,27 @@ const HomeHero = async () => {
           loading="eager"
         />
         <Image
+          src="/images/homepage/home-hero-decor-top-mob.svg"
+          alt="Декоративне зображення"
+          width={315}
+          height={611}
+          className="object-cover md:hidden"
+          priority
+          fetchPriority="high"
+          loading="eager"
+        />
+        <Image
+          src="/images/homepage/home-hero-decor-bot-mob.svg"
+          alt="Декоративне зображення"
+          width={125}
+          height={125}
+          className="absolute bottom-0 right-0 object-cover md:hidden"
+          priority
+          fetchPriority="high"
+          loading="eager"
+        />
+
+        <Image
           src="/images/homepage/home-hero-person-desk.webp"
           alt="Фонове зображення"
           fill
