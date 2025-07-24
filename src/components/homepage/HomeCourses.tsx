@@ -71,22 +71,21 @@ const HomeCourses = async ({ lang }: { lang: Locale }) => {
             animation={listVariants()}
             className="flex flex-col gap-5 max-xl:mb-4 xl:flex-row"
           >
-            <div className="flex flex-col gap-5 xl:flex-col-reverse">
-              <AnimatedListItem direction="left">
-                <CourseCard
-                  {...courseList[0]}
-                  ariaLabel={t("a11yLink")}
-                  lang={lang}
-                />
-              </AnimatedListItem>
-              <AnimatedListItem direction="left">
-                <CourseCard
-                  {...courseList[1]}
-                  ariaLabel={t("a11yLink")}
-                  lang={lang}
-                />
-              </AnimatedListItem>
-            </div>
+            <AnimatedListItem
+              direction="left"
+              className="flex flex-col gap-5 xl:flex-col-reverse"
+            >
+              <CourseCard
+                {...courseList[0]}
+                ariaLabel={t("a11yLink")}
+                lang={lang}
+              />
+              <CourseCard
+                {...courseList[1]}
+                ariaLabel={t("a11yLink")}
+                lang={lang}
+              />
+            </AnimatedListItem>
             <AnimatedListItem direction="left">
               <CourseCard
                 {...courseList[2]}
