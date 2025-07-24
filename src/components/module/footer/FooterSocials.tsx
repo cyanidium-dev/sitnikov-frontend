@@ -9,9 +9,9 @@ const FooterSocials = () => {
 
   return (
     <div>
-      <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
+      <h3 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
         {t("section.socials")}
-      </h4>
+      </h3>
 
       <ul className="flex gap-3">
         {siteConfig.socialLinks.map((link, index) => (

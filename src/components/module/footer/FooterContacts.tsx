@@ -8,9 +8,9 @@ const FooterContacts = () => {
 
   return (
     <div>
-      <h4 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
+      <h3 className="mb-4 font-micra uppercase leading-[20px] tracking-[1px] xl:mb-[18px]">
         {t("section.contacts")}
-      </h4>
+      </h3>
       <nav>
         <ul className="flex flex-col gap-3 xl:gap-6">
           <li>
