@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { getPaginatedPublications } from "@/lib/sanity/queries/queries";
 import { HOME_PUBLICATIONS_PER_PAGE } from "@/constants/pagination";
@@ -41,7 +42,18 @@ const HomePublications = async ({ lang }: { lang: Locale }) => {
         <PublicationList data={publicationList} lang={lang} />
       </div>
 
-      <div className="absolute left-0 top-0 -z-[5] h-[218px] w-[232px] bg-[url('/images/homepage/home-publications-decor-mob.webp')] xl:hidden" />
+      <AnimatedWrapper
+        animation={fadeInAnimation({ scale: 0.8, delay: 0.4 })}
+        className="absolute left-0 top-0 -z-[5] h-[218px] w-[232px] xl:hidden"
+      >
+        <Image
+          src="/images/homepage/home-publications-decor-mob.webp"
+          alt="Декоративне зображення"
+          fill
+          sizes="232px"
+          className="object-contain"
+        />
+      </AnimatedWrapper>
       <div className="absolute -left-[254px] top-[31px] -z-[1] h-[233px] w-[1146px] rotate-[11.31deg] rounded-full bg-[#ffffff] blur-[223px] xl:-left-[45%] xl:hidden" />
     </section>
   );

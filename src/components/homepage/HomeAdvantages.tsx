@@ -1,4 +1,5 @@
 import { getMessages, getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { fadeInAnimation, listVariants } from "@/helpers/animation";
 
@@ -41,7 +42,7 @@ const HomeAdvantages = async () => {
           >
             {advantageList.map(({ title, descr }) => (
               <AnimatedListItem key={title} className="h-full">
-                <InfoBox classname="flex flex-col gap-4 justify-start">
+                <InfoBox classname="flex flex-col gap-4 justify-start max-sm:px-4">
                   <h3 className="font-micra text-[24px]">{title}</h3>
                   <p className="font-light max-xl:text-[14px]">{descr}</p>
                 </InfoBox>
@@ -53,11 +54,36 @@ const HomeAdvantages = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: -50, delay: 0.4, scale: 0.8 })}
-        className="hidden xl:absolute xl:bottom-[143px] xl:left-0 xl:-z-20 xl:block xl:h-[821px] xl:w-[547px] xl:bg-[url('/images/homepage/home-advantages-person.webp')] xl:bg-no-repeat"
-      />
+        className="hidden xl:absolute xl:bottom-0 xl:left-0 xl:-z-20 xl:block xl:h-[947px] xl:w-[1280px]"
+      >
+        <Image
+          src="/images/homepage/home-advantages-person.webp"
+          alt="Фото Олександра Ситника"
+          fill
+          sizes="1280px"
+          className="object-cover"
+        />
+      </AnimatedWrapper>
 
-      <div className="absolute left-0 top-0 -z-[8] h-[774px] w-[353px] bg-no-repeat object-cover max-xl:bg-[url('/images/homepage/home-advantages-decor-top-mob.webp')]" />
-      <div className="absolute bottom-0 right-0 -z-[8] h-[368px] w-[360px] bg-no-repeat object-cover max-xl:bg-[url('/images/homepage/home-advantages-decor-bottom-mob.webp')]" />
+      <div className="absolute left-0 top-0 -z-[8] h-[774px] w-[353px] max-xl:block xl:hidden">
+        <Image
+          src="/images/homepage/home-advantages-decor-top-mob.webp"
+          alt="Декоративне зображення"
+          width={353}
+          height={774}
+          className="object-cover"
+        />
+      </div>
+
+      <div className="absolute bottom-0 right-0 -z-[8] h-[368px] w-[360px] max-xl:block xl:hidden">
+        <Image
+          src="/images/homepage/home-advantages-decor-bottom-mob.webp"
+          alt="Декоративне зображення"
+          width={360}
+          height={368}
+          className="object-cover"
+        />
+      </div>
     </section>
   );
 };

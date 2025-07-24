@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { APPLICATION } from "@/constants/application";
 import { fadeInAnimation } from "@/helpers/animation";
@@ -10,7 +11,15 @@ const HomeTopCTA = async () => {
   const t = await getTranslations("homepage.topCTA");
 
   return (
-    <section className="relative h-[616px] bg-dark bg-[url('/images/homepage/home-topCTA-bg.webp')] bg-cover bg-no-repeat pb-[54px] pt-16 text-light xl:h-[589px] xl:pt-[88px]">
+    <section className="relative h-[616px] bg-dark bg-cover bg-no-repeat pb-[54px] pt-16 text-light xl:h-[589px] xl:pt-[88px]">
+      <Image
+        src="/images/homepage/home-topCTA-bg.webp"
+        alt="Фонове зображення"
+        fill
+        sizes="100vw"
+        className="absolute inset-0 object-cover"
+      />
+
       <div className="container relative z-20 max-w-[1280px]">
         <AnimatedWrapper
           animation={fadeInAnimation({ x: -50 })}
@@ -36,8 +45,23 @@ const HomeTopCTA = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: 50, delay: 0.7, scale: 0.8 })}
-        className="absolute -right-[122px] bottom-0 z-10 h-[566px] w-[454px] bg-[url('/images/homepage/home-topCTA-person-mob.webp')] bg-contain bg-no-repeat xl:-right-[162px] xl:h-[861px] xl:w-[690px] xl:bg-[url('/images/homepage/home-topCTA-person-desk.webp')]"
-      />
+        className="absolute -right-[62px] bottom-0 z-10 h-[566px] w-[454px] xl:-right-[82px] xl:h-[861px] xl:w-[690px]"
+      >
+        <Image
+          src="/images/homepage/home-topCTA-person-desk.webp"
+          alt="Фото Олександра Ситника"
+          fill
+          sizes="690px"
+          className="hidden object-contain xl:block"
+        />
+        <Image
+          src="/images/homepage/home-topCTA-person-mob.webp"
+          alt="Фото Олександра Ситника"
+          fill
+          sizes="454px"
+          className="block object-contain xl:hidden"
+        />
+      </AnimatedWrapper>
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: 50, delay: 0.7, scale: 0.8 })}

@@ -1,4 +1,5 @@
 import { getMessages, getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { ROUTES } from "@/constants/routes";
 import { Locale } from "@/types/locale";
@@ -53,15 +54,39 @@ const HomeCourses = async ({ lang }: { lang: Locale }) => {
         <div className="flex flex-col gap-5 max-xl:mx-auto max-xl:max-w-[400px] xl:mb-8 xl:flex-row">
           <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
             <div className="relative h-[424px] rounded-[4px] p-[1px] before:absolute before:inset-0 before:z-0 before:rounded-[4px] before:bg-[linear-gradient(326.45deg,_#071434_-11.97%,_#9CBBFF_99.8%)] before:content-[''] xl:h-[570px] xl:w-[480px]">
-              <div className="relative z-[1] h-full rounded-[4px] bg-[url('/images/homepage/home-courses-main.webp')] object-cover px-6 pt-16 text-light xl:h-[570px] xl:w-[480px] xl:px-11">
-                <h2 className="mb-6 font-micra text-[32px] xl:w-[291px] xl:text-[36px]">
-                  {t("title")}
-                </h2>
-                <p className="w-[130px] text-[14px] font-light xl:w-[291px] xl:text-[20px]">
-                  {t("descr")}
-                </p>
+              <div className="relative h-full rounded-[4px] px-6 pt-16 text-light xl:h-[570px] xl:w-[480px] xl:px-11">
+                <Image
+                  src="/images/homepage/home-courses-main.webp"
+                  alt="Фонове зображення"
+                  fill
+                  sizes="480px"
+                  className="rounded-[4px] object-cover"
+                />
+                <div className="relative z-[1]">
+                  <h2 className="mb-6 font-micra text-[32px] xl:w-[291px] xl:text-[36px]">
+                    {t("title")}
+                  </h2>
+                  <p className="w-[130px] text-[14px] font-light xl:w-[291px] xl:text-[20px]">
+                    {t("descr")}
+                  </p>
+                </div>
 
-                <div className="absolute bottom-0 left-0 h-[186px] w-[238px] bg-[url('/images/homepage/home-courses-main-decor-mob.webp')] xl:h-[265px] xl:w-[294px] xl:bg-[url('/images/homepage/home-courses-main-decor-desk.webp')]" />
+                <div className="absolute bottom-0 left-0 z-10">
+                  <Image
+                    src="/images/homepage/home-courses-main-decor-mob.webp"
+                    alt="Декоративне зображення"
+                    width={238}
+                    height={186}
+                    className="block xl:hidden"
+                  />
+                  <Image
+                    src="/images/homepage/home-courses-main-decor-desk.webp"
+                    alt="Декоративне зображення"
+                    width={294}
+                    height={265}
+                    className="hidden xl:block"
+                  />
+                </div>
               </div>
             </div>
           </AnimatedWrapper>

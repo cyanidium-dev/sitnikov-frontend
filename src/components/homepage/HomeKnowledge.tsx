@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { ROUTES } from "@/constants/routes";
 import { fadeInAnimation } from "@/helpers/animation";
@@ -10,7 +11,23 @@ const HomeKnowledge = async () => {
   const t = await getTranslations("homepage.knowledge");
 
   return (
-    <section className="relative h-[598px] overflow-hidden bg-[url('/images/homepage/home-knowledge-bg-mob.webp')] bg-cover bg-no-repeat pb-[41px] pt-16 text-light md:bg-[url('/images/homepage/home-knowledge-bg-desk.webp')] xl:h-[623px] xl:py-[104px]">
+    <section className="relative h-[598px] overflow-hidden pb-[41px] pt-16 text-light xl:h-[623px] xl:py-[104px]">
+      <div aria-hidden="true" className="absolute inset-0 z-0">
+        <Image
+          src="/images/homepage/home-knowledge-bg-mob.webp"
+          alt="Фонове зображення"
+          fill
+          sizes="100vw"
+          className="object-cover md:hidden"
+        />
+        <Image
+          src="/images/homepage/home-knowledge-bg-desk.webp"
+          alt="Фонове зображення"
+          fill
+          sizes="100vw"
+          className="hidden object-cover md:block"
+        />
+      </div>
       <div className="container relative z-20 h-full max-w-[1280px]">
         <div className="flex h-full flex-col justify-between max-xl:max-w-[400px] xl:ml-[489px] xl:w-[609px]">
           <AnimatedWrapper
@@ -40,8 +57,33 @@ const HomeKnowledge = async () => {
       <AnimatedWrapper
         viewport={{ once: true, amount: 0.2 }}
         animation={fadeInAnimation({ x: 50, y: 50, delay: 0.7, scale: 0.8 })}
-        className="absolute -bottom-[10px] -right-[30px] z-10 h-[394px] w-[598px] bg-[url('/images/homepage/home-knowledge-femida-mob.webp')] bg-contain bg-no-repeat xl:-bottom-[154px] xl:left-0 xl:h-[759px] xl:w-[682px] xl:bg-[url('/images/homepage/home-knowledge-femida-desk.webp')]"
-      />
+        className="absolute -bottom-[10px] -right-[30px] z-10 xl:-bottom-[84px] xl:left-0"
+      >
+        <div
+          aria-hidden="true"
+          className="relative h-[394px] w-[598px] xl:hidden"
+        >
+          <Image
+            src="/images/homepage/home-knowledge-femida-mob.webp"
+            alt="Феміда"
+            fill
+            className="object-contain"
+            sizes="(max-width: 1280px) 598px"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          className="relative hidden h-[759px] w-[682px] xl:block"
+        >
+          <Image
+            src="/images/homepage/home-knowledge-femida-desk.webp"
+            alt="Феміда"
+            fill
+            className="object-contain"
+            sizes="(min-width: 1280px) 682px"
+          />
+        </div>
+      </AnimatedWrapper>
     </section>
   );
 };

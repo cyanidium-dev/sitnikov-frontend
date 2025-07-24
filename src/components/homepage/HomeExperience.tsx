@@ -23,7 +23,19 @@ const HomeExperience = async () => {
 
   return (
     <section className="relative py-[120px]">
-      <div className="absolute right-0 top-0 h-[221px] w-[225px] bg-[url('/images/homepage/home-experience-decor-1-mob.webp')] xl:hidden" />
+      <AnimatedWrapper
+        animation={fadeInAnimation({ x: 50, scale: 0.8 })}
+        className="absolute right-0 top-0 h-[221px] w-[225px] xl:hidden"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/homepage/home-experience-decor-1-mob.webp"
+          alt="Декоративне зображення"
+          fill
+          sizes="225px"
+          className="object-cover"
+        />
+      </AnimatedWrapper>
 
       <div className="container max-w-[1280px] max-md:max-w-[400px]">
         <div className="mb-20 xl:flex xl:gap-5">
@@ -66,7 +78,25 @@ const HomeExperience = async () => {
                 className="z-[5] rounded-[4px] object-cover"
               />
 
-              <div className="absolute -bottom-[80px] right-[50%] h-[174px] w-[176px] bg-[url('/images/homepage/home-experience-decor-2-mob.webp')] max-xl:translate-x-1/2 xl:-left-[115px] xl:top-0 xl:h-[266px] xl:w-[264px] xl:bg-[url('/images/homepage/home-experience-decor-4-desk.webp')]" />
+              <div
+                className="absolute -bottom-[80px] right-[50%] h-[174px] w-[176px] max-xl:translate-x-1/2 xl:-left-[115px] xl:top-0 xl:h-[266px] xl:w-[264px]"
+                aria-hidden="true"
+              >
+                <Image
+                  src="/images/homepage/home-experience-decor-2-mob.webp"
+                  alt="Декоративне зображення"
+                  fill
+                  sizes="176px"
+                  className="object-contain xl:hidden"
+                />
+                <Image
+                  src="/images/homepage/home-experience-decor-4-desk.webp"
+                  alt="Декоративне зображення"
+                  fill
+                  sizes="264px"
+                  className="hidden object-contain xl:block"
+                />
+              </div>
             </AnimatedWrapper>
 
             <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.9 })}>
@@ -91,7 +121,25 @@ const HomeExperience = async () => {
                 <p className="font-light max-xl:text-[14px]">{descr}</p>
 
                 {index === 1 && (
-                  <div className="absolute right-0 top-1/2 z-[5] h-[196px] w-[84px] bg-[url('/images/homepage/home-experience-decor-3-mob.webp')] max-xl:-translate-y-1/2 xl:-right-[6px] xl:-top-[10px] xl:h-[202px] xl:w-[99px] xl:bg-[url('/images/homepage/home-experience-decor-5-desk.webp')]" />
+                  <div
+                    className="absolute right-0 top-1/2 z-[5] h-[196px] w-[84px] max-xl:-translate-y-1/2 xl:-right-[6px] xl:-top-[10px] xl:h-[202px] xl:w-[99px]"
+                    aria-hidden="true"
+                  >
+                    <Image
+                      src="/images/homepage/home-experience-decor-3-mob.webp"
+                      alt="Декоративне зображення"
+                      fill
+                      sizes="84px"
+                      className="object-contain xl:hidden"
+                    />
+                    <Image
+                      src="/images/homepage/home-experience-decor-5-desk.webp"
+                      alt="Декоративне зображення"
+                      fill
+                      sizes="99px"
+                      className="hidden object-contain xl:block"
+                    />
+                  </div>
                 )}
               </InfoBox>
             </AnimatedListItem>

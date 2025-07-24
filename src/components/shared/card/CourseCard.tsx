@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
@@ -56,15 +58,6 @@ const CourseCard = ({
     variant === "dark" && "ml-auto"
   );
 
-  const imgStyles = cn(
-    "absolute z-[1] bg-no-repeat",
-    variant === "light" &&
-      "bottom-0 left-0 h-[308px] bg-contain w-[382px] bg-[url('/images/homepage/home-courses-person-1.webp')]",
-    variant === "accent" && "",
-    variant === "dark" &&
-      "-bottom-[10px] -left-[20px] w-[463px] h-[335px] bg-contain bg-[url('/images/homepage/home-courses-person-2-mob.webp')] xl:bottom-0 xl:left-0 xl:h-[482px] xl:w-[280px] xl:bg-[url('/images/homepage/home-courses-person-2-desk.webp')]"
-  );
-
   return (
     <article>
       <div className={wrapperStyles}>
@@ -81,10 +74,64 @@ const CourseCard = ({
           </ButtonOrLink>
         </div>
 
-        <div className={imgStyles} />
+        {variant === "light" && (
+          <div className="absolute bottom-0 left-0 z-[1] h-[308px] w-[382px]">
+            <Image
+              src="/images/homepage/home-courses-person-1.webp"
+              alt="Фото Олександра Ситника"
+              fill
+              sizes="400px"
+              className="object-cover"
+              loading="lazy"
+              fetchPriority="low"
+            />
+          </div>
+        )}
+
+        {variant === "dark" && (
+          <>
+            <div className="absolute bottom-0 left-0 z-[1] hidden h-[482px] w-[280px] xl:block">
+              <Image
+                src="/images/homepage/home-courses-person-2-desk.webp"
+                alt="Фото Олександра Ситника"
+                width={280}
+                height={482}
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute -bottom-[10px] -left-[20px] z-[1] h-[335px] w-[463px] xl:hidden">
+              <Image
+                src="/images/homepage/home-courses-person-2-mob.webp"
+                alt="Фото Олександра Ситника"
+                width={463}
+                height={335}
+                className="object-contain"
+              />
+            </div>
+          </>
+        )}
 
         {variant === "accent" && (
-          <div className="absolute bottom-0 right-0 h-[121px] w-[150px] bg-[url('/images/homepage/home-courses-publ-decor-mob.webp')] bg-no-repeat xl:h-[133px] xl:w-[189px] xl:bg-[url('/images/homepage/home-courses-publ-decor-desk.webp')]" />
+          <>
+            <div className="absolute bottom-0 right-0 hidden h-[133px] w-[189px] xl:block">
+              <Image
+                src="/images/homepage/home-courses-publ-decor-desk.webp"
+                alt="Декоративне зображення"
+                width={189}
+                height={133}
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute bottom-0 right-0 h-[121px] w-[150px] xl:hidden">
+              <Image
+                src="/images/homepage/home-courses-publ-decor-mob.webp"
+                alt="Декоративне зображення"
+                width={150}
+                height={121}
+                className="object-contain"
+              />
+            </div>
+          </>
         )}
       </div>
     </article>

@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { ROUTES } from "@/constants/routes";
 import { fadeInAnimation } from "@/helpers/animation";
@@ -35,13 +36,51 @@ const HomeHero = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ y: -50, delay: 0.5, scale: 0.8 })}
-        className="absolute bottom-0 right-0 -z-30 h-[614px] w-[315px] bg-[url('/images/homepage/home-hero-person-mob.webp')] bg-cover md:-bottom-[17px] md:right-[27%] md:aspect-[628/832] md:h-[85%] md:w-auto md:bg-[url('/images/homepage/home-hero-person-desk.webp')] xl:right-[42%] xl:h-[100%]"
-      />
+        className="absolute bottom-0 right-0 -z-30 h-[614px] w-[315px] md:-bottom-[17px] md:right-[27%] md:aspect-[628/832] md:h-[85%] md:w-auto xl:right-[42%] xl:h-[100%]"
+      >
+        <Image
+          src="/images/homepage/home-hero-person-mob.webp"
+          alt="Фонове зображення"
+          fill
+          sizes="55vw"
+          className="object-cover md:hidden"
+          priority
+          fetchPriority="high"
+          loading="eager"
+        />
+        <Image
+          src="/images/homepage/home-hero-person-desk.webp"
+          alt="Фонове зображення"
+          fill
+          sizes="340px"
+          className="hidden object-cover md:block"
+          unoptimized
+        />
+      </AnimatedWrapper>
 
       <AnimatedWrapper
         animation={fadeInAnimation({ x: 50, delay: 0.5 })}
-        className="absolute bottom-2 right-[10px] -z-40 h-[334px] w-[340px] rounded-2xl bg-[url('/images/homepage/home-hero-bg.webp')] bg-cover md:-right-[29px] md:h-[98%] md:w-[55%] xl:w-[65%]"
-      />
+        className="absolute bottom-2 right-[10px] -z-40 h-[334px] w-[340px] rounded-2xl md:-right-[29px] md:h-[98%] md:w-[55%] xl:w-[65%]"
+      >
+        <Image
+          src="/images/homepage/home-hero-bg-mob.webp"
+          alt="Фонове зображення"
+          fill
+          sizes="55vw"
+          className="object-cover md:hidden"
+          priority
+          fetchPriority="high"
+          loading="eager"
+        />
+        <Image
+          src="/images/homepage/home-hero-bg-desk.webp"
+          alt="Фонове зображення"
+          fill
+          sizes="340px"
+          className="hidden object-cover md:block"
+          unoptimized
+        />
+      </AnimatedWrapper>
     </section>
   );
 };
