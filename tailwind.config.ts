@@ -30,8 +30,8 @@ export default {
         "btn-primary": "linear-gradient(90deg, #304F94 0%, #6582C2 100%)",
       },
       fontFamily: {
-        montserrat: ["Montserrat", "Arial", "sans-serif"],
-        micra: ["Micra", "Arial", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
+        micra: ["Micra", "sans-serif"],
       },
       container: {
         center: true,

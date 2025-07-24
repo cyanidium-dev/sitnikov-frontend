@@ -75,7 +75,6 @@ const HomeHero = async () => {
           fill
           sizes="340px"
           className="hidden object-cover md:block"
-          unoptimized
         />
       </AnimatedWrapper>
 

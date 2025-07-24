@@ -75,15 +75,37 @@ const CourseCard = ({
         </div>
 
         {variant === "light" && (
-          <div className="absolute bottom-0 left-0 z-[1] h-[308px] w-[382px]">
+          <div className="absolute bottom-0 left-0 h-[308px] w-[400px]">
             <Image
-              src="/images/homepage/home-courses-person-1.webp"
+              src="/images/homepage/home-courses-person-1-1.webp"
               alt="Фото Олександра Ситника"
-              fill
-              sizes="400px"
-              className="object-cover"
+              // fill
+              // sizes="400px"
+              width={172}
+              height={273}
               loading="lazy"
               fetchPriority="low"
+              className="absolute bottom-0 left-0 z-[1] object-cover"
+            />
+
+            <Image
+              src="/images/homepage/home-courses-person-1-gradient.svg"
+              alt="Декоративне зображення"
+              width={568}
+              height={686}
+              loading="lazy"
+              fetchPriority="low"
+              className="absolute -bottom-[150px] -left-[130px] object-cover"
+            />
+
+            <Image
+              src="/images/homepage/home-courses-person-1-gradient.svg"
+              alt="Декоративне зображення"
+              width={568}
+              height={686}
+              loading="lazy"
+              fetchPriority="low"
+              className="absolute -bottom-[240px] -left-[70px] rotate-90 object-cover"
             />
           </div>
         )}
