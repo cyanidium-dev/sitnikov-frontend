@@ -96,16 +96,27 @@ const CourseCard = ({
                 alt="Фото Олександра Ситника"
                 width={280}
                 height={482}
-                className="object-contain"
+                className="object-contain max-xl:hidden"
               />
             </div>
-            <div className="absolute -bottom-[10px] -left-[20px] z-[1] h-[335px] w-[463px] xl:hidden">
+
+            <div className="absolute bottom-0 left-0 z-[1] h-[370px] w-[400px] xl:hidden">
               <Image
                 src="/images/homepage/home-courses-person-2-mob.webp"
                 alt="Фото Олександра Ситника"
-                width={463}
-                height={335}
-                className="object-contain"
+                width={224}
+                height={302}
+                className="absolute bottom-0 left-0 z-[1] object-contain"
+              />
+
+              <Image
+                src="/images/homepage/home-courses-person-2-gradient.svg"
+                alt="Декоративне зображення"
+                width={664}
+                height={686}
+                // fill
+                // sizes="664px"
+                className="absolute -bottom-[120px] -left-[90px] object-contain"
               />
             </div>
           </>
