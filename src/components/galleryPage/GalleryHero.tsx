@@ -9,7 +9,7 @@ const GalleryHero = async () => {
 
   return (
     <section className="relative max-md:rounded-b-2xl max-md:pt-[507px]">
-      <div className="h-[207px] w-full max-w-[1280px] bg-dark px-8 pt-12 text-light max-md:mx-auto max-md:rounded-2xl md:ml-auto md:flex md:h-[440px] md:w-[58%] md:flex-col-reverse md:justify-between md:rounded-l-2xl md:px-[50px] md:pb-12 md:pl-[154px] md:pt-[125px] xl:h-[520px]">
+      <div className="flex h-[207px] w-full max-w-[1280px] flex-col justify-center bg-dark px-8 text-light max-md:mx-auto max-md:rounded-2xl md:ml-auto md:flex md:h-[440px] md:w-[58%] md:flex-col-reverse md:justify-between md:rounded-l-2xl md:px-[50px] md:pb-12 md:pl-[154px] md:pt-[125px] xl:h-[520px]">
         <AnimatedWrapper animation={fadeInAnimation({ x: 50 })}>
           <div className="max-w-[400px] max-md:mx-auto md:ml-auto md:text-right xl:max-w-[465px]">
             <h1 className="mb-4 font-micra text-[22px] uppercase xl:text-[44px]">

@@ -43,7 +43,9 @@ const HomeAdvantages = async () => {
             {advantageList.map(({ title, descr }) => (
               <AnimatedListItem key={title} className="h-full">
                 <InfoBox classname="flex flex-col gap-4 justify-start max-sm:px-4">
-                  <h3 className="font-micra text-[24px]">{title}</h3>
+                  <h3 className="font-micra text-[24px] max-sm:text-[18px]">
+                    {title}
+                  </h3>
                   <p className="font-light max-xl:text-[14px]">{descr}</p>
                 </InfoBox>
               </AnimatedListItem>

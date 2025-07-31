@@ -63,7 +63,7 @@ const HomeCourses = async ({ lang }: { lang: Locale }) => {
                   className="rounded-[4px] object-cover"
                 />
                 <div className="relative z-[1]">
-                  <h2 className="mb-6 font-micra text-[32px] xl:w-[291px] xl:text-[36px]">
+                  <h2 className="mb-6 font-micra text-[24px] xl:w-[291px] xl:text-[36px]">
                     {t("title")}
                   </h2>
                   <p className="w-[130px] text-[14px] font-light xl:w-[291px] xl:text-[20px]">

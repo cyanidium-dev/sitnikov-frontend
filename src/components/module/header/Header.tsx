@@ -3,14 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-import { siteConfig } from "@/constants/siteConfig";
-import { headerPhoneRegex } from "@/regex/regex";
-import { cn } from "@/utils/cn";
-
 import Backdrop from "@/components/shared/backdrop/Backdrop";
 import ButtonOrLink from "@/components/shared/button/ButtonOrLink ";
 import LocaleSwitcher from "@/components/shared/localSwitcher/LocalSwitcher";
 import Logo from "@/components/shared/logo/Logo";
+import { siteConfig } from "@/constants/siteConfig";
+import { cn } from "@/utils/cn";
+import { headerPhoneRegex } from "@/regex/regex";
 
 import BurgerButton from "./BurgerButton";
 import BurgerMenu from "./BurgerMenu";
@@ -55,7 +54,7 @@ const Header = () => {
           textStyles="text-light"
         />
 
-        <div className="flex items-center gap-x-6 xl:gap-x-10">
+        <div className="flex items-center gap-x-6 max-sm:gap-x-3 xl:gap-x-10">
           <LocaleSwitcher />
 
           <ButtonOrLink
