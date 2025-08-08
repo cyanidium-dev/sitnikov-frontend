@@ -26,7 +26,7 @@ const HomeHero = async () => {
           animation={fadeInAnimation({ x: 50, delay: 1 })}
           className="absolute bottom-[84px] right-[30px] mt-auto flex w-[296px] flex-col gap-8 xl:relative xl:ml-auto xl:w-[475px] xl:flex-col-reverse xl:gap-7"
         >
-          <h1 className="font-micra text-[24px] text-light xl:text-[44px]">
+          <h1 className="font-micra text-[24px] text-light xl:text-[28px]">
             {t("title")}
           </h1>
 
@@ -36,7 +36,7 @@ const HomeHero = async () => {
 
       <AnimatedWrapper
         animation={fadeInAnimation({ y: -50, delay: 0.5, scale: 0.8 })}
-        className="absolute bottom-0 right-0 -z-30 h-[614px] w-[315px] md:-bottom-[17px] md:right-[27%] md:aspect-[628/832] md:h-[85%] md:w-auto xl:right-[42%] xl:h-[100%]"
+        className="absolute bottom-0 right-0 -z-30 h-[614px] w-[315px] md:-bottom-[17px] md:right-[27%] md:aspect-[628/832] md:h-[85%] md:w-auto xl:right-[40%] xl:h-[100%]"
       >
         <Image
           src="/images/homepage/home-hero-person-mob.webp"
@@ -73,7 +73,7 @@ const HomeHero = async () => {
           src="/images/homepage/home-hero-person-desk.webp"
           alt="Фонове зображення"
           fill
-          sizes="340px"
+          sizes="628px"
           className="hidden object-cover md:block"
         />
       </AnimatedWrapper>
