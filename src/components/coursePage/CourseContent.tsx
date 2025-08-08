@@ -4,6 +4,7 @@ import { fadeInAnimation } from "@/helpers/animation";
 
 import Accordion from "../shared/accordion/Accordion";
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
+import RenderContent from "../shared/renderContent/RenderContent";
 
 interface ICourseContentProps {
   course: CourseItem;
@@ -23,11 +24,7 @@ const CourseContent = ({ course, lang }: ICourseContentProps) => {
         </AnimatedWrapper>
 
         <AnimatedWrapper animation={fadeInAnimation({ y: -50, delay: 0.3 })}>
-          {firstBlock.content[lang].map(({ text }) => (
-            <p key={text} className="text-[18px] xl:leading-[1.6]">
-              {text}
-            </p>
-          ))}
+          <RenderContent content={firstBlock.content[lang]} />
         </AnimatedWrapper>
 
         {secondBlock && (

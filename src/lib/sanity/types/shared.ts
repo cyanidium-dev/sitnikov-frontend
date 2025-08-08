@@ -30,15 +30,6 @@ export type LocalizedBlockContent = {
   ru: (Block | SanityImage)[];
 };
 
-export type ShortBlock = {
-  text: string;
-};
-
-export type LocalizedShortBlockContent = {
-  uk: ShortBlock[];
-  ru: ShortBlock[];
-};
-
 export type ContentChild = {
   key: string;
   text: string;

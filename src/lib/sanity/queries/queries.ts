@@ -23,13 +23,37 @@ export const getAllPublications = async (): Promise<PublicationItem[]> => {
         "slug": slug.current,
         description,
         "content": {
-          "uk": content.uk[]{
-            "text": children[].text
+            "uk": content.uk[]{
+              "key": _key,
+              style,
+              listItem,
+              level,
+              "markDefs": markDefs[]{
+                "key": _key,
+                href
+              },
+              "children": children[]{
+                "key": _key,
+                text,
+                marks
+              }
+            },
+            "ru": content.ru[]{
+              "key": _key,
+              style,
+              listItem,
+              level,
+              "markDefs": markDefs[]{
+                "key": _key,
+                href
+              },
+              "children": children[]{
+                "key": _key,
+                text,
+                marks
+              }
+            }
           },
-          "ru": content.ru[]{
-            "text": children[].text
-          }
-        },
         gallery[]{
           "url": asset->url,
           description
@@ -96,13 +120,37 @@ export const getPublicationBySlug = async (
         "slug": slug.current,
         description,
         "content": {
-          "uk": content.uk[]{
-            "text": children[].text
+            "uk": content.uk[]{
+              "key": _key,
+              style,
+              listItem,
+              level,
+              "markDefs": markDefs[]{
+                "key": _key,
+                href
+              },
+              "children": children[]{
+                "key": _key,
+                text,
+                marks
+              }
+            },
+            "ru": content.ru[]{
+              "key": _key,
+              style,
+              listItem,
+              level,
+              "markDefs": markDefs[]{
+                "key": _key,
+                href
+              },
+              "children": children[]{
+                "key": _key,
+                text,
+                marks
+              }
+            }
           },
-          "ru": content.ru[]{
-            "text": children[].text
-          }
-        },
         gallery[]{
           "url": asset->url
         }

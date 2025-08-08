@@ -24,6 +24,7 @@ interface IGallerySliderProps {
   imgAlt: string;
   sliderId: string;
   wrapperClassName?: string;
+  isDecor?: boolean;
 }
 
 const GallerySlider = ({
@@ -32,6 +33,7 @@ const GallerySlider = ({
   imgAlt,
   sliderId,
   wrapperClassName,
+  isDecor = true,
 }: IGallerySliderProps) => {
   const prefix = `slider-${sliderId}`;
 
@@ -112,7 +114,7 @@ const GallerySlider = ({
         </div>
       </AnimatedWrapper>
 
-      {variant === "light" && (
+      {variant === "light" && isDecor && (
         <div className="absolute -right-[25px] -top-[220px] h-[417px] w-[399px] max-xl:hidden xl:bg-[url('/images/galleryPage/gallery-paginated-decor-desk.webp')]" />
       )}
     </div>

@@ -1,14 +1,14 @@
-import { LocalizedShortBlockContent } from "@/lib/sanity/types/shared";
+import { LocalizedFullContent } from "@/lib/sanity/types/shared";
 import { Locale } from "@/types/locale";
 
 const AVERAGE_WORDS_PER_MINUTE = 200;
 
 export const getReadingTimeMinutes = (
-  content: LocalizedShortBlockContent,
+  content: LocalizedFullContent,
   lang: Locale
 ): string => {
   const textArray = content[lang]
-    .flatMap(section => section.text)
+    .flatMap(section => section.children[0].text)
     .filter(Boolean);
 
   const wordCount = textArray.join(" ").split(/\s+/).filter(Boolean).length;
