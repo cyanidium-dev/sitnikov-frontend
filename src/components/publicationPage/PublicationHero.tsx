@@ -61,7 +61,7 @@ const PublicationHero = ({
           className="ml-[21px]"
         >
           <div
-            className="relative inline-block cursor-pointer border-y border-transparent bg-none py-[6px] text-[14px] font-medium leading-[20px] text-dark before:absolute before:left-[-21px] before:top-[-1px] before:h-[calc(100%+2px)] before:w-[21px] before:rounded-l-full before:border-b before:border-l before:border-r-0 before:border-t before:border-[#304F94] after:absolute after:right-[-21px] after:top-[-1px] after:h-[calc(100%+2px)] after:w-[21px] after:rounded-r-full after:border-b after:border-l-0 after:border-r after:border-t after:border-[#6582C2]"
+            className="relative inline-block border-y border-transparent bg-none py-[6px] text-[14px] font-medium leading-[20px] text-dark before:absolute before:left-[-21px] before:top-[-1px] before:h-[calc(100%+2px)] before:w-[21px] before:rounded-l-full before:border-b before:border-l before:border-r-0 before:border-t before:border-[#304F94] after:absolute after:right-[-21px] after:top-[-1px] after:h-[calc(100%+2px)] after:w-[21px] after:rounded-r-full after:border-b after:border-l-0 after:border-r after:border-t after:border-[#6582C2]"
             style={{
               borderImageSource:
                 "linear-gradient(90deg, #304F94 0%, #6582C2 100%)",

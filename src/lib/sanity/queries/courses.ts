@@ -117,11 +117,35 @@ export const getCourseBySlug = async (
         firstBlock{
           title,
           "content": {
-            "uk": content.uk[] {
-              "text": children[].text
+            "uk": content.uk[]{
+              "key": _key,
+              style,
+              listItem,
+              level,
+              "markDefs": markDefs[]{
+                "key": _key,
+                href
+              },
+              "children": children[]{
+                "key": _key,
+                text,
+                marks
+              }
             },
-            "ru": content.ru[] {
-              "text": children[].text
+            "ru": content.ru[]{
+              "key": _key,
+              style,
+              listItem,
+              level,
+              "markDefs": markDefs[]{
+                "key": _key,
+                href
+              },
+              "children": children[]{
+                "key": _key,
+                text,
+                marks
+              }
             }
           }
         },
@@ -141,3 +165,12 @@ export const getCourseCategories = async (): Promise<CourseCategoryItem[]> => {
       title
       }`);
 };
+
+// "content": {
+//             "uk": content.uk[] {
+//               "text": children[].text
+//             },
+//             "ru": content.ru[] {
+//               "text": children[].text
+//             }
+//           }

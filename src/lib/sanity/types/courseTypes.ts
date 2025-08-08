@@ -1,6 +1,6 @@
 import {
   AccordionContent,
-  LocalizedShortBlockContent,
+  LocalizedFullContent,
   LocalizedString,
   SanityImage,
 } from "./shared";
@@ -18,7 +18,7 @@ export type CourseItem = {
   mainImageMobile?: SanityImage;
   firstBlock: {
     title: LocalizedString;
-    content: LocalizedShortBlockContent;
+    content: LocalizedFullContent;
   };
   secondBlock: {
     title: LocalizedString;

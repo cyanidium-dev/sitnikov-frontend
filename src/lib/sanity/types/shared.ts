@@ -39,6 +39,30 @@ export type LocalizedShortBlockContent = {
   ru: ShortBlock[];
 };
 
+export type ContentChild = {
+  key: string;
+  text: string;
+  marks: string[];
+};
+
+export type ContentMarkDef = {
+  key: string;
+  href: string;
+};
+
+export type FullContentBlock = {
+  key: string;
+  style: string;
+  listItem?: string;
+  children: ContentChild[];
+  markDefs: ContentMarkDef[];
+};
+
+export type LocalizedFullContent = {
+  uk: FullContentBlock[];
+  ru: FullContentBlock[];
+};
+
 export type AccordionContent = {
   tags: LocalizedString[];
   title: LocalizedString;
