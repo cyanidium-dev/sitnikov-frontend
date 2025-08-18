@@ -21,9 +21,9 @@ const CourseHero = ({
   mainImageMobile,
 }: ICourseHeroProps) => {
   const defaultMobileImage =
-    "/images/publicationPage/publication-hero-default-bg-mob.webp";
+    "/images/educationPage/education-hero-default-bg-mob.webp";
   const defaultDesktopImage =
-    "/images/publicationPage/publication-hero-default-bg-desk.webp";
+    "/images/educationPage/education-hero-default-bg-desk.webp";
   const bgMobile = mainImageMobile?.url || defaultMobileImage;
   const bgDesktop = mainImage?.url || defaultDesktopImage;
 
