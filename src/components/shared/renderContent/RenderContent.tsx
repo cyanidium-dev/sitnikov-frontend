@@ -66,35 +66,35 @@ const RenderContent = ({ content }: Props) => {
       switch (block.style) {
         case "h1":
           rendered.push(
-            <h2 key={block.key} className="mb-4 text-4xl font-bold">
+            <h2 key={block.key} className="text-4xl font-bold">
               {children}
             </h2>
           );
           break;
         case "h2":
           rendered.push(
-            <h3 key={block.key} className="mb-4 text-3xl font-bold">
+            <h3 key={block.key} className="text-3xl font-bold">
               {children}
             </h3>
           );
           break;
         case "h3":
           rendered.push(
-            <h4 key={block.key} className="mb-4 text-2xl font-semibold">
+            <h4 key={block.key} className="text-2xl font-semibold">
               {children}
             </h4>
           );
           break;
         case "h4":
           rendered.push(
-            <h5 key={block.key} className="mb-4 text-xl font-semibold">
+            <h5 key={block.key} className="text-xl font-semibold">
               {children}
             </h5>
           );
           break;
         default:
           rendered.push(
-            <p key={block.key} className="mb-4 text-base leading-6">
+            <p key={block.key} className="text-base leading-6">
               {children}
             </p>
           );
