@@ -33,10 +33,10 @@ const GalleryPaginated = ({ data, lang, index }: IGalleryPaginatedProps) => {
 
       <div className="container relative z-[5] max-w-[1280px]">
         <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
-          <h2 className="mb-4 max-w-[680px] font-micra text-[22px] xl:text-[40px] xl:leading-[1.4]">
+          <h2 className="mb-4 font-micra text-[22px] xl:text-[40px] xl:leading-[1.4]">
             {title[lang]}
           </h2>
-          <p className="mb-[52px] max-w-[431px] font-light xl:text-[20px]">
+          <p className="mb-[52px] max-w-[467px] font-light xl:text-[20px]">
             {description[lang]}
           </p>
         </AnimatedWrapper>

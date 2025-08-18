@@ -3,8 +3,6 @@ import { Locale } from "@/types/locale";
 
 import GalleryPaginated from "./GalleryPaginated";
 
-export const revalidate = 3600;
-
 const GalleryContent = async ({ lang }: { lang: Locale }) => {
   const galleryList = await getGallery();
 

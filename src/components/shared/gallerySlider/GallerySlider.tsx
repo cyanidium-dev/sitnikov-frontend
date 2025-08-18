@@ -1,22 +1,23 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Image from "next/image";
 
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination as SwiperPagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper/types";
 
 import { SanityImage } from "@/lib/sanity/types/shared";
 import { cn } from "@/utils/cn";
+import { fadeInAnimation } from "@/helpers/animation";
 
-import IconButtonOrLink from "../button/IconButtonOrLink";
+import AnimatedWrapper from "../animated/AnimatedWrapper";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { fadeInAnimation } from "@/helpers/animation";
-
-import AnimatedWrapper from "../animated/AnimatedWrapper";
+import Pagination from "../pagination/Pagination";
 
 interface IGallerySliderProps {
   gallery: SanityImage[];
@@ -37,11 +38,24 @@ const GallerySlider = ({
 }: IGallerySliderProps) => {
   const prefix = `slider-${sliderId}`;
 
-  const pagBulletStyles = cn(
-    "!w-[20px] !h-[20px] !flex !items-center !justify-center !font-medium",
-    variant === "light" && "!bg-light !text-dark",
-    variant === "dark" && "!bg-dark !text-light"
-  );
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  const [group, setGroup] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const totalPages = Math.max(1, Math.ceil(gallery.length / group));
+
+  const goToPage = (page: number) => {
+    const clamped = Math.max(1, Math.min(page, totalPages));
+    const targetIndex = (clamped - 1) * group;
+    const sw = swiperRef.current;
+    if (!sw) return;
+
+    if (sw.params.loop) {
+      sw.slideToLoop(targetIndex);
+    } else {
+      sw.slideTo(targetIndex);
+    }
+  };
 
   return (
     <div
@@ -51,7 +65,11 @@ const GallerySlider = ({
       )}
     >
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, SwiperPagination]}
+        onSlideChange={swiper => {
+          swiper.pagination.render();
+          swiper.pagination.update();
+        }}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -70,11 +88,22 @@ const GallerySlider = ({
           prevEl: `.${prefix}-prev`,
           nextEl: `.${prefix}-next`,
         }}
-        pagination={{
-          el: `.${prefix}-pagination`,
-          clickable: true,
-          renderBullet: (index, className) =>
-            `<span class="${className} ${pagBulletStyles}">${index + 1}</span>`,
+        onSwiper={sw => {
+          swiperRef.current = sw;
+          const g = (sw.params.slidesPerGroup as number) || 1;
+          setGroup(g);
+          setCurrentPage(Math.floor(sw.realIndex / g) + 1);
+
+          sw.on("breakpoint", s => {
+            const g2 = (s.params.slidesPerGroup as number) || 1;
+            setGroup(g2);
+            setCurrentPage(Math.floor(s.realIndex / g2) + 1);
+          });
+
+          sw.on("slideChange", s => {
+            const g3 = (s.params.slidesPerGroup as number) || 1;
+            setCurrentPage(Math.floor(s.realIndex / g3) + 1);
+          });
         }}
         className={`mySwiper${prefix}`}
       >
@@ -94,22 +123,13 @@ const GallerySlider = ({
       </Swiper>
 
       <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.6 })}>
-        <div className="absolute -bottom-[74px] left-1/2 z-10 flex -translate-x-1/2 flex-row gap-6">
-          <IconButtonOrLink
+        <div className="absolute -bottom-[74px] left-1/2 z-10 -translate-x-1/2">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={goToPage}
             variant={variant}
-            buttonClassName={`${prefix}-prev`}
-            iconClassName="rotate-180"
-            aria-label="Попередній слайд"
-          />
-
-          <div
-            className={`${prefix}-pagination !relative !bottom-0 !flex !flex-row !items-center`}
-          />
-
-          <IconButtonOrLink
-            variant={variant}
-            buttonClassName={`${prefix}-next`}
-            aria-label="Наступний слайд"
+            className="gap-6"
           />
         </div>
       </AnimatedWrapper>

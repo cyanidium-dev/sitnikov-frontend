@@ -165,12 +165,3 @@ export const getCourseCategories = async (): Promise<CourseCategoryItem[]> => {
       title
       }`);
 };
-
-// "content": {
-//             "uk": content.uk[] {
-//               "text": children[].text
-//             },
-//             "ru": content.ru[] {
-//               "text": children[].text
-//             }
-//           }

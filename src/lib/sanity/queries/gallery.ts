@@ -4,7 +4,7 @@ import { GalleryItem } from "../types/galleryType";
 
 export const getGallery = async (): Promise<GalleryItem[]> => {
   return await client.fetch<GalleryItem[]>(`
-      *[_type == "gallery"] {
+      *[_type == "gallery"] | order(order desc) {
         title,
         description,
         images[] {

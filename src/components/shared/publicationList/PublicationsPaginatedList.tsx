@@ -13,7 +13,7 @@ import {
 import { isPublicationList } from "@/utils/isPublicationList";
 import { Locale } from "@/types/locale";
 
-import Pagination from "../paginator/Paginator";
+import Pagination from "../pagination/Pagination";
 import PublicationList from "./PublicationList";
 
 interface IPublicationsPaginatedListProps {

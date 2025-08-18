@@ -3,18 +3,24 @@
 import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 
+import { cn } from "@/utils/cn";
+
 import IconButtonOrLink from "../button/IconButtonOrLink";
 
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  variant?: "light" | "dark";
+  className?: string;
 };
 
 const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
+  variant = "light",
+  className,
 }: PaginationProps) => {
   const t = useTranslations("paginator");
 
@@ -37,10 +43,12 @@ const Pagination = ({
   };
 
   return (
-    <div className="mt-10 flex items-center justify-center gap-6">
+    <div
+      className={cn("mt-10 flex items-center justify-center gap-6", className)}
+    >
       <IconButtonOrLink
         iconClassName="rotate-180"
-        variant="light"
+        variant={variant}
         aria-label={t("prev")}
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -55,7 +63,14 @@ const Pagination = ({
             <button
               onClick={() => onPageChange(page)}
               aria-current={page === currentPage ? "page" : undefined}
-              className="h-[20px] w-[20px] rounded-full font-medium"
+              className={cn(
+                "h-[20px] w-[20px] rounded-full font-medium",
+                page === currentPage
+                  ? variant === "light"
+                    ? "bg-light text-dark"
+                    : "bg-dark text-light"
+                  : "opacity-60 transition-opacity duration-300 hover:opacity-100"
+              )}
             >
               {page}
             </button>
@@ -64,7 +79,7 @@ const Pagination = ({
       </div>
 
       <IconButtonOrLink
-        variant="light"
+        variant={variant}
         aria-label={t("next")}
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}

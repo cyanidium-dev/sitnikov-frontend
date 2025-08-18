@@ -8,7 +8,7 @@ import { CourseCategoryItem, CourseItem } from "@/lib/sanity/types/courseTypes";
 import { COURSES_PER_PAGE } from "@/constants/pagination";
 import { Locale } from "@/types/locale";
 
-import Pagination from "../shared/paginator/Paginator";
+import Pagination from "../shared/pagination/Pagination";
 import EducationFilter from "./EducationFilter";
 import EducationList from "./EducationList";
 
