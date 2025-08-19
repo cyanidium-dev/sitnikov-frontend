@@ -6,6 +6,7 @@ import { fadeInAnimation } from "@/helpers/animation";
 
 import ModalTrigger from "../module/modal/ModalTrigger";
 import AnimatedWrapper from "../shared/animated/AnimatedWrapper";
+import CourseDefaultImages from "./CourseDefaultImages";
 
 interface ICourseHeroProps {
   title: string;
@@ -20,38 +21,42 @@ const CourseHero = ({
   mainImage,
   mainImageMobile,
 }: ICourseHeroProps) => {
-  const defaultMobileImage =
-    "/images/educationPage/education-hero-default-bg-mob.webp";
-  const defaultDesktopImage =
-    "/images/educationPage/education-hero-default-bg-desk.webp";
-  const bgMobile = mainImageMobile?.url || defaultMobileImage;
-  const bgDesktop = mainImage?.url || defaultDesktopImage;
+  const bgMobile = mainImageMobile?.url;
+  const bgDesktop = mainImage?.url;
 
   return (
-    <section className="relative h-[771px] overflow-hidden rounded-b-2xl bg-dark pt-[136px] text-light md:h-[520px]">
-      <div
-        className="absolute inset-0 block bg-cover bg-center bg-no-repeat md:hidden"
-        style={{ backgroundImage: `url('${bgMobile}')` }}
-      />
+    <section className="relative h-[771px] overflow-hidden rounded-b-2xl bg-dark pt-[136px] text-light md:h-[520px] md:pb-10">
+      {bgMobile && (
+        <div
+          className="absolute inset-0 block bg-cover bg-center bg-no-repeat md:hidden"
+          style={{ backgroundImage: `url('${bgMobile}')` }}
+        />
+      )}
 
-      <div
-        className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
-        style={{ backgroundImage: `url('${bgDesktop}')` }}
-      />
+      {bgDesktop && (
+        <div
+          className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat md:block"
+          style={{ backgroundImage: `url('${bgDesktop}')` }}
+        />
+      )}
 
-      <div className="container max-w-[1280px]">
-        <div className="relative z-10 w-[300px] md:ml-auto md:w-[634px] md:text-right">
-          <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
-            <h1 className="mb-6 font-micra text-[22px] uppercase md:mb-[21px] md:text-[32px] xl:text-[40px]">
-              {title}
-            </h1>
-          </AnimatedWrapper>
+      <CourseDefaultImages bgMobile={bgMobile} bgDesktop={bgDesktop} />
 
-          <AnimatedWrapper animation={fadeInAnimation({ x: 50, delay: 0.3 })}>
-            <p className="mb-8 ml-auto max-w-[236px] text-[14px] font-light max-md:mr-[110px] md:mb-[74px] xl:max-w-[400px]">
-              {descr}
-            </p>
-          </AnimatedWrapper>
+      <div className="container max-w-[1280px] md:h-full">
+        <div className="relative z-10 flex flex-col justify-between max-md:max-w-[300px] md:ml-auto md:h-full md:w-[564px] md:text-right xl:w-[694px]">
+          <div>
+            <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
+              <h1 className="mb-6 font-micra text-[22px] uppercase md:mb-[21px] md:text-[32px] xl:text-[40px]">
+                {title}
+              </h1>
+            </AnimatedWrapper>
+
+            <AnimatedWrapper animation={fadeInAnimation({ x: 50, delay: 0.3 })}>
+              <p className="mb-8 max-w-[236px] text-[14px] font-light md:ml-auto xl:max-w-[400px]">
+                {descr}
+              </p>
+            </AnimatedWrapper>
+          </div>
 
           <AnimatedWrapper animation={fadeInAnimation({ y: 50, delay: 0.5 })}>
             <ModalTrigger

@@ -23,7 +23,10 @@ const CourseContent = ({ course, lang }: ICourseContentProps) => {
           </h2>
         </AnimatedWrapper>
 
-        <AnimatedWrapper animation={fadeInAnimation({ y: -50, delay: 0.3 })}>
+        <AnimatedWrapper
+          animation={fadeInAnimation({ y: -50, delay: 0.3 })}
+          className="flex flex-col gap-6"
+        >
           <RenderContent content={firstBlock.content[lang]} />
         </AnimatedWrapper>
 
