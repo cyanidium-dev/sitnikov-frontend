@@ -1,6 +1,6 @@
 export const APPLICATION = {
-  COURSE: "Заявка с курса",
-  SERVICE: "Заявка с услуг",
-  CONSULTATION: "Заявка с консультации",
-  CONTACTS: "Заявка с контактов",
+  COURSE: "Запит на курс",
+  SERVICE: "Запит з послуг",
+  CONSULTATION: "Запит на консультацію",
+  CONTACTS: "Запит з контактів",
 };
