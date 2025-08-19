@@ -40,7 +40,7 @@ const AccordionCourseRow = ({
         <button
           type="button"
           onClick={onClick}
-          className="mb-8 flex w-full items-center justify-between gap-6 text-left text-[14px] font-medium transition-transform xl:mb-4 xl:text-[20px]"
+          className="flex w-full items-center justify-between gap-6 text-left text-[14px] font-medium transition-transform xl:text-[20px]"
         >
           {title[lang]}
 
@@ -66,7 +66,7 @@ const AccordionCourseRow = ({
             transition: "max-height 0.3s ease",
           }}
         >
-          <ul className="flex flex-col items-center justify-center gap-4 transition-transform md:flex-row md:flex-wrap md:justify-start">
+          <ul className="mt-8 flex flex-col items-center justify-center gap-4 transition-transform md:flex-row md:flex-wrap md:justify-start xl:mb-4">
             {tags?.map((item, index) => (
               <li
                 key={index}
