@@ -11,7 +11,7 @@ const HomeHero = async () => {
   const t = await getTranslations("homepage.hero");
 
   return (
-    <section className="relative h-svh min-h-[810px] overflow-hidden pt-[108px] xl:pt-[185px]">
+    <section className="relative h-svh min-h-[850px] overflow-hidden pt-[108px] xl:pt-[185px]">
       <div className="container flex h-full max-w-[1280px] flex-col leading-[1.22]">
         <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
           <p className="mb-5 max-w-[400px] font-micra text-[20px] xl:mb-7 xl:w-[251px]">
@@ -24,7 +24,7 @@ const HomeHero = async () => {
 
         <AnimatedWrapper
           animation={fadeInAnimation({ x: 50, delay: 1 })}
-          className="absolute bottom-[84px] right-[30px] mt-auto flex w-[296px] flex-col gap-8 xl:relative xl:ml-auto xl:w-[475px] xl:flex-col-reverse xl:gap-7"
+          className="absolute bottom-[84px] right-[30px] mt-auto flex flex-col gap-8 max-xl:max-w-[296px] xl:relative xl:ml-auto xl:w-[475px] xl:flex-col-reverse xl:gap-7"
         >
           <h1 className="font-micra text-[24px] text-light xl:text-[28px]">
             {t("title")}
