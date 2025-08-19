@@ -39,6 +39,7 @@ const CourseContent = ({ course, lang }: ICourseContentProps) => {
           <Accordion
             data={secondBlock.accordion}
             lang={lang}
+            isCourse
             className="gap-4 xl:gap-6"
           />
         )}

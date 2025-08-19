@@ -14,7 +14,7 @@ interface IModalWithFormProps {
   dialogRef: RefObject<HTMLDialogElement | null>;
   messageFrom: string;
   priceText?: string;
-  courseUrl?: string;
+  course?: string;
   openResponseDialog: (success: boolean) => void;
 }
 
@@ -25,7 +25,7 @@ const ModalWithForm = ({
   priceText,
   dialogRef,
   onClose,
-  courseUrl,
+  course,
   messageFrom,
   openResponseDialog,
 }: IModalWithFormProps) => {
@@ -45,7 +45,7 @@ const ModalWithForm = ({
         buttonText={buttonText}
         priceText={priceText}
         closeDialog={onClose}
-        courseUrl={courseUrl}
+        course={course}
         messageFrom={messageFrom}
         openResponseDialog={openResponseDialog}
       />

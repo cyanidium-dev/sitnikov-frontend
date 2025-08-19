@@ -20,7 +20,7 @@ interface IModalFormProps {
   messageFrom: string;
   closeDialog: () => void;
   priceText?: string;
-  courseUrl?: string;
+  course?: string;
   openResponseDialog: (success: boolean) => void;
 }
 
@@ -28,7 +28,7 @@ const ModalForm = ({
   buttonText,
   closeDialog,
   priceText,
-  courseUrl,
+  course,
   messageFrom,
   openResponseDialog,
 }: IModalFormProps) => {
@@ -45,7 +45,7 @@ const ModalForm = ({
 
   const onSubmit = async (data: ModalFormSchema) => {
     setIsLoading(true);
-    const fullData = { messageFrom, ...data, course: courseUrl };
+    const fullData = { messageFrom, ...data, course: course };
 
     const success = await sendTelegramMessage(fullData);
 

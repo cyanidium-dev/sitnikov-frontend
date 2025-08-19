@@ -55,7 +55,7 @@ export type LocalizedFullContent = {
 };
 
 export type AccordionContent = {
-  tags: LocalizedString[];
+  tags?: LocalizedString[];
   title: LocalizedString;
   videoUrl?: string;
 };

@@ -55,13 +55,15 @@ const AccordionRow = ({ data, isOpen, onClick }: AccordionRowProps) => {
           transition: "max-height 0.3s ease",
         }}
       >
-        <ul className="flex flex-col gap-3 pt-6">
-          {descr.map((item, index) => (
-            <p key={index} className="text-[13px] font-light xl:text-[14px]">
-              {item}
-            </p>
-          ))}
-        </ul>
+        {descr && descr.length > 0 && (
+          <ul className="flex flex-col gap-3 pt-6">
+            {descr.map((item, index) => (
+              <p key={index} className="text-[13px] font-light xl:text-[14px]">
+                {item}
+              </p>
+            ))}
+          </ul>
+        )}
       </div>
     </AnimatedListItem>
   );

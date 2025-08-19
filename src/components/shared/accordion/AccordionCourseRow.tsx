@@ -67,7 +67,7 @@ const AccordionCourseRow = ({
           }}
         >
           <ul className="flex flex-col items-center justify-center gap-4 transition-transform md:flex-row md:flex-wrap md:justify-start">
-            {tags.map((item, index) => (
+            {tags?.map((item, index) => (
               <li
                 key={index}
                 className="rounded-md bg-light px-5 py-3 text-[12px] font-medium leading-[1.4] text-dark max-md:w-full max-md:max-w-[400px] xl:text-[14px]"

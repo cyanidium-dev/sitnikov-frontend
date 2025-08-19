@@ -16,12 +16,16 @@ interface IAccordionProps {
   data: AccordionItem[] | AccordionContent[];
   className?: string;
   lang?: Locale;
+  isCourse?: boolean;
 }
 
-const Accordion = ({ data, className, lang }: IAccordionProps) => {
+const Accordion = ({
+  data,
+  className,
+  lang,
+  isCourse = false,
+}: IAccordionProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const isCourse = "tags" in data[0];
 
   const handleToggle = (index: number) => {
     setOpenIndex(prevIndex => (prevIndex === index ? null : index));

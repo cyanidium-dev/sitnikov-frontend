@@ -27,8 +27,6 @@ const CourseHero = ({
   const bgMobile = mainImageMobile?.url || defaultMobileImage;
   const bgDesktop = mainImage?.url || defaultDesktopImage;
 
-  const fullUrl = typeof window !== "undefined" ? window.location.href : "";
-
   return (
     <section className="relative h-[771px] overflow-hidden rounded-b-2xl bg-dark pt-[136px] text-light md:h-[520px]">
       <div
@@ -60,7 +58,7 @@ const CourseHero = ({
               variant="course"
               buttonVariant="light"
               buttonClassName="bg-light text-dark max-md:h-11 md:w-[294px] md:ml-auto md:h-[50px]"
-              courseUrl={fullUrl}
+              course={title}
               messageFrom={APPLICATION.COURSE}
             />
           </AnimatedWrapper>

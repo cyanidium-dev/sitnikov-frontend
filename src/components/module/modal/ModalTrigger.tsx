@@ -45,14 +45,14 @@ interface IModalTriggerProps {
   buttonClassName?: string;
   messageFrom: string;
   buttonVariant?: "dark" | "light" | "transparent" | "light-gradient";
-  courseUrl?: string;
+  course?: string;
 }
 
 const ModalTrigger = ({
   variant,
   buttonVariant = "dark",
   buttonClassName,
-  courseUrl,
+  course,
   messageFrom,
 }: IModalTriggerProps) => {
   const [isError, setIsError] = useState(false);
@@ -100,7 +100,7 @@ const ModalTrigger = ({
         buttonText={t(config.modalButton)}
         dialogRef={dialogRef}
         onClose={closeDialog}
-        courseUrl={courseUrl}
+        course={course}
         messageFrom={messageFrom}
         openResponseDialog={openResponseDialog}
       />
