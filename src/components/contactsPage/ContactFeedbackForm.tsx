@@ -59,7 +59,7 @@ const ContactFeedbackForm = ({
           <FormField
             name="name"
             type="text"
-            placeholder={formPlaceholder.name}
+            placeholder={`* ${formPlaceholder.name}`}
             variant="gradient"
           />
 

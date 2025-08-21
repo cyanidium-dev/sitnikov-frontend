@@ -14,7 +14,7 @@ const HomeHero = async () => {
     <section className="relative h-svh min-h-[850px] overflow-hidden pt-[108px] xl:pt-[185px]">
       <div className="container flex h-full max-w-[1280px] flex-col leading-[1.22]">
         <AnimatedWrapper animation={fadeInAnimation({ x: -50 })}>
-          <p className="mb-5 max-w-[400px] font-micra text-[20px] xl:mb-7 xl:w-[251px]">
+          <p className="mb-5 max-w-[400px] font-micra text-[20px] xl:mb-7 xl:w-[235px]">
             {t("subtitle")}
           </p>
           <p className="mr-[142px] max-w-[250px] text-[12px] font-light xl:w-[177px] xl:text-[14px]">

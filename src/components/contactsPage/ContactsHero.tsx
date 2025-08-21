@@ -9,11 +9,14 @@ const ContactsHero = async () => {
   const t = await getTranslations("contactsPage.hero");
 
   return (
-    <section className="relative h-[770px] bg-[linear-gradient(188.96deg,_#FFFFFF_-9.07%,_#E0EAFF_56.87%,_#FFFFFF_112.06%)] pb-[10px] pt-[124px] md:h-[528px] md:pb-0">
+    <section className="relative h-[770px] bg-[linear-gradient(256.12deg,_#FFFFFF_40.11%,_#C0D4FF_129.35%)] pb-[10px] pt-[124px] md:h-[528px] md:pb-0">
       <div className="container h-full max-w-[1280px]">
         <div className="mx-auto flex h-full flex-col justify-between max-md:max-w-[400px] md:flex-row">
-          <AnimatedWrapper animation={fadeInAnimation({ y: -50 })}>
-            <p className="font-micra md:mb-[30px] md:mt-auto md:max-w-[340px] xl:mb-[50px] xl:max-w-[479px] xl:text-[18px] xl:leading-[1.4]">
+          <AnimatedWrapper
+            animation={fadeInAnimation({ y: -50 })}
+            className="xl:flex xl:justify-end"
+          >
+            <p className="font-micra md:mb-[30px] md:mt-auto md:max-w-[340px] xl:max-w-[479px] xl:text-[18px] xl:leading-[1.4]">
               {t("descr")}
             </p>
           </AnimatedWrapper>
