@@ -62,11 +62,11 @@
           "decorPosition": "top-right"
         }
       ],
-      "title": "Наші освітні програми",
+      "title": "Наші курси",
       "descr": "Ваш юридичний фундамент у бізнесі та житті",
       "courseList": [
         {
-          "title": "Все про адміністративні процедури",
+          "title": "Все про адмін. процедури",
           "descr": "Цей курс - ваш навігатор у світі адміністративного провадження",
           "variant": "light",
           "href": "free-courses/vse-pro-administratyvni-protsedury"
