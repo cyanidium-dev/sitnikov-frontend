@@ -388,6 +388,8 @@
       "nameAllowedSymbols": "Допустимі літери та дефіс, апостроф, лапки",
       "phoneMinMaxValidation": "Номер має містити від 7 до 15 цифр",
       "phoneOnlyDigits": "Поле може містити лише цифри",
+      "phoneMaxValidation": "Поле має містити не більше 25 символів",
+      "phoneInvalidFormat": "Невірний формат номеру телефона",
       "messageValidation": "Максимум 1000 символів"
     },
     "price": "Сума до сплати"

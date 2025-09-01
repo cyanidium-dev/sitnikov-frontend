@@ -388,6 +388,8 @@
       "nameAllowedSymbols": "Допустимы буквы и дефис, апостроф, кавычки",
       "phoneMinMaxValidation": "Номер должен содержать от 7 до 15 цифр",
       "phoneOnlyDigits": "Поле может содержать только цифры",
+      "phoneMaxValidation": "Поле должно содержать не более 25 символов",
+      "phoneInvalidFormat": "Неверный формат номера телефона",
       "messageValidation": "Максимум 1000 символов"
     },
     "price": "Сумма к оплате"
