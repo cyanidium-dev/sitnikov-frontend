@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 import { fadeInAnimation } from "@/helpers/animation";
 
@@ -45,8 +46,23 @@ const ServicesHero = async () => {
           scale: 0.8,
           delay: 0.7,
         })}
-        className="absolute -bottom-[40px] right-0 -z-[5] h-[575px] w-[350px] bg-contain max-md:bg-[url('/images/servicespage/services-hero-person-mob.webp')] md:hidden"
-      />
+        className="absolute bottom-[60px] right-0 -z-[5] w-full bg-contain md:hidden"
+      >
+        <Image
+          src={"/images/servicespage/services-hero-person-mob.webp"}
+          alt="Фото"
+          width={236}
+          height={455}
+          className="absolute bottom-0 right-0"
+        />
+        <Image
+          src={"/images/servicespage/services-hero-decor-mob.svg"}
+          alt="Декоративне зображення"
+          width={351}
+          height={575}
+          className="absolute -bottom-[90px] right-0 -z-[1]"
+        />
+      </AnimatedWrapper>
 
       <div className="absolute -z-10 bg-no-repeat max-md:hidden md:left-0 md:top-0 md:h-full md:w-[45%] md:bg-[url('/images/servicespage/services-hero-bg.webp')]" />
     </section>
