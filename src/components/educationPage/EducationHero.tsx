@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 const EducationHero = async () => {
   const t = await getTranslations("educationPage.hero");
@@ -15,7 +16,23 @@ const EducationHero = async () => {
         </p>
       </div>
 
-      <div className="absolute left-0 z-[5] h-[233px] w-full bg-[url('/images/educationPage/education-hero-bg.webp')] bg-cover bg-no-repeat max-md:bottom-0 max-md:rounded-b-2xl md:top-0 md:h-full md:w-[390px] xl:w-[40%]" />
+      <div className="absolute left-0 z-[5] h-[233px] w-full max-md:bottom-0 md:top-0 md:h-full md:w-[390px] xl:w-[40%]">
+        <Image
+          src={"/images/educationPage/education-hero-bg-mob.webp"}
+          alt="Фонове зображення"
+          fill
+          sizes="400px"
+          className="rounded-b-2xl object-cover md:hidden"
+        />
+
+        <Image
+          src={"/images/educationPage/education-hero-bg-desk.webp"}
+          alt="Фонове зображення"
+          fill
+          sizes="(max-width: 1280px) 390px, 650px"
+          className="object-cover max-md:hidden"
+        />
+      </div>
 
       <div className="absolute bottom-0 right-0 h-[435px] w-[255px] bg-[url('/images/educationPage/education-hero-decor-mob.webp')] md:h-[167px] md:w-[563px] md:bg-[url('/images/educationPage/education-hero-decor-right-desk.webp')]" />
       <div className="absolute bottom-0 left-[390px] h-[277px] w-[230px] max-md:hidden md:bg-[url('/images/educationPage/education-hero-decor-left-desk.webp')] xl:left-[40%]" />
