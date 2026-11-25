@@ -40,8 +40,8 @@ const ProgramBlock = async ({
                   card
                 )}
               >
-                <summary className="flex cursor-pointer list-none items-center gap-4 p-5 md:gap-5 md:p-6 [&::-webkit-details-marker]:hidden">
-                  <span className="grid size-12 shrink-0 place-items-center rounded-full bg-dark font-micra text-[15px] text-accent group-open:bg-accent-strong group-open:text-light">
+                <summary className="flex cursor-pointer list-none items-center gap-3 p-5 md:gap-5 md:p-6 [&::-webkit-details-marker]:hidden">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full bg-dark font-micra max-md:hidden text-[15px] text-accent group-open:bg-accent-strong group-open:text-light">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <span className="min-w-0 flex-1">

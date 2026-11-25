@@ -9,8 +9,8 @@ export default async function NotFound() {
   const t = await getTranslations("notFound");
 
   return (
-    <div className="bg-[#f3f6fd] md:pb-6">
-      <section className="relative isolate flex min-h-[80svh] items-center overflow-hidden bg-dark pb-16 pt-[120px] text-light md:rounded-b-[32px]">
+    <div className="bg-[#f3f6fd] pb-3 md:pb-6">
+      <section className="relative isolate flex min-h-[80svh] items-center overflow-hidden bg-dark pb-16 pt-[120px] text-light rounded-b-[24px] md:rounded-b-[32px]">
         <div
           aria-hidden
           className="absolute inset-0 -z-10 bg-[radial-gradient(45%_60%_at_75%_45%,rgba(81,136,255,0.3)_0%,rgba(9,17,41,0)_70%)]"

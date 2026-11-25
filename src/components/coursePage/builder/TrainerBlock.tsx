@@ -56,7 +56,7 @@ const TrainerBlock = async ({
 
       <div className="container grid max-w-[1280px] grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-14">
         {/* portrait with the name plate */}
-        <div className="relative isolate h-[440px] overflow-hidden rounded-[28px] bg-[linear-gradient(160deg,#5b8fff_0%,#2c52bd_42%,#13245a_100%)] sm:h-[500px] lg:col-span-5 lg:h-auto lg:min-h-[600px]">
+        <div className="relative isolate h-[440px] overflow-hidden rounded-[28px] bg-[linear-gradient(160deg,#5b8fff_0%,#2c52bd_42%,#13245a_100%)] sm:h-[500px] lg:col-span-5 lg:h-auto lg:min-h-[480px]">
           <span
             aria-hidden
             className="absolute inset-0 -z-10 bg-[radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1.2px)] [background-size:16px_16px] [mask-image:linear-gradient(200deg,#000_0%,transparent_55%)]"

@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { APPLICATION } from "@/constants/application";
 import { siteConfig } from "@/constants/siteConfig";
+import { cn } from "@/utils/cn";
 
 import LineIcon, { Rings } from "../../homepage/LineIcon";
 import ModalTrigger from "../../module/modal/ModalTrigger";
@@ -12,12 +13,29 @@ const formatPhone = (phone: string) => {
 };
 
 /** Closing call to action on every course page. */
-const FinalCta = async ({ course }: { course: string }) => {
+const FinalCta = async ({
+  course,
+  afterDark = false,
+}: {
+  course: string;
+  /** previous block is dark: frame the card so the two dark areas don't merge */
+  afterDark?: boolean;
+}) => {
   const t = await getTranslations("courseBuilder");
 
   return (
-    <section className="bg-[#f3f6fd] md:px-6 md:pb-6">
-      <div className="relative isolate overflow-hidden bg-dark text-light md:rounded-[32px]">
+    <section
+      className={cn(
+        "bg-[#f3f6fd] md:px-6 md:pb-6",
+        afterDark && "px-3 py-3 md:pt-6"
+      )}
+    >
+      <div
+        className={cn(
+          "relative isolate overflow-hidden bg-dark text-light md:rounded-[32px]",
+          afterDark && "rounded-[24px]"
+        )}
+      >
         <Rings className="absolute -right-[80px] top-1/2 -z-10 w-[620px] -translate-y-1/2 max-md:hidden" />
         <div
           aria-hidden

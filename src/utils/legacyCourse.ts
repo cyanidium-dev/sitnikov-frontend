@@ -59,6 +59,8 @@ export const legacyToSections = (
       facts,
     });
   }
+  // KP order: … trainer (4) → program (5); keeps a light block before the final CTA
+  sections.push({ _type: "courseTrainerBlock", _key: "trainer" });
   if (modules.length) {
     sections.push({
       _type: "courseProgramBlock",
@@ -67,6 +69,5 @@ export const legacyToSections = (
       modules,
     });
   }
-  sections.push({ _type: "courseTrainerBlock", _key: "trainer" });
   return sections;
 };

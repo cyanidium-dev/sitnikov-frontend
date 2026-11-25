@@ -88,7 +88,10 @@ const CourseBuilder = ({
             return null;
         }
       })}
-      <FinalCta course={courseTitle} />
+      <FinalCta
+        course={courseTitle}
+        afterDark={DARK.has(sections[sections.length - 1]?._type ?? "")}
+      />
     </>
   );
 };
