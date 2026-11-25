@@ -334,6 +334,7 @@ export const COURSE_PROTOTYPE: CoursePageData = {
       title: u("Як проходять заняття"),
       caption: u("Фрагмент лекції Школи процесуального мистецтва."),
       videoUrl: "https://www.youtube.com/watch?v=28lHad8Chhg",
+      uploadDate: "2022-01-12",
     },
     {
       _type: "courseReviewsBlock",

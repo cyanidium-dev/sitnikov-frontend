@@ -77,6 +77,8 @@ export type FaqBlock = Base<"courseFaqBlock"> & {
 };
 export type VideoBlock = Base<"courseVideoBlock"> & {
   videoUrl?: string;
+  /** publication date on YouTube, needed by Google for VideoObject markup */
+  uploadDate?: string;
   caption?: L10n;
 };
 export type TextImageBlock = Base<"courseTextImageBlock"> & {

@@ -39,7 +39,7 @@ export const LEGAL_DRAFTS: Record<LegalSlug, LegalDraft> = {
       {
         heading: "4. Cookies та аналітика",
         paragraphs: [
-          "Сайт використовує необхідні cookies для роботи, а також — за вашою згодою — аналітичні сервіси Google Analytics, Google Tag Manager і Microsoft Clarity.",
+          "Сайт використовує необхідні cookies для роботи, а також — за вашою згодою — аналітичні та рекламні сервіси Google Analytics, Google Tag Manager, Microsoft Clarity і Meta Pixel.",
           "Вибір щодо cookies можна змінити будь-коли через посилання «Налаштування cookies» у футері Сайту або очистивши cookies у браузері.",
         ],
       },

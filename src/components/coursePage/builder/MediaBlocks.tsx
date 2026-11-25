@@ -11,6 +11,7 @@ import { cn } from "@/utils/cn";
 import { extractVideoId } from "@/utils/extractVideoId";
 
 import SectionHead from "../../homepage/SectionHead";
+import JsonLd from "../../seo/JsonLd";
 import YouTubeLite from "./YouTubeLite";
 import { BlockCtx, paragraphs } from "./shared";
 
@@ -20,9 +21,24 @@ export const VideoBlock = ({ block, ctx }: { block: Video; ctx: BlockCtx }) => {
   if (!id) return null;
   const title = pick(block.title, ctx.locale);
   const caption = pick(block.caption, ctx.locale);
+  const videoLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: title || ctx.courseTitle,
+    description: caption || ctx.courseTitle,
+    thumbnailUrl: [
+      `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+      `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+    ],
+    ...(block.uploadDate && { uploadDate: block.uploadDate }),
+    embedUrl: `https://www.youtube.com/embed/${id}`,
+    url: `https://www.youtube.com/watch?v=${id}`,
+    inLanguage: ctx.locale === "ru" ? "ru" : "uk",
+  };
 
   return (
     <section className={cn("py-14 md:py-20 xl:py-[100px]", ctx.bg)}>
+      <JsonLd data={videoLd} />
       <div className="container grid max-w-[1280px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
         {(title || caption) && (
           <div className="lg:col-span-4">
