@@ -23,6 +23,17 @@ const useModalFormSchema = () => {
         const digits = val.replace(/\D/g, "");
         return digits.length >= 7 && digits.length <= 15;
       }, t("phoneMinMaxValidation")),
+    email: z
+      .string()
+      .trim()
+      .min(1, t("emailRequired"))
+      .max(150, t("emailInvalid"))
+      .email(t("emailInvalid")),
+    consent: z.literal(true, {
+      errorMap: () => ({ message: t("consentRequired") }),
+    }),
+    // honeypot: real people never see or fill this field
+    company: z.string().optional(),
   });
 
   return modalFormSchema;
