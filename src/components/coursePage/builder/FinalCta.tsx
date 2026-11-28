@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { getSiteConfig } from "@/lib/siteSettings";
 import { APPLICATION } from "@/constants/application";
-import { siteConfig } from "@/constants/siteConfig";
 import { cn } from "@/utils/cn";
 
 import LineIcon, { Rings } from "../../homepage/LineIcon";
@@ -21,6 +21,7 @@ const FinalCta = async ({
   /** previous block is dark: frame the card so the two dark areas don't merge */
   afterDark?: boolean;
 }) => {
+  const site = await getSiteConfig();
   const t = await getTranslations("courseBuilder");
 
   return (
@@ -58,11 +59,11 @@ const FinalCta = async ({
               messageFrom={APPLICATION.COURSE}
             />
             <a
-              href={`tel:+${siteConfig.phone.replace(/\D/g, "")}`}
+              href={`tel:+${site.phone.replace(/\D/g, "")}`}
               className="flex h-[50px] items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-white/25 px-6 text-[15px] font-semibold tabular-nums transition-colors duration-300 hover:border-white"
             >
               <LineIcon name="phone" className="size-[18px] text-accent" />
-              {formatPhone(siteConfig.phone)}
+              {formatPhone(site.phone)}
             </a>
           </div>
         </div>

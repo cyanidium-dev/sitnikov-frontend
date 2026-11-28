@@ -21,8 +21,6 @@ export type PackageView = {
   paymentUrl?: string;
 };
 
-const MOBILE_VISIBLE = 3;
-
 type Labels = {
   showAll: string;
   pay: string;
@@ -31,9 +29,15 @@ type Labels = {
   hide: string;
   recommended: string;
   uah: string;
+  /** «5 з 8 включено» */
+  summary: string;
 };
 
-/** One participation package: price at once, contents open on click. */
+/**
+ * One participation package (PM, slide 2 p.2): price and «Оплатити» are visible
+ * at once, the list of services opens on click — included ones with green
+ * ticks, not included ones grey.
+ */
 const PackageCard = ({
   pkg,
   course,
@@ -70,7 +74,7 @@ const PackageCard = ({
       {pkg.note && (
         <p
           className={cn(
-            "mt-2 text-[14px] leading-[1.5]",
+            "mt-2 text-[14px] leading-[1.5] md:line-clamp-2 md:min-h-[42px]",
             hi ? "text-dark/60" : "text-white/60"
           )}
         >
@@ -102,23 +106,54 @@ const PackageCard = ({
         )}
       </div>
 
-      <p
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={`pkg-${pkg.key}`}
+        onClick={() => setOpen(v => !v)}
         className={cn(
-          "mt-6 border-t pt-5 text-[13px] font-semibold uppercase tracking-[0.06em]",
-          hi ? "border-dark/10 text-dark/60" : "border-white/10 text-white/50"
+          "mt-6 flex w-full items-center justify-between gap-3 rounded-[16px] px-4 py-3 text-left transition-colors duration-300",
+          hi
+            ? "bg-[#f3f6fd] hover:bg-[#e6ecfb]"
+            : "bg-white/[0.06] hover:bg-white/[0.1]"
         )}
       >
-        {labels.included}
-      </p>
-      <ul className="mt-1">
-        {pkg.features.map((f, idx) => (
+        <span className="min-w-0">
+          <span className="block text-[14px] font-semibold">
+            {open ? labels.hide : labels.showAll}
+          </span>
+          <span
+            className={cn(
+              "mt-0.5 block text-[13px]",
+              hi ? "text-dark/60" : "text-white/60"
+            )}
+          >
+            {labels.summary}
+          </span>
+        </span>
+        <svg
+          aria-hidden
+          viewBox="0 0 20 20"
+          className={cn(
+            "size-5 shrink-0 transition-transform duration-300",
+            open && "rotate-180"
+          )}
+        >
+          <path
+            d="m5 8 5 5 5-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <ul id={`pkg-${pkg.key}`} hidden={!open} className="mt-1 px-1">
+        {pkg.features.map(f => (
           <li
             key={f.text}
-            className={cn(
-              "flex items-start gap-3 pt-3.5 text-[14px] leading-[1.45] md:text-[15px]",
-              // phones: first items at once, the rest opens on tap
-              idx >= MOBILE_VISIBLE && !open && "max-md:hidden"
-            )}
+            className="flex items-start gap-3 pt-3.5 text-[14px] leading-[1.45] md:text-[15px]"
           >
             {f.included ? (
               <span className="mt-[1px] grid size-5 shrink-0 place-items-center rounded-full bg-[#22b573] text-light">
@@ -145,38 +180,8 @@ const PackageCard = ({
           </li>
         ))}
       </ul>
-      {pkg.features.length > MOBILE_VISIBLE && (
-        <button
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpen(v => !v)}
-          className={cn(
-            "mt-4 flex w-full items-center justify-center gap-2 rounded-[14px] py-2.5 text-[14px] font-semibold md:hidden",
-            hi ? "bg-[#f3f6fd]" : "bg-white/[0.06]"
-          )}
-        >
-          {open ? labels.hide : labels.showAll}
-          <svg
-            aria-hidden
-            viewBox="0 0 20 20"
-            className={cn(
-              "size-4 transition-transform duration-300",
-              open && "rotate-180"
-            )}
-          >
-            <path
-              d="m5 8 5 5 5-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      )}
 
-      <div className="mt-auto pt-6">
+      <div className="pt-6">
         {!salesClosed && pkg.paymentUrl ? (
           <a
             href={pkg.paymentUrl}
@@ -192,7 +197,7 @@ const PackageCard = ({
             className={cn(
               buttonBase,
               hi
-                ? "bg-accent text-light hover:bg-[#6a99ff]"
+                ? "bg-accent-strong text-light hover:bg-[#2f5fe0]"
                 : "bg-light text-dark hover:bg-[#dfe8ff]"
             )}
           >

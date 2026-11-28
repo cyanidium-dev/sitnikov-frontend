@@ -16,6 +16,7 @@ import Footer from "@/components/module/footer/Footer";
 import Header from "@/components/module/header/Header";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteSchema } from "@/components/seo/siteSchema";
+import { getSiteConfig } from "@/lib/siteSettings";
 import { SITE_URL } from "@/utils/getBaseUrl";
 
 export const metadata: Metadata = {
@@ -77,19 +78,21 @@ export default async function LocaleLayout({
     },
   } as typeof all;
 
+  const site = await getSiteConfig();
+
   return (
     <html lang={locale} className="scroll-smooth">
       <body
         className={`${montserrat.variable} ${micra.variable} relative z-[1] flex min-h-screen flex-col antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          <Header phone={site.phone} socials={site.socialLinks} />
           <main className="flex-grow overflow-x-hidden">{children}</main>
           <Footer />
           <CookieBanner />
           <Analytics />
         </NextIntlClientProvider>
-        <JsonLd data={siteSchema(locale)} />
+        <JsonLd data={siteSchema(locale, site)} />
       </body>
     </html>
   );

@@ -64,7 +64,8 @@
     "education": "Навчання",
     "announcements": "Анонси",
     "contactsLabel": "Зв’язатися",
-    "menuLabel": "Меню"
+    "menuLabel": "Меню",
+    "googleReviews": "Відгуки в Google"
   },
   "homepage": {
     "hero": {
@@ -367,6 +368,10 @@
       "button": "Обрати курс",
       "chip1": "Суддя ВАС у відставці",
       "chip2": "30+ років у праві"
+    },
+    "videoCard": {
+      "title": "Знайомство з Олександром Ситниковим",
+      "descr": "Коротко про мене, мій підхід до справ і навчання — у відео."
     }
   },
   "servicepage": {
@@ -986,7 +991,8 @@
       "courseReviewsBlock": "Відгуки учасників",
       "courseFaqBlock": "Питання та відповіді",
       "courseGalleryBlock": "Як це було",
-      "courseCurriculumBlock": "Програма курсу"
+      "courseCurriculumBlock": "Програма курсу",
+      "coursePainsBlock": "Що болить і чого бояться юристи"
     },
     "trainerFallback": {
       "name": "Олександр Ситников",
@@ -1009,7 +1015,10 @@
       "optional": "необовʼязковий",
       "modules": "{count, plural, one {# модуль} few {# модулі} other {# модулів}}",
       "segments": "{count, plural, one {# сегмент} few {# сегменти} other {# сегментів}}"
-    }
+    },
+    "pkgSummary": "Включено {included} з {total} послуг",
+    "painLabel": "Біль / страх",
+    "solutionLabel": "Що дає курс"
   },
   "thanks": {
     "title": "Дякуємо! Оплату отримано",

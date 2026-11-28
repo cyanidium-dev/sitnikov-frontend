@@ -9,8 +9,8 @@ import PurchaseTracker from "@/components/thanks/PurchaseTracker";
 import { Link } from "@/i18n/navigation";
 import { getCourseThanks } from "@/lib/sanity/queries/courses";
 import { pick } from "@/lib/sanity/types/courseBlocks";
+import { getSiteConfig } from "@/lib/siteSettings";
 import { ROUTES } from "@/constants/routes";
-import { siteConfig } from "@/constants/siteConfig";
 import { normalizeTitle } from "@/utils/courseImage";
 import { Locale } from "@/types/locale";
 
@@ -47,6 +47,7 @@ const ThanksPage = async ({
   params: Promise<{ locale: Locale; slug: string }>;
   searchParams: Search;
 }) => {
+  const site = await getSiteConfig();
   const { locale, slug } = await params;
   const { status = "", amount, currency, order } = await searchParams;
   const t = await getTranslations("thanks");
@@ -59,9 +60,7 @@ const ThanksPage = async ({
         title: COURSE_PROTOTYPE.title,
         slug: "prototype",
         category: undefined,
-        telegramGroupUrl: siteConfig.socialLinks.find(
-          s => s.label === "Telegram"
-        )?.href,
+        telegramGroupUrl: site.telegram,
         flowStart: COURSE_PROTOTYPE.flowStart,
       }
     : await getCourseThanks(slug).catch(() => null);
@@ -80,7 +79,7 @@ const ThanksPage = async ({
         { day: "numeric", month: "long", year: "numeric" }
       )
     : null;
-  const telHref = `tel:+${siteConfig.phone.replace(/\D/g, "")}`;
+  const telHref = `tel:+${site.phone.replace(/\D/g, "")}`;
 
   const steps = [
     {
@@ -171,7 +170,7 @@ const ThanksPage = async ({
               className="flex h-[54px] items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-white/25 px-7 text-[15px] font-semibold tabular-nums transition-colors duration-300 hover:border-white"
             >
               <LineIcon name="phone" className="size-[18px] text-accent" />
-              {formatPhone(siteConfig.phone)}
+              {formatPhone(site.phone)}
             </a>
           </div>
 

@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import { getSiteConfig } from "@/lib/siteSettings";
 import { APPLICATION } from "@/constants/application";
-import { siteConfig } from "@/constants/siteConfig";
 
 import LineIcon, { Rings } from "../homepage/LineIcon";
 import SectionHead from "../homepage/SectionHead";
@@ -16,6 +16,7 @@ const formatPhone = (phone: string) => {
 
 /** FAQ (native details, works without JS) + a compact contact card. */
 const ServicesFaq = async () => {
+  const site = await getSiteConfig();
   const t = await getTranslations("servicepage.faq");
   const items = t.raw("items") as Qa[];
 
@@ -62,11 +63,11 @@ const ServicesFaq = async () => {
                 messageFrom={APPLICATION.CONSULTATION}
               />
               <a
-                href={`tel:+${siteConfig.phone.replace(/\D/g, "")}`}
+                href={`tel:+${site.phone.replace(/\D/g, "")}`}
                 className="flex h-[50px] items-center justify-center gap-2.5 rounded-full border border-white/25 px-6 text-[15px] font-semibold tabular-nums transition-colors duration-300 hover:border-white"
               >
                 <LineIcon name="phone" className="size-[18px] text-accent" />
-                {formatPhone(siteConfig.phone)}
+                {formatPhone(site.phone)}
               </a>
             </div>
           </div>

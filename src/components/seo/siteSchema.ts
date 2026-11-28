@@ -1,17 +1,17 @@
-import { siteConfig } from "@/constants/siteConfig";
+import type { SiteConfig } from "@/lib/siteSettings";
 import { SITE_URL } from "@/utils/getBaseUrl";
-
-const sameAs = siteConfig.socialLinks
-  .map(({ href }) => href)
-  .filter(href => href.startsWith("http"));
 
 export const PERSON_ID = `${SITE_URL}/#person`;
 export const ORG_ID = `${SITE_URL}/#organization`;
 
 /** Person + professional service + website: shared by every page. */
-export const siteSchema = (locale: string) => {
+export const siteSchema = (locale: string, site: SiteConfig) => {
+  const sameAs = [
+    ...site.socialLinks.map(l => l.href),
+    ...(site.googleReviewsUrl ? [site.googleReviewsUrl] : []),
+  ].filter(href => href.startsWith("http"));
   const uk = locale === "uk";
-  const phone = `+${siteConfig.phone.replace(/\D/g, "")}`;
+  const phone = `+${site.phone.replace(/\D/g, "")}`;
 
   return {
     "@context": "https://schema.org",
@@ -25,7 +25,7 @@ export const siteSchema = (locale: string) => {
           : "Адвокат, судья Высшего административного суда Украины в отставке",
         url: `${SITE_URL}/${locale}`,
         image: `${SITE_URL}/images/homepage/home-hero-person-hq.webp`,
-        email: siteConfig.email,
+        email: site.email,
         telephone: phone,
         knowsAbout: uk
           ? [
@@ -53,7 +53,7 @@ export const siteSchema = (locale: string) => {
         url: `${SITE_URL}/${locale}`,
         image: `${SITE_URL}/images/seo-default.webp`,
         telephone: phone,
-        email: siteConfig.email,
+        email: site.email,
         founder: { "@id": PERSON_ID },
         areaServed: { "@type": "Country", name: "Ukraine" },
         address: {

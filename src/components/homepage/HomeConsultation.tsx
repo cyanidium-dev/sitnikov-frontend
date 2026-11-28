@@ -1,8 +1,8 @@
 import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
+import { getSiteConfig } from "@/lib/siteSettings";
 import { APPLICATION } from "@/constants/application";
-import { siteConfig } from "@/constants/siteConfig";
 
 import ModalTrigger from "../module/modal/ModalTrigger";
 import LineIcon, { LineIconName, Rings } from "./LineIcon";
@@ -24,6 +24,7 @@ const formatPhone = (phone: string) => {
 
 /** Consultation: offer + services on the left, a composed portrait on the right. */
 const HomeConsultation = async () => {
+  const site = await getSiteConfig();
   const t = await getTranslations("homepage.consultation");
   const messages = await getMessages();
   const practice = (
@@ -54,11 +55,11 @@ const HomeConsultation = async () => {
               messageFrom={APPLICATION.CONSULTATION}
             />
             <a
-              href={`tel:+${siteConfig.phone.replace(/\D/g, "")}`}
+              href={`tel:+${site.phone.replace(/\D/g, "")}`}
               className="flex h-[50px] items-center justify-center gap-2.5 rounded-full border border-white/25 px-6 text-[15px] font-semibold tabular-nums transition-colors duration-300 hover:border-white md:h-[52px]"
             >
               <LineIcon name="phone" className="size-[18px] text-accent" />
-              {formatPhone(siteConfig.phone)}
+              {formatPhone(site.phone)}
             </a>
           </div>
           <ul className="mt-8 grid border-t border-white/10 md:mt-10 md:grid-cols-2 md:gap-x-8">

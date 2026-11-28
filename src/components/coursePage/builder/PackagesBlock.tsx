@@ -73,7 +73,7 @@ const PackagesBlock = async ({
         )}
         <div
           className={cn(
-            "grid grid-cols-1 gap-4 pt-3 md:grid-cols-2 lg:gap-5",
+            "grid grid-cols-1 items-start gap-4 pt-3 md:grid-cols-2 lg:gap-5",
             packages.length >= 3 && "lg:grid-cols-3",
             packages.length === 4 && "xl:grid-cols-4"
           )}
@@ -88,8 +88,10 @@ const PackagesBlock = async ({
                 pay: t("pay"),
                 nextFlow: t("nextFlow"),
                 included: t("included"),
-                showAll: t("showAll", {
-                  count: Math.max(0, p.features.length),
+                showAll: t("included"),
+                summary: t("pkgSummary", {
+                  included: p.features.filter(f => f.included).length,
+                  total: p.features.length,
                 }),
                 hide: t("hide"),
                 recommended: t("recommended"),

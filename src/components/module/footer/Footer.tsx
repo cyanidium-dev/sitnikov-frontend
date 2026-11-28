@@ -3,9 +3,11 @@ import { getTranslations } from "next-intl/server";
 import CookieSettingsButton from "@/components/module/cookies/CookieSettingsButton";
 import Logo from "@/components/shared/logo/Logo";
 import { Link } from "@/i18n/navigation";
+import { SOCIAL_ICONS, getSiteConfig } from "@/lib/siteSettings";
 import { LEGAL_PAGES, legalPath } from "@/constants/legal";
 import { ROUTES } from "@/constants/routes";
-import { siteConfig } from "@/constants/siteConfig";
+
+import GoogleReviewsLink from "../../shared/GoogleReviewsLink";
 
 const formatPhone = (phone: string) => {
   const d = phone.replace(/\D/g, "");
@@ -38,6 +40,7 @@ const Label = ({ children }: { children: string }) => (
 );
 
 const Footer = async () => {
+  const site = await getSiteConfig();
   const t = await getTranslations("footer");
   const tLegal = await getTranslations("legal");
   const year = new Date().getFullYear();
@@ -51,8 +54,8 @@ const Footer = async () => {
     { title: t("navigation.gallery"), path: ROUTES.GALLERY },
     { title: t("navigation.contacts"), path: ROUTES.CONTACTS },
   ];
-  const socials = siteConfig.socialLinks.filter(({ href }) => href !== "#");
-  const telHref = `tel:+${siteConfig.phone.replace(/\D/g, "")}`;
+  const socials = site.socialLinks;
+  const telHref = `tel:+${site.phone.replace(/\D/g, "")}`;
 
   return (
     <footer className="bg-[#f3f6fd] md:px-6 md:pb-6">
@@ -117,20 +120,20 @@ const Footer = async () => {
                 href={telHref}
                 className="block text-[26px] font-semibold tabular-nums leading-tight tracking-[-0.02em] transition-colors duration-300 hover:text-accent md:text-[30px]"
               >
-                {formatPhone(siteConfig.phone)}
+                {formatPhone(site.phone)}
               </a>
               <a
-                href={`mailto:${siteConfig.email}`}
+                href={`mailto:${site.email}`}
                 className="mt-2 block text-[17px] font-medium text-white/85 transition-colors duration-300 hover:text-accent md:text-[20px]"
               >
-                {siteConfig.email}
+                {site.email}
               </a>
               <p className="mt-3 text-[14px] text-white/55">
                 {t("address")} · {t("hours")}
               </p>
               {socials.length > 0 && (
                 <ul className="mt-5 flex gap-2 xl:justify-end">
-                  {socials.map(({ href, label, icon }) => (
+                  {socials.map(({ href, label }) => (
                     <li key={label}>
                       <a
                         href={href}
@@ -139,11 +142,18 @@ const Footer = async () => {
                         aria-label={label}
                         className="grid size-11 place-items-center rounded-full bg-white/[0.06] text-white/85 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] transition-colors duration-300 hover:bg-accent hover:text-light [&_svg]:size-5"
                       >
-                        {icon}
+                        {SOCIAL_ICONS[label]}
                       </a>
                     </li>
                   ))}
                 </ul>
+              )}
+              {site.googleReviewsUrl && (
+                <GoogleReviewsLink
+                  href={site.googleReviewsUrl}
+                  label={t("googleReviews")}
+                  className="mt-3"
+                />
               )}
             </div>
 

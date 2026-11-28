@@ -127,8 +127,15 @@ export type CurriculumBlock = Base<"courseCurriculumBlock"> & {
   weeks?: CurriculumWeek[];
 };
 
+/** Pains and fears of the audience, each with how the course answers it. */
+export type PainsBlock = Base<"coursePainsBlock"> & {
+  lead?: L10n;
+  items?: { _key: string; pain?: L10n; solution?: L10n }[];
+};
+
 export type CourseBlock =
   | HeroBlock
+  | PainsBlock
   | CurriculumBlock
   | ResultsBlock
   | AudienceBlock

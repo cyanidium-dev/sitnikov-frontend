@@ -4,8 +4,8 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getAllAnnouncements } from "@/lib/sanity/queries/queries";
 import { AnnouncementItem } from "@/lib/sanity/types/queryTypes";
+import { getSiteConfig } from "@/lib/siteSettings";
 import { ROUTES } from "@/constants/routes";
-import { siteConfig } from "@/constants/siteConfig";
 import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
 
@@ -124,6 +124,7 @@ const EventCard = ({
 
 /** «Анонси»: what is coming next (or how not to miss it) and the event archive. */
 const AnnouncementsView = async ({ lang }: { lang: Locale }) => {
+  const site = await getSiteConfig();
   const t = await getTranslations("announcementsPage");
   const list = await getAllAnnouncements();
   const now = Date.now();
@@ -132,9 +133,7 @@ const AnnouncementsView = async ({ lang }: { lang: Locale }) => {
     .sort((a, b) => +new Date(a.startDate) - +new Date(b.startDate));
   const past = list.filter(a => new Date(a.startDate).getTime() < now);
   const next = upcoming[0];
-  const telegram = siteConfig.socialLinks.find(
-    s => s.label === "Telegram"
-  )?.href;
+  const telegram = site.telegram;
   const labels = {
     soon: t("v2.soon"),
     done: t("v2.done"),

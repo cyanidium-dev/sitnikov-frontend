@@ -64,7 +64,8 @@
     "education": "Обучение",
     "announcements": "Анонсы",
     "contactsLabel": "Связаться",
-    "menuLabel": "Меню"
+    "menuLabel": "Меню",
+    "googleReviews": "Отзывы в Google"
   },
   "homepage": {
     "hero": {
@@ -367,6 +368,10 @@
       "button": "Выбрать курс",
       "chip1": "Судья ВАС в отставке",
       "chip2": "30+ лет в праве"
+    },
+    "videoCard": {
+      "title": "Знакомство с Александром Сытниковым",
+      "descr": "Коротко обо мне, моём подходе к делам и обучению — в видео."
     }
   },
   "servicepage": {
@@ -986,7 +991,8 @@
       "courseReviewsBlock": "Отзывы участников",
       "courseFaqBlock": "Вопросы и ответы",
       "courseGalleryBlock": "Как это было",
-      "courseCurriculumBlock": "Программа курса"
+      "courseCurriculumBlock": "Программа курса",
+      "coursePainsBlock": "Что болит и чего боятся юристы"
     },
     "trainerFallback": {
       "name": "Александр Сытников",
@@ -1009,7 +1015,10 @@
       "optional": "необязательный",
       "modules": "{count, plural, one {# модуль} few {# модуля} other {# модулей}}",
       "segments": "{count, plural, one {# сегмент} few {# сегмента} other {# сегментов}}"
-    }
+    },
+    "pkgSummary": "Включено {included} из {total} услуг",
+    "painLabel": "Боль / страх",
+    "solutionLabel": "Что даёт курс"
   },
   "thanks": {
     "title": "Спасибо! Оплата получена",

@@ -2,10 +2,11 @@ import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 import { TelegramIcon } from "@/components/shared/icons";
-import { siteConfig } from "@/constants/siteConfig";
+import { SOCIAL_ICONS, getSiteConfig } from "@/lib/siteSettings";
 
 import LineIcon, { Rings } from "../homepage/LineIcon";
 import SectionHead from "../homepage/SectionHead";
+import GoogleReviewsLink from "../shared/GoogleReviewsLink";
 import ContactFeedbackForm, { FormPlaceholderMap } from "./ContactFeedbackForm";
 
 const formatPhone = (phone: string) => {
@@ -15,15 +16,15 @@ const formatPhone = (phone: string) => {
 
 /** «Контакти»: every way to reach the lawyer on the first screen + a calm form. */
 const ContactsView = async () => {
+  const site = await getSiteConfig();
   const t = await getTranslations("contactsPage");
+  const tFooter = await getTranslations("footer");
   const messages = await getMessages();
   const placeholders = messages.contactsPage.feedback
     .formPlaceholder as FormPlaceholderMap;
-  const telHref = `tel:+${siteConfig.phone.replace(/\D/g, "")}`;
-  const telegram = siteConfig.socialLinks.find(
-    s => s.label === "Telegram"
-  )?.href;
-  const socials = siteConfig.socialLinks.filter(({ href }) => href !== "#");
+  const telHref = `tel:+${site.phone.replace(/\D/g, "")}`;
+  const telegram = site.telegram;
+  const socials = site.socialLinks;
 
   return (
     <>
@@ -72,16 +73,16 @@ const ContactsView = async () => {
                 href={telHref}
                 className="mt-1 block whitespace-nowrap text-[28px] font-semibold tabular-nums tracking-[-0.01em] transition-colors hover:text-[#9db8ff] md:text-[26px] lg:text-[32px] xl:text-[38px]"
               >
-                {formatPhone(siteConfig.phone)}
+                {formatPhone(site.phone)}
               </a>
               <p className="mt-5 text-[13px] font-medium text-white/60">
                 {t("v2.emailLabel")}
               </p>
               <a
-                href={`mailto:${siteConfig.email}`}
+                href={`mailto:${site.email}`}
                 className="mt-1 block break-all text-[18px] font-semibold transition-colors hover:text-[#9db8ff] md:text-[22px]"
               >
-                {siteConfig.email}
+                {site.email}
               </a>
 
               <div className="mt-7 grid grid-cols-1 gap-3 xl:grid-cols-2">
@@ -112,7 +113,7 @@ const ContactsView = async () => {
                   {t("v2.socials")}
                 </span>
                 <ul className="flex flex-wrap gap-2">
-                  {socials.map(({ href, icon, label }) => (
+                  {socials.map(({ href, label }) => (
                     <li key={label}>
                       <a
                         href={href}
@@ -121,12 +122,19 @@ const ContactsView = async () => {
                         aria-label={label}
                         className="grid size-11 place-items-center rounded-full bg-white/[0.08] text-light shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)] transition-colors duration-300 hover:bg-accent-strong [&_svg]:size-5"
                       >
-                        {icon}
+                        {SOCIAL_ICONS[label]}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
+              {site.googleReviewsUrl && (
+                <GoogleReviewsLink
+                  href={site.googleReviewsUrl}
+                  label={tFooter("googleReviews")}
+                  className="mt-4"
+                />
+              )}
             </div>
           </div>
         </div>

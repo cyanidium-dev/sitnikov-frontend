@@ -10,6 +10,7 @@ import FormatBlock from "./FormatBlock";
 import HeroBlock from "./HeroBlock";
 import { GalleryBlock, TextImageBlock, VideoBlock } from "./MediaBlocks";
 import PackagesBlock from "./PackagesBlock";
+import PainsBlock from "./PainsBlock";
 import ProgramBlock from "./ProgramBlock";
 import ResultsBlock from "./ResultsBlock";
 import ReviewsBlock from "./ReviewsBlock";
@@ -69,6 +70,8 @@ const CourseBuilder = ({
             return <WhyBlock key={block._key} block={block} ctx={ctx} />;
           case "courseTrainerBlock":
             return <TrainerBlock key={block._key} block={block} ctx={ctx} />;
+          case "coursePainsBlock":
+            return <PainsBlock key={block._key} block={block} ctx={ctx} />;
           case "courseCurriculumBlock":
             return <CurriculumBlock key={block._key} block={block} ctx={ctx} />;
           case "courseProgramBlock":

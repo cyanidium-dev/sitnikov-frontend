@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
+import { getSiteConfig } from "@/lib/siteSettings";
 import { APPLICATION } from "@/constants/application";
-import { siteConfig } from "@/constants/siteConfig";
 
 import LineIcon, { LineIconName, Rings } from "../homepage/LineIcon";
 import ModalTrigger from "../module/modal/ModalTrigger";
@@ -36,6 +36,7 @@ const highlight = (text: string, words: string[]) => {
 
 /** Dark hero: offer + actions, office portrait, and the three directions as an index. */
 const ServicesHero = async () => {
+  const site = await getSiteConfig();
   const t = await getTranslations("servicepage");
   const directions = t.raw("directions") as Direction[];
   const accent = t.raw("hero.titleAccent") as string[];
@@ -75,11 +76,11 @@ const ServicesHero = async () => {
                 messageFrom={APPLICATION.CONSULTATION}
               />
               <a
-                href={`tel:+${siteConfig.phone.replace(/\D/g, "")}`}
+                href={`tel:+${site.phone.replace(/\D/g, "")}`}
                 className="flex h-[50px] items-center justify-center gap-2.5 whitespace-nowrap rounded-full border border-white/25 px-6 text-[15px] font-semibold tabular-nums transition-colors duration-300 hover:border-white"
               >
                 <LineIcon name="phone" className="size-[18px] text-accent" />
-                {formatPhone(siteConfig.phone)}
+                {formatPhone(site.phone)}
               </a>
             </div>
           </div>

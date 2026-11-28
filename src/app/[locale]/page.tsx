@@ -8,6 +8,7 @@ import HomeCourses from "@/components/homepage/HomeCourses";
 import HomeExperience from "@/components/homepage/HomeExperience";
 import HomeHero from "@/components/homepage/HomeHero";
 import HomePublications from "@/components/homepage/HomePublications";
+import HomeVideoCard from "@/components/homepage/HomeVideoCard";
 import { ROUTES } from "@/constants/routes";
 import { generatePageMetadata } from "@/utils/generatePageMetaData";
 import { Locale } from "@/types/locale";
@@ -36,6 +37,7 @@ export default async function Home({
   return (
     <>
       <HomeHero />
+      <HomeVideoCard locale={locale} />
       <HomeCourses lang={locale} />
       <HomeAudience />
       <HomeAdvantages />
