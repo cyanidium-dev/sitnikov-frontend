@@ -4,6 +4,8 @@ import FinalCta from "@/components/coursePage/builder/FinalCta";
 import EducationContent from "@/components/educationPage/EducationContent";
 import EducationHero from "@/components/educationPage/EducationHero";
 import ProgramScheme from "@/components/educationPage/ProgramScheme";
+import JsonLd from "@/components/seo/JsonLd";
+import { SECTION_NAMES, itemList, pageSchema } from "@/components/seo/seo";
 import {
   getAllCourses,
   getCourseCategories,
@@ -36,8 +38,24 @@ const EducationPage = async ({
   const courseCategories = await getCourseCategories();
   const allCourses = await getAllCourses();
 
+  const ld = pageSchema({
+    locale,
+    type: "CollectionPage",
+    path: ROUTES.EDUCATION,
+    name: SECTION_NAMES.education[locale],
+    crumbs: [{ name: SECTION_NAMES.education[locale], path: ROUTES.EDUCATION }],
+    mainEntity: itemList(
+      locale,
+      allCourses.map(c => ({
+        name: c.title[locale] || c.title.uk,
+        path: `${ROUTES.EDUCATION}/${c.courseType.slug}/${c.slug}`,
+      }))
+    ),
+  });
+
   return (
     <>
+      <JsonLd data={ld} />
       <EducationHero />
       <ProgramScheme locale={locale} />
       <EducationContent

@@ -3,6 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 
 import CourseBuilder from "@/components/coursePage/builder/CourseBuilder";
 import JsonLd from "@/components/seo/JsonLd";
+import { SECTION_NAMES, breadcrumbs, clamp } from "@/components/seo/seo";
 import { ORG_ID, PERSON_ID } from "@/components/seo/siteSchema";
 import { getCourseBySlug, getCoursePage } from "@/lib/sanity/queries/courses";
 import { ROUTES } from "@/constants/routes";
@@ -27,11 +28,20 @@ export async function generateMetadata({ params }: { params: Params }) {
   const path = coursePath(post.courseType.slug, post.slug);
 
   const name = normalizeTitle(title[locale] || title.uk);
-  const seoTitle = `${name} — ${locale === "ru" ? "курс Александра Сытникова" : "курс Олександра Ситникова"}`;
+  // keep the title within ~65 characters so Google does not cut it
+  const long = `${name} — ${locale === "ru" ? "курс Александра Сытникова" : "курс Олександра Ситникова"}`;
+  const short = `${name} — ${locale === "ru" ? "курс Сытникова" : "курс Ситникова"}`;
+  const seoTitle =
+    post.seoTitle?.[locale] ||
+    post.seoTitle?.uk ||
+    (long.length <= 65 ? long : short.length <= 65 ? short : name);
+  const seoDescr =
+    post.seoDescription?.[locale] ||
+    clamp(description[locale] || description.uk || "");
 
   return {
     title: seoTitle,
-    description: description[locale],
+    description: seoDescr,
     alternates: {
       canonical: `${SITE_URL}/${locale}${path}`,
       languages: {
@@ -42,7 +52,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     },
     openGraph: {
       title: seoTitle,
-      description: description[locale],
+      description: seoDescr,
       url: `${SITE_URL}/${locale}${path}`,
       images: previewImage?.url ? [previewImage.url] : [],
       type: "website",
@@ -73,6 +83,27 @@ const CoursePage = async ({ params }: { params: Params }) => {
 
   const { title, description, mainImage, previewImage } = course;
 
+  const coursePrices = (page?.course?.sections ?? [])
+    .flatMap(s => (s._type === "coursePackagesBlock" ? (s.packages ?? []) : []))
+    .map(p => p.price)
+    .filter((p): p is number => typeof p === "number" && p > 0);
+  const offers = coursePrices.length
+    ? {
+        "@type": "AggregateOffer",
+        priceCurrency: "UAH",
+        lowPrice: Math.min(...coursePrices),
+        highPrice: Math.max(...coursePrices),
+        offerCount: coursePrices.length,
+        category: "Paid",
+      }
+    : category === "free-courses"
+      ? { "@type": "Offer", price: 0, priceCurrency: "UAH", category: "Free" }
+      : undefined;
+  const catName =
+    course.courseType?.title?.[locale] ||
+    course.courseType?.title?.uk ||
+    category;
+
   const courseLd = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -83,11 +114,24 @@ const CoursePage = async ({ params }: { params: Params }) => {
     image: previewImage?.url || mainImage?.url,
     provider: { "@id": ORG_ID },
     instructor: { "@id": PERSON_ID },
+    ...(offers && { offers }),
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "online",
       instructor: { "@id": PERSON_ID },
+      ...(page?.course?.flowStart && { startDate: page.course.flowStart }),
     },
+  };
+  const crumbsLd = {
+    "@context": "https://schema.org",
+    ...breadcrumbs(locale, [
+      { name: SECTION_NAMES.education[locale], path: ROUTES.EDUCATION },
+      { name: catName, path: `${ROUTES.EDUCATION}/${category}` },
+      {
+        name: normalizeTitle(title[locale] || title.uk),
+        path: coursePath(category, slug),
+      },
+    ]),
   };
 
   // Courses built in the constructor use their blocks; older courses get the
@@ -104,6 +148,7 @@ const CoursePage = async ({ params }: { params: Params }) => {
   return (
     <>
       <JsonLd data={courseLd} />
+      <JsonLd data={crumbsLd} />
       <CourseBuilder
         locale={locale}
         data={{

@@ -6,6 +6,8 @@ import {
 } from "./shared";
 
 export type CourseItem = {
+  seoTitle?: { uk?: string; ru?: string };
+  seoDescription?: { uk?: string; ru?: string };
   title: LocalizedString;
   description: LocalizedString;
   slug: string;

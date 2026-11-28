@@ -67,7 +67,8 @@ const CoursesAccordion = ({
                 src={item.image}
                 alt=""
                 fill
-                sizes="(min-width: 1024px) 560px, (min-width: 768px) 46vw, 88vw"
+                sizes="(min-width: 1024px) 560px, (min-width: 768px) 46vw, 80vw"
+                quality={60}
                 className="-z-20 object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
               <span

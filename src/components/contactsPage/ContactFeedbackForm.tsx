@@ -19,7 +19,9 @@ import FormConsent from "../shared/formField/FormConsent";
 import FormField from "../shared/formField/FormField";
 import FormHoneypot from "../shared/formField/FormHoneypot";
 import FormTextarea from "../shared/formField/FormTextarea";
-import { FormPlaceholderMap } from "./ContactsFeedback";
+
+type FieldKey = "name" | "tel" | "email" | "mes";
+export type FormPlaceholderMap = Record<FieldKey, string>;
 
 interface IContactFeedbackFormProps {
   formPlaceholder: FormPlaceholderMap;

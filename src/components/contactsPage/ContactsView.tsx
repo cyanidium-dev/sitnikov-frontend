@@ -6,8 +6,7 @@ import { siteConfig } from "@/constants/siteConfig";
 
 import LineIcon, { Rings } from "../homepage/LineIcon";
 import SectionHead from "../homepage/SectionHead";
-import ContactFeedbackForm from "./ContactFeedbackForm";
-import { FormPlaceholderMap } from "./ContactsFeedback";
+import ContactFeedbackForm, { FormPlaceholderMap } from "./ContactFeedbackForm";
 
 const formatPhone = (phone: string) => {
   const d = phone.replace(/\D/g, "");

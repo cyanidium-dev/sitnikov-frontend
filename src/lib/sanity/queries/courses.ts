@@ -96,6 +96,8 @@ export const getCourseBySlug = async (
     `
       *[_type == "course" && slug.current == $slug][0] {
         title,
+        seoTitle,
+        seoDescription,
         description,
         "slug": slug.current,
         "courseType": {

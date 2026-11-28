@@ -25,10 +25,15 @@ export async function generatePageMetadata({
   const metaTitleKey = namespace + ".hero.metaTitle";
   const metaDescrKey = namespace + ".hero.metaDescr";
   const hasMetaTitle = t.has(metaTitleKey);
-  const title = hasMetaTitle ? t(metaTitleKey) : t(namespace + ".hero.title");
-  const description = t.has(metaDescrKey)
-    ? t(metaDescrKey)
-    : t(namespace + ".hero.descr");
+  const baseTitle = hasMetaTitle
+    ? t(metaTitleKey)
+    : t(namespace + ".hero.title");
+  // page-specific overrides also feed the social previews
+  const title =
+    typeof overrides.title === "string" ? overrides.title : baseTitle;
+  const description =
+    overrides.description ??
+    (t.has(metaDescrKey) ? t(metaDescrKey) : t(namespace + ".hero.descr"));
   const siteName = t("seo.siteName");
 
   const baseUrl = await getBaseUrl();
@@ -47,7 +52,10 @@ export async function generatePageMetadata({
   const defaultOgImage = `${baseUrl}/images/seo-default.webp`;
 
   const metadata: Metadata = {
-    title: hasMetaTitle ? title : `${companyName} | ${title}`,
+    title:
+      hasMetaTitle || typeof overrides.title === "string"
+        ? title
+        : `${companyName} | ${title}`,
     description: description,
     metadataBase: new URL(baseUrl),
     openGraph: {

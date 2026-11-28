@@ -5,11 +5,9 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
-import { cn } from "@/utils/cn";
-import { AnimatePresence, motion } from "framer-motion";
-
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { cn } from "@/utils/cn";
 import { Locale } from "@/types/locale";
 
 const LocaleSwitcher = () => {
@@ -69,7 +67,7 @@ const LocaleSwitcher = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 outline-none"
       >
-        <span className="text-light font-bold leading-tight">
+        <span className="font-bold leading-tight text-light">
           {currentLocale === "uk" ? "UA" : "RU"}
         </span>
         <Image
@@ -84,35 +82,33 @@ const LocaleSwitcher = () => {
         />
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="bg-light absolute right-0 z-50 mt-1 w-[65px] rounded-[8px] shadow-md"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            {locales.map(locale => (
-              <button
-                key={locale}
-                onClick={() => handleLocaleChange(locale)}
-                className={`flex w-full items-center px-4 py-2`}
-              >
-                <span
-                  className={` ${
-                    currentLocale === locale
-                      ? "text-accent text-14med xl:text-16med"
-                      : "text-14reg xl:text-16reg text-dark"
-                  }`}
-                >
-                  {locale === "uk" ? "UA" : "RU"}
-                </span>
-              </button>
-            ))}
-          </motion.div>
+      {/* CSS transition instead of framer-motion: keeps ~40 KB of JS off every page */}
+      <div
+        className={cn(
+          "absolute right-0 z-50 mt-1 w-[65px] rounded-[8px] bg-light shadow-md transition-[opacity,transform,visibility] duration-300",
+          isOpen
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-2.5 opacity-0"
         )}
-      </AnimatePresence>
+      >
+        {locales.map(locale => (
+          <button
+            key={locale}
+            onClick={() => handleLocaleChange(locale)}
+            className={`flex w-full items-center px-4 py-2`}
+          >
+            <span
+              className={` ${
+                currentLocale === locale
+                  ? "text-14med xl:text-16med text-accent"
+                  : "text-14reg xl:text-16reg text-dark"
+              }`}
+            >
+              {locale === "uk" ? "UA" : "RU"}
+            </span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

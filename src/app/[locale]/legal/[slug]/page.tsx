@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 
 import { LEGAL_DRAFTS } from "@/data/legalDrafts";
 
+import JsonLd from "@/components/seo/JsonLd";
+import { pageSchema } from "@/components/seo/seo";
 import RenderContent from "@/components/shared/renderContent/RenderContent";
 import { Link } from "@/i18n/navigation";
 import { getLegalPage } from "@/lib/sanity/queries/legal";
@@ -31,7 +33,7 @@ export async function generateMetadata({
     path: legalPath(slug),
     overrides: {
       title: `${t(`docs.${slug}`)} | sitnikov.com.ua`,
-      description: t("descr"),
+      description: t.has(`descrs.${slug}`) ? t(`descrs.${slug}`) : t("descr"),
       // service documents: keep them out of search results, follow links
       robots: { index: false, follow: true },
     },
@@ -55,8 +57,16 @@ const LegalPage = async ({ params }: { params: Params }) => {
       )
     : null;
 
+  const ld = pageSchema({
+    locale,
+    path: legalPath(slug),
+    name: title,
+    crumbs: [{ name: title, path: legalPath(slug) }],
+  });
+
   return (
     <>
+      <JsonLd data={ld} />
       <section className="relative isolate overflow-hidden bg-dark pb-12 pt-[120px] text-light md:pb-16 md:pt-[150px]">
         <div
           aria-hidden

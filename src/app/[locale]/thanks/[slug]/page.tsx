@@ -98,7 +98,7 @@ const ThanksPage = async ({
 
   return (
     <div className="bg-[#f3f6fd] pb-3 md:pb-6">
-      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-dark pb-16 pt-[120px] text-light rounded-b-[24px] md:min-h-[calc(100svh-24px)] md:rounded-b-[32px] md:pb-20 md:pt-[150px]">
+      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden rounded-b-[24px] bg-dark pb-16 pt-[120px] text-light md:min-h-[calc(100svh-24px)] md:rounded-b-[32px] md:pb-20 md:pt-[150px]">
         <div
           aria-hidden
           className="absolute inset-0 -z-10 bg-[radial-gradient(45%_60%_at_50%_20%,rgba(81,136,255,0.32)_0%,rgba(9,17,41,0)_70%),radial-gradient(35%_45%_at_0%_100%,rgba(0,28,88,0.9)_0%,rgba(9,17,41,0)_100%)]"

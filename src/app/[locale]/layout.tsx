@@ -63,10 +63,18 @@ export default async function LocaleLayout({
   const all = await getMessages();
   // Only what client components translate goes to the browser;
   // server components read the full dictionary on the server.
-  const CLIENT_NAMESPACES = ["header", "form", "modal", "cookies", "paginator"] as const;
+  const CLIENT_NAMESPACES = [
+    "header",
+    "form",
+    "modal",
+    "cookies",
+    "paginator",
+  ] as const;
   const messages = {
     ...Object.fromEntries(CLIENT_NAMESPACES.map(ns => [ns, all[ns]])),
-    educationPage: { list: (all.educationPage as Record<string, unknown>)?.list },
+    educationPage: {
+      list: (all.educationPage as Record<string, unknown>)?.list,
+    },
   } as typeof all;
 
   return (

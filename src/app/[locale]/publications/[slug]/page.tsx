@@ -3,6 +3,14 @@ import { notFound } from "next/navigation";
 import HomeBottomCTA from "@/components/homepage/HomeBottomCTA";
 import ArticleView from "@/components/publications/ArticleView";
 import JsonLd from "@/components/seo/JsonLd";
+import {
+  SECTION_NAMES,
+  breadcrumbs,
+  pageDescription,
+  plainText,
+  sentenceCase,
+  titleWithBrand,
+} from "@/components/seo/seo";
 import { ORG_ID, PERSON_ID } from "@/components/seo/siteSchema";
 import {
   getAllPublications,
@@ -28,13 +36,30 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const { title, description, previewImage } = post;
+  const {
+    title,
+    description,
+    previewImage,
+    content,
+    seoTitle,
+    seoDescription,
+  } = post;
 
   const path = `${ROUTES.PUBLICATIONS}/${slug}`;
+  const name = sentenceCase(title[locale] || title.uk);
+  const metaTitle =
+    seoTitle?.[locale] || seoTitle?.uk || titleWithBrand(name, locale);
+  // short admin descriptions («Від скарги до позовної заяви») get the article lead
+  const seoDescr =
+    seoDescription?.[locale] ||
+    pageDescription(
+      description[locale],
+      plainText(content?.[locale] ?? content?.uk)
+    );
 
   return {
-    title: title[locale],
-    description: description[locale],
+    title: metaTitle,
+    description: seoDescr,
     alternates: {
       canonical: `${SITE_URL}/${locale}${path}`,
       languages: {
@@ -45,8 +70,8 @@ export async function generateMetadata({
     },
     openGraph: {
       url: `${SITE_URL}/${locale}${path}`,
-      title: title[locale],
-      description: description[locale],
+      title: name,
+      description: seoDescr,
       images: previewImage?.url ? [previewImage.url] : [],
       type: "article",
     },
@@ -86,16 +111,27 @@ const PublicationPage = async ({
 
   const readingTime = getReadingTimeMinutes(content, locale);
 
+  const headline = sentenceCase(title[locale] || title.uk);
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: title[locale],
-    description: description[locale],
+    headline,
+    description: pageDescription(
+      description[locale],
+      plainText(content?.[locale] ?? content?.uk)
+    ),
     image: post.previewImage?.url || mainImage?.url,
     inLanguage: locale,
     mainEntityOfPage: `${SITE_URL}/${locale}${ROUTES.PUBLICATIONS}/${slug}`,
     author: { "@id": PERSON_ID },
     publisher: { "@id": ORG_ID },
+  };
+  const crumbsLd = {
+    "@context": "https://schema.org",
+    ...breadcrumbs(locale, [
+      { name: SECTION_NAMES.publications[locale], path: ROUTES.PUBLICATIONS },
+      { name: headline, path: `${ROUTES.PUBLICATIONS}/${slug}` },
+    ]),
   };
 
   const related = (await getAllPublications().catch(() => []))
@@ -114,6 +150,7 @@ const PublicationPage = async ({
   return (
     <>
       <JsonLd data={articleLd} />
+      <JsonLd data={crumbsLd} />
       <ArticleView
         title={normalizeTitle(title[locale] || title.uk)}
         description={description[locale]}

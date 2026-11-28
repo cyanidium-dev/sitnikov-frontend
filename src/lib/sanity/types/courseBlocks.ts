@@ -88,8 +88,48 @@ export type TextImageBlock = Base<"courseTextImageBlock"> & {
 };
 export type GalleryBlock = Base<"courseGalleryBlock"> & { images?: Img[] };
 
+/** Hierarchical program: weeks → modules → sections → segments → nuances. */
+export type CurriculumNuance = {
+  _key: string;
+  title?: L10n;
+  text?: L10n;
+  optional?: boolean;
+};
+export type CurriculumSegment = {
+  _key: string;
+  title?: L10n;
+  text?: L10n;
+  /** e.g. «Перехід до Тижня 3» */
+  note?: L10n;
+  nuances?: CurriculumNuance[];
+};
+export type CurriculumSection = {
+  _key: string;
+  title?: L10n;
+  segments?: CurriculumSegment[];
+};
+export type CurriculumModule = {
+  _key: string;
+  title?: L10n;
+  paid?: boolean;
+  /** modules either group segments into sections or list them directly */
+  sections?: CurriculumSection[];
+  segments?: CurriculumSegment[];
+};
+export type CurriculumWeek = {
+  _key: string;
+  title?: L10n;
+  goal?: L10n;
+  modules?: CurriculumModule[];
+};
+export type CurriculumBlock = Base<"courseCurriculumBlock"> & {
+  intro?: L10n;
+  weeks?: CurriculumWeek[];
+};
+
 export type CourseBlock =
   | HeroBlock
+  | CurriculumBlock
   | ResultsBlock
   | AudienceBlock
   | WhyBlock

@@ -3,6 +3,7 @@ import { normalizeTitle } from "@/utils/courseImage";
 
 import AboutBlock from "./AboutBlock";
 import AudienceBlock from "./AudienceBlock";
+import CurriculumBlock from "./CurriculumBlock";
 import FaqBlock from "./FaqBlock";
 import FinalCta from "./FinalCta";
 import FormatBlock from "./FormatBlock";
@@ -68,6 +69,8 @@ const CourseBuilder = ({
             return <WhyBlock key={block._key} block={block} ctx={ctx} />;
           case "courseTrainerBlock":
             return <TrainerBlock key={block._key} block={block} ctx={ctx} />;
+          case "courseCurriculumBlock":
+            return <CurriculumBlock key={block._key} block={block} ctx={ctx} />;
           case "courseProgramBlock":
             return <ProgramBlock key={block._key} block={block} ctx={ctx} />;
           case "courseFormatBlock":

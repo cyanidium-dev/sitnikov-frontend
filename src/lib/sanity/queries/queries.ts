@@ -132,6 +132,8 @@ export const getPublicationBySlug = async (
     `
       *[_type == "post" && slug.current == $slug][0] {
         title,
+        seoTitle,
+        seoDescription,
         previewImage{
          "url": asset->url
         },
